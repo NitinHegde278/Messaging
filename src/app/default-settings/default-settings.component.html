@@ -1,0 +1,26 @@
+
+  <div class="row" style="margin-top:10%">
+    <p style="padding-left:10%;color:#464343">Banner list Setting (For Mobile App) </p>
+  </div>
+  <hr class="middel-line">
+  <div class="row">
+    <mat-slide-toggle [checked]="banner"  [color]="color" (change)="toggle($event)" style="margin-top:2%;margin-left:9.5%;width: 50%;"><p style="margin-top: 5%;font-weight: 400;">{{most_viewed}}</p></mat-slide-toggle>
+  </div>
+
+  <div class="row" style="margin-top:5%">
+    <p style="padding-left:10%">Gmail Credentials for SMTP</p>
+  </div>
+  <hr class="middel-line">
+
+<div class="row" align="center" style="margin-top:2%;position:relative;">
+  <div class="col-md-3" align="center">
+    <div class="text-center pb-1" style="padding-left:25%;">
+      <button class="btn btn-info custom_btn" (click)="open_dialog_password()"  type="button">Set Password</button>
+     </div>
+  </div>
+  <div class="col-md-4 p_position" style="">
+    <p class="p_label">Set Password for SMTP gmail Account</p>
+  </div>
+  
+</div>
+

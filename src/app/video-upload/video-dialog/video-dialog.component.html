@@ -1,0 +1,34 @@
+<div style="position:relative;"> 
+  <button mat-button class="close-icon" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+</button>
+<!-- 
+<mat-video title="Cattle Video" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin" width="320" height="240" poster="image.jpg">
+  <source matVideoSource [src]="src_video"  type="video/mp4">
+</mat-video>
+  
+</div> -->
+<!-- <iframe [class.thumbnail]="thumbnail" [src]="src_video" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen
+      allowfullscreen></iframe> -->
+  <div class="row" style="padding: 2% 3% 0% 3%;">
+    <iframe width="560" height="315" [src]="src_video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div><div class="row mtop content_padding" style="width:550px;padding-top:3%;">
+    <div class="col-md-2" style="padding:0%;">
+      <mat-label >Title : </mat-label>
+    </div>
+    <div class="col-md-10" style="padding:0%;">
+      <p class="margin_p" style="text-align: justify;">&nbsp;{{video_title}}</p>
+    </div>
+    
+  </div>
+  <div class="row content_padding" style="width:550px;">
+    <div class="col-md-2" style="padding:0%;">
+      <mat-label>Description : </mat-label>
+    </div>
+    <div class="col-md-10" style="padding:0%;">
+      <p class="margin_p" style="text-align: justify;">&nbsp;{{video_description}}</p>
+    </div>
+
+
+  
+  

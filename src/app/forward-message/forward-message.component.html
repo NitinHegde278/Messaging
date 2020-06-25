@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-11">
+            <div class="card forward">
+                <div class="card-header card-header-primary">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="card-title ">Forwarded Messages</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--User-->
+                <table mat-table [dataSource]="dataSource" class="shadow-lg" *ngIf="user">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="campaign">
+                        <th mat-header-cell *matHeaderCellDef> Campaign Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.campaign}} </td>
+                    </ng-container>
+
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="sentFrom">
+                        <th mat-header-cell *matHeaderCellDef> Sent From </th>
+                        <td mat-cell *matCellDef="let element"> {{element.sentFrom}} </td>
+                    </ng-container>
+
+                    <!-- Mobile number Column -->
+                    <ng-container matColumnDef="receivedDate">
+                        <th mat-header-cell *matHeaderCellDef> Receieved Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.receivedDate}} </td>
+                    </ng-container>
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Action </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button class="btn btn-info open" (click)="openForward(element)">Open</button>
+                            <!-- <a (click)="edit_low(row) " style="color:#1d8b4e; cursor:pointer;">
+                                <mat-icon aria-label="Edit">edit</mat-icon>
+                            </a>
+                            <a (click)="delete_low(row)" style="color:red; cursor:pointer;">
+                                <mat-icon aria-label="Delete">delete</mat-icon>
+                            </a>
+                            <mat-slide-toggle [checked]="row.status" class="toggle"  [color]="color" (change)="toggle(row,$event)"></mat-slide-toggle> -->
+                            </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUser"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUser;"></tr>
+                </table>
+
+                    <!--Admin-->
+                    <table mat-table [dataSource]="dataSource" class="shadow-lg" *ngIf="admin">
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        </ng-container>
+    
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="campaign">
+                            <th mat-header-cell *matHeaderCellDef> Campaign Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.campaign}} </td>
+                        </ng-container>
+    
+                        <!-- Email Column -->
+                        <ng-container matColumnDef="sentFrom">
+                            <th mat-header-cell *matHeaderCellDef> Sent From Org</th>
+                            <td mat-cell *matCellDef="let element"> {{element.sentFrom}} </td>
+                        </ng-container>
+    
+                        <ng-container matColumnDef="sentTo">
+                            <th mat-header-cell *matHeaderCellDef> Sent To Org </th>
+                            <td mat-cell *matCellDef="let element"> {{element.sentTo}} </td>
+                        </ng-container>
+    
+                        <!-- Mobile number Column -->
+                        <ng-container matColumnDef="receivedDate">
+                            <th mat-header-cell *matHeaderCellDef> Receieved Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.receivedDate}} </td>
+                        </ng-container>
+    
+                        <!-- Action Column -->
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Action </th>
+                            <td mat-cell *matCellDef="let element">
+                                <button class="btn btn-info open" (click)="openForward(element)">Open</button>
+                                <!-- <a (click)="edit_low(row) " style="color:#1d8b4e; cursor:pointer;">
+                                    <mat-icon aria-label="Edit">edit</mat-icon>
+                                </a>
+                                <a (click)="delete_low(row)" style="color:red; cursor:pointer;">
+                                    <mat-icon aria-label="Delete">delete</mat-icon>
+                                </a>
+                                <mat-slide-toggle [checked]="row.status" class="toggle"  [color]="color" (change)="toggle(row,$event)"></mat-slide-toggle> -->
+                                </td>
+                        </ng-container>
+    
+                        <tr mat-header-row *matHeaderRowDef="displayedColumnsAdmin"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumnsAdmin;"></tr>
+                    </table>
+                    <mat-paginator [length]="100"
+                    [pageSize]="6" [pageSizeOptions]="[6, 15, 25, 100]" showFirstLastButtons></mat-paginator>
+                
+            </div>
+        </div>
+    </div>
+</div>

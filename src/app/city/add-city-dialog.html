@@ -1,0 +1,21 @@
+<h1 mat-dialog-title >{{dialogTitle}}</h1>
+<div mat-dialog-content class="cardbox">
+
+    <div class="row container">
+        <div class="col-md-12">
+            <mat-form-field>
+                <input matInput placeholder="State Name" [(ngModel)]="state_name" type="text" required>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-default bg-success pull-right m-3" *ngIf="save_city_btn"
+                (click)="saveCity()">Save</button>
+            <button type="button" class="btn btn-default bg-success pull-right m-3" *ngIf="update_city_btn"
+                (click)="updateCity()">Update</button>
+            <button type="button" class="btn btn-default bg-danger pull-right m-3" mat-dialog-close>Cancel</button>
+        </div>
+    </div>
+</div>

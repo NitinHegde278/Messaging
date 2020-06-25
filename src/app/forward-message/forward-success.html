@@ -1,0 +1,12 @@
+
+<div mat-dialog-content id="sending">
+    <div *ngIf="sending">
+        <div class="h2">Message Has Been Sent Successfully</div>
+        <button class="btn btn-success" (click)="dialogRef.close()">OK</button>
+    </div>
+    <div *ngIf="!sending">
+  <div class="h2">Sending Messages</div>
+  <div class="h3">Please wait....</div>
+  </div>
+  
+</div>

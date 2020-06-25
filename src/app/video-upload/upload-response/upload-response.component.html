@@ -1,0 +1,31 @@
+<div class="container section1">
+  <div class="row">
+    <div class="col-md-4">
+
+      <mat-card class="overide_card">
+        <mat-card-content>
+          <div class="text-center pb-1">
+            <p *ngIf="upload_fail" class="font_size_p padding_content">Upload to Youtube channel has Failed,<br> Please
+              try Again</p>
+            <p *ngIf="upload_quota" class="font_size_p padding_content2">You have exceeded daily quota <br> for
+              Uploading Videos, </p>
+            <p *ngIf="upload_quota" class="font_size_p padding_content2">Please work with Youtube team <br> to get extra
+              quota.</p>
+            <p *ngIf="upload_another" class="font_size_p padding_content2">You have uploaded the Video to<br> a
+              different youtube channel
+            </p>
+            <p *ngIf="upload_another" class="font_size_p padding_content2">
+              Please Upload again by Selecting <br> youtube channel {{status_msg}}.</p>
+            <!-- <p *ngIf="upload_fail" class="font_size_p padding_content">Upload to Youtube channel has Failed,<br> Please
+              try Again</p> -->
+            <p  *ngIf="upload_success" class="font_size_p padding_content">You have successfully uploaded the <br> Video
+              to {{status_msg}} youtube channel.</p>
+            <button mat-raised-button class="mat-primary full-width mb-1 btn_class" (click)="redirect_link()">
+              Go to Videos
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.forward{
+    margin: 50px 40px !important;
+}
+.open{
+    border-radius: 2.5rem !important;
+    background-color: #1d8b4e !important;
+    border: 2px solid #1d8b4e !important;
+    padding: 8px 20px;
+}
+.open:hover{
+    background-color: white !important;
+    color: #1d8b4e !important;
+    /* border: 2px solid #1d8b4e !important; */
+}
+th,td{
+    font-family: 'Montserrat', sans-serif;
+}
+#forward .gap p{
+    padding-right: 5px;
+}
+
+#sending{
+    height: 300px;
+    width: 400px;
+    text-align: center;
+  }
+  #sending .h2{
+    padding: 30px;
+  }

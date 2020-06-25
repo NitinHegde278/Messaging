@@ -1,0 +1,50 @@
+#first{
+    margin-top: 60px;
+}
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white;
+  }
+  mat-form-field .mat-form-field-flex{ 
+      background-color: white; 
+      border-radius: 0.5rem !important;
+    }
+    mat-form-field{
+        background: white;
+    }
+  .example{
+      max-width: 400px;
+      max-height: 40px;
+      margin:40px 30px;
+  }
+  .example-full-width{
+      margin: 30px;
+      max-width: 970px;
+      height: 40px;
+  }
+  .send{
+    background: #1d8b4e;
+    border-radius: 2.5rem !important;
+    padding: 13px;
+    border: 2px solid #1d8b4e;
+  }
+  .send:hover{
+    background: white;
+    color: #1d8b4e;
+    border-radius: 2.5rem !important;
+    padding: 13px;
+  }
+  .card{
+      margin: 5px 30px -20px 20px;
+      max-width: 970px;
+  }
+  #sending{
+    height: 300px;
+    width: 400px;
+    text-align: center;
+  }
+  #sending .h2{
+    padding: 30px;
+  }
+
+  

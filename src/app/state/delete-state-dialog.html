@@ -1,0 +1,16 @@
+<h1 mat-dialog-title style="text-align:center;">Delete Organization</h1>
+<div mat-dialog-content>
+    
+    <div class="row">
+        <div class="col-md-12">
+           <p style="text-align:center;">Are you sure you want to Delete ? </p>
+       </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-default bg-success pull-right m-3" [disabled]="delete_btn" (click)="deletestate()">Confirm</button>       
+            <button type="button" class="btn btn-default bg-danger pull-right m-3" mat-dialog-close>Cancel</button>   
+        </div>
+    </div>
+</div>

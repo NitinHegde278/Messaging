@@ -1,0 +1,66 @@
+.container #template .btn{
+    border-radius: 2.5rem !important;
+    padding: 10px 10px;
+    border: 2px solid #1d8b4e;
+    background-color: #1d8b4e;
+}
+
+.container #template .btn:hover{
+    background-color: white;
+    color: #1d8b4e;
+}
+
+.btn.upload{
+    border-radius: 2.5rem !important;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: 2px solid #1d8b4e;
+    background-color: #1d8b4e;
+}
+.btn.upload:hover{
+    background-color: white;
+    color: #1d8b4e;
+}
+
+#sending{
+    height: 300px;
+    width: 400px;
+    text-align: center;
+  }
+  #sending .h2{
+    padding: 30px;
+  }
+
+  /* .custom-file{
+      background-color: white;
+      border: 2px solid #1d8b4e;
+  }
+  #customFile:hover{
+    cursor: pointer;
+} */
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+#choose {
+    border: 2px solid #1d8b4e;
+    color: #1d8b4e;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  .upload-btn-wrapper input[type=file]::-webkit-file-upload-button { 
+    cursor: pointer; 
+}

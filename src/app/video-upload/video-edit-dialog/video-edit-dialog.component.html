@@ -1,0 +1,114 @@
+<div class="col-md-12">
+  <ngx-spinner bdOpacity=0.5 bdColor="#dae8f7" size="medium" color="#1c3d76"
+  type="ball-clip-rotate" [fullScreen]="false">
+  <p style="color: #1c3d76;justify-content: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Video Details Updating, Please wait... </p>
+</ngx-spinner>
+<div style="position:relative;">
+  <button mat-button class="close-icon close-btn" (click)="close_modal()" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
+<form action="api/upload" method="post" enctype="multipart/form-data" [formGroup]="form">
+  <div class="row" style="margin-top:4%;">
+    <div class="col-md-5" style="padding: left 3%;">
+      <div clss="row">
+        <img style="width: 100%;" [src]="thumbnail_src">
+        <!-- <label class="custom-file-upload" *ngIf="canEditCode" >
+          Upload Thumbnail Here
+          <th><input type="file" name="image" fileread="image" accept=".jpg,.png" (change)="onImageChange($event)">
+          </th>
+        </label> -->
+      </div>
+      <p class="brows"  *ngIf="canEditCode">You can change the thumbnail by browsing</p>
+      <div class="row" style="justify-content: center;">
+        <div class="fileUpload btn btn-default bg-success pull-right m-3" style="border-radius: 2.5rem;padding: 15px 50px; background: #1f467f !important;"  *ngIf="canEditCode">
+           <span>Browse</span>
+          <input type="file" class="upload" fileread="image" accept=".jpg,.png" (change)="onImageChange($event)" />
+          <p  style="color:red;font-size:12px;" *ngIf="show_img_format">Image Format is not supported</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="row">
+        <div class="col-md-8" style="padding-left: 3%; padding-bottom: 1%;">
+          <h6 *ngIf="!canEditCode" style="float: left; margin-bottom: 0px;"> {{video_title}}</h6>
+          <mat-form-field class="example-full-width" *ngIf="canEditCode">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="Title"  placeholder="Title" required>
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4" align="center" style="position:absolute;right:4%;">
+          <a (click)="edit_low() " style="color:blue; cursor:pointer;">
+            <mat-icon class="Iconmat" aria-label="Edit">edit</mat-icon>
+          </a>
+          &nbsp;&nbsp;
+          <a (click)="delete_low()" style="color:red; cursor:pointer;">
+            <mat-icon class="Iconmat" aria-label="Delete">delete</mat-icon>
+          </a>
+        </div>
+      </div>
+      <hr  class="middleline" *ngIf="nohrline">
+      <div class="row">
+        <p *ngIf="!canEditCode" style="padding-left: 3%; font-size:15px">{{video_description}}</p>
+        <mat-form-field class="example-full-width" style="padding-left: 3%;" *ngIf="canEditCode">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="4" formControlName="Description" cols="70"  placeholder="Description" required></textarea>
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-3" style="padding-left:0px !important;">
+          <h5 style="float: left;">Tag :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5 style="float:right;">Launguage :</h5>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!canEditCode">
+    <div class="col-md-5">
+
+    </div>
+    <div class="col-md-7 editpadding">
+      <h6>{{video_title}} Video Statistics</h6>
+      <hr>
+      <div class="row">
+        <!-- <div class="col-md-4">
+          <p class="font_p">Total Views: </p>
+        </div> -->
+        <div class="col-md-4">
+          <p class="font_p">Total Likes : {{likes}} </p>
+        </div>
+        <div class="col-md-4">
+          <p class="font_p">Total Dislikes : {{dislikes}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <div class="col-md-4"></div> -->
+        <div class="col-md-4">
+          <p class="font_p">Total Shares : {{shares_video}}</p>
+        </div>
+        <div class="col-md-4">
+          <p class="font_p">Total Views : {{views}}</p>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+
+  <div class="row" *ngIf="canEditCode" style="justify-content: flex-end;">
+    <button type="button" style="float:right;" class="btn btn-default bg-danger pull-right m-3"
+      (click)="cancel()">Cancel
+      </button>
+    <button type="button" style="float:right;" class="btn btn-default bg-success pull-right m-3"
+    (click)="update()">Update</button>
+  </div>
+
+</form>
+
+</div>

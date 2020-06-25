@@ -1,0 +1,125 @@
+<div class="logo">
+    <a href="/#/send-message" class="simple-text" style="margin:-20px 0px 0px 50px;">
+        <div class="logo-img" >
+            <img src="/assets/img/8-512.png" />
+        </div>
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div *ngIf="isMobileMenu()">
+        <form class="navbar-form">
+            <span class="bmd-form-group">
+            </span>
+        </form>
+    </div>
+    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()"
+        (mouseleave)="mouseleave()">
+        <!---------------------------- super-admin-list --------------------------------->
+        <mat-nav-list *ngIf="super_admin_list">
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">chat</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/send-message']" mat-list-item>Send Messages</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">cloud_upload</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/upload-excel']" mat-list-item>Upload Excel</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">swap_horiz</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/forward-message']" mat-list-item>Forward Request</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/sent-report']" mat-list-item>Sent-Messages</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/forwarded-report']" mat-list-item>Forwarded-Messages</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/excel-report']" mat-list-item>Excel-Upload Report</a>
+            </mat-list-item>
+            <!-- <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span>
+                <mat-icon mat-list-icon class="font-c">cloud_upload</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/video-upload']" mat-list-item>Videos</a>
+            </mat-list-item> -->
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">person</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/portal-users']" mat-list-item>Organization-Users</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/total-messages']" mat-list-item>Total Messages Sent</a>
+            </mat-list-item>
+            <!-- <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+            <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span>
+            <mat-icon mat-list-icon class="font-c">settings</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/default-settings']" mat-list-item>Default-Settings</a>
+            </mat-list-item> -->
+            <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" [routerLinkActive]="['is-active']">
+                <span class="full-width font-c" style="padding-left:6%" *ngIf="isExpanded || isShowing">Master
+                    Data</span>
+                <mat-icon mat-list-icon class="font-c">list</mat-icon>
+                <mat-icon class="menu-button font-c" [ngClass]="{'rotated' : showSubmenu}"
+                    *ngIf="isExpanded || isShowing">
+                    expand_more</mat-icon>
+            </mat-list-item>
+            
+            <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+                <a mat-list-item class="font-c p-right parent" style="padding: 0% 0% 0% 19%;"
+                    [routerLink]="['/organization']">Organization</a>
+                <a mat-list-item class="font-c p-right parent" style=" padding: 0% 0% 0% 19%;"
+                    [routerLink]="['/state']">State</a>
+            </div>
+            
+        </mat-nav-list>
+      
+      
+        <!---------------------------- uploader-list --------------------------------->
+        <mat-nav-list *ngIf="uploader">
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <mat-icon mat-list-icon class="font-c">chat</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/send-message']" mat-list-item>Send Messages</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <mat-icon mat-list-icon class="font-c">cloud_upload</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/upload-excel']" mat-list-item>Upload Excel</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <mat-icon mat-list-icon class="font-c">swap_horiz</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/forward-message']" mat-list-item>Forward Request</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/sent-report']" mat-list-item>Sent-Messages</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/forwarded-report']" mat-list-item>Forwarded-Messages</a>
+            </mat-list-item>
+            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
+                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/excel-report']" mat-list-item>Excel-Upload Report</a>
+            </mat-list-item>
+            <!-- <mat-list-item class="parent" [routerLinkActive]="['is-active']">
+                <mat-icon mat-list-icon class="font-c">cloud_upload</mat-icon>
+                <a class="full-width font-c" [routerLink]="['/video-upload']" mat-list-item>Video Upload</a>
+            </mat-list-item> -->
+        </mat-nav-list>
+        <mat-nav-list>
+        </mat-nav-list>
+    </mat-sidenav>
+</div>

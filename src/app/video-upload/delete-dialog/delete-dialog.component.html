@@ -1,0 +1,22 @@
+<h1 mat-dialog-title style="text-align:center;">Delete Video</h1>
+<div mat-dialog-content style="width: 438px;">
+    
+    <div class="row">
+        <div class="col-md-12">
+           <p style="text-align: center;">Do you want to delete the Video from the Server ?</p>
+       </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <button type="button" style="margin-left:20% !important" class="btn btn-default bg-danger m-1" mat-dialog-close>Cancel</button>   
+            <button type="button" style="margin-left:3% !important" class="btn btn-default bg-success m-1" (click)="delete()">Confirm</button>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p style="padding-top: 5%;text-align: center;">  However, You still need to manually delete it from<br>
+                 the Youtube-channel "{{modal_name}}".</p>
+        </div>
+    </div>
+</div>

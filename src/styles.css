@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "~font-awesome/css/font-awesome.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+/* @font-face {
+  font-family: 'montserratLight';
+  src: url("../assets/css/Montserrat-Light.ttf");
+}
+body{
+  font-family: 'montserratLight', sans-serif !important;
+} */
+/* body{
+  font-family:'Montserrat', sans-serif;
+} */
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+  display: none !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #419444 !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #419444 !important;
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute !important;
+  top: 40% !important;
+  transform: translateY(-50%) !important;
+}
+
+.owl-prev {
+  left: -2rem !important;
+}
+
+.owl-next {
+  right: -2rem !important;
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+    color: #868484 !important;
+    font-size: 14px;
+    margin: 5px;
+    padding: 4px 7px;
+    background: none !important;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* TOASTR BUGFIX */
+#toast-container > div {
+  opacity: 1;
+}
+.toast {
+  font-size: initial !important;
+  border: initial !important;
+  backdrop-filter: blur(0) !important;
+}
+.toast-success {
+  background-color: #51A351 !important;
+}
+.toast-error {
+  background-color: #BD362F !important;
+}
+.toast-info {
+  background-color: #2F96B4 !important;
+}
+.toast-warning {
+  background-color: #F89406 !important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.78) !important;
+}
+.slick-slider {
+  width: 90% !important;
+  /* margin: auto; */
+ /* background: #000; */
+}
+.nav-btn {
+ height: 47px !important;
+ position: absolute !important;
+ width: 26px !important;
+ cursor: pointer !important;
+ top: 100px !important;
+}
+
+.prev-slide.slick-disabled,
+.next-slide.slick-disabled {
+ pointer-events: none !important;
+ opacity: 0.2 !important;
+}
+
+/* .prev-slide {
+ background: url(../../assets/img/editing_file/prev25.jpg) no-repeat scroll 0 0;
+ left: -33px !important;
+}
+
+.next-slide {
+ background: url(../../assets/img/prev.png) no-repeat scroll -24px 0px;
+ right: -33px !important;
+} */
+
+.prev-slide:hover {
+ background-position: 0px -53px !important;
+}
+
+.next-slide:hover {
+ background-position: -24px -53px !important;
+}
+
+.slick, .slick-wrapper {
+  width: 100% !important;
+}
+/* .slick-initialized .slick-slide{
+  width: 256px !important;
+} */
+@media (min-width: 1024px) and (max-width:1279px) {
+  .nav-btn.prev-slide.slick-arrow {
+    left: 95% !important;
+}
+   .nav-btn.next-slide.slick-arrow{ 
+   left: -5% !important;
+}
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .uploaad_btn_widh{
+    width:130px !important;
+  }
+  .container {
+    width:310px;
+  }
+  .slide{
+    padding-left: 12% !important;
+    width:251px !important;
+}
+.threedot{
+  margin-top: 23% !important;
+}
+  /* .container_card{
+    widows: 30px;
+  } */
+  }
+  

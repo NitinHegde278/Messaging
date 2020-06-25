@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="row" style="margin: -62px;">
+    <div class="col-md-4 offset-md-4">
+      <div class="logo">
+        <img src="/assets/img/8-512.png" style="justify-content: center;overflow:hidden;width:24%;margin: 0% 8% 0% 15%;"/>
+        <div class="vl">
+        </div>
+        <h5 style="position:absolute; overflow:hidden; width: 100%; margin:-16% 44.5%;font-weight: 400;">An Online</h5>
+        <h5 style="position:absolute; overflow:hidden; width: 100%; margin:-11.5% 44.5%;font-weight: 400;">Messaging Portal</h5>
+        <h5 style="position:absolute; overflow:hidden; width: 100%; margin:-7% 44.5%;font-weight: 400;">For Business</h5>
+      </div>
+      <!-- <form [formGroup]="signinForm" (ngSubmit)="signin()">
+        <div class="page-wrap height-100 mat-bg-primary">
+          <div class="session-form-hold"> -->
+            <!-- <mat-progress-bar mode="determinate" class="session-progress"></mat-progress-bar> -->
+            <mat-card style="border-radius:0px;width: 92%;margin-left: 4%;">
+              <mat-card-content>
+                <div class="text-center pb-1">
+                  <!-- <img src="assets/images/herdman_logo.png" alt="" class="mb-05"> -->
+                  <h4 class="font-weight-bold">User / Admin Login</h4>
+                </div>
+                <form [formGroup]="signinForm" (ngSubmit)="signin()">
+                  <div class="">
+                    <mat-form-field class="example-full-width" style="padding: 0% 11% !important;margin-bottom: 10px;">
+                      <mat-label>Email</mat-label>
+                      <input matInput name="email" [(ngModel)]="email" formControlName="email" required>
+                      <mat-error> Email is required</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="">
+                    <mat-form-field class="example-full-width" style="padding: 0% 11%;">
+                      <mat-label>Password</mat-label>
+                      <input matInput type="password" name="password" [(ngModel)]="password" 
+                        formControlName="password" required>
+                        <mat-error> Password is required </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="text-center pb-1">
+                    <button id="submit" class="btn btn-primary">
+                      Sign in
+                    </button>
+                  </div>
+                </form>
+              </mat-card-content>
+              <mat-card-footer>
+                <div class="stats cursor_show" (click)="open_forgot_dialog()">
+                  <p class="mat-primary text-center full-width" style="color:#107c2b;overflow:hidden; cursor:pointer;">Forgot password
+                  </p>
+                </div>
+              </mat-card-footer>
+            </mat-card>
+    </div>
+  </div>
+</div>
+<footer class="footer" style="position: fixed;z-index: 2;bottom: 0%;width: 100%; overflow: hidden;height: 10%; background-color: #1d8b4e;">
+  <div class="container-fluid" style="color:#dae8f7;font-weight:400;font-size:12px;">
+    <nav>
+        <ul>
+            <li>
+                <a href="http://appbee.in/" target="_blank">
+                  @Copyright 2020 AppBee India Pvt.Ltd. All rights reserved.
+                </a>
+            </li>
+        </ul>
+    </nav>
+  </div>
+</footer>

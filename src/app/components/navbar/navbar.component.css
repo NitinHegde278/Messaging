@@ -1,0 +1,6 @@
+.nav-item:hover{
+    cursor: pointer;
+}
+nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
+    z-index: 99 !important;
+}

@@ -1,0 +1,15 @@
+<div class="col-lg-12">
+    <div class="col-md-12">
+    <!-- <h1 mat-dialog-title>{{dialogTitle}}</h1> -->
+    <div mat-dialog-content *ngFor="let videos of sub_name.video">
+        <div class="card" style="float: left;">
+            <img src="{{videos.thumbnail}}" width="50%">
+        </div>
+        <div class="card1" style="float: right;">
+            <p>{{videos.title}}</p>
+            <p>{{videos.description}}</p>
+            <p>like:10</p>
+        </div>
+    </div>
+    </div>
+  

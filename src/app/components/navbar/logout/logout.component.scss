@@ -1,0 +1,19 @@
+.container{
+  width:310px;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .container{
+      width:310px;
+    }
+    .default-btn1{
+      text-transform: none !important;
+    }
+  }
+  @supports (-ms-ime-align: auto) {
+    .container{
+      width:310px;
+    }
+    .default-btn1{
+      text-transform: none !important;
+    }
+  }
