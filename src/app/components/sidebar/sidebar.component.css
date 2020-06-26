@@ -40,8 +40,12 @@
   .is-active {
     background-color: #5ab181;
 }
+.mat-nav-list .mat-list-item, .mat-action-list .mat-list-item, .mat-list-option{
+  height: 50px !important;
+}
 .mat-action-list .mat-list-item:focus, .mat-action-list .mat-list-item:hover, .mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover {
   background:  #5ab181 !important;
+  
 }
 .mat-drawer-side {
   border-right: none !important;
@@ -55,4 +59,7 @@
 a{
   height: 90px;
   width: 150px;
+}
+.sidebar-wrapper,.side{
+  background-color: #1d8b4e;
 }

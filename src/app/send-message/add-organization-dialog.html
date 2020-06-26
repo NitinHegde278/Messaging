@@ -21,13 +21,11 @@
                     <mat-form-field style="padding: 0% 11%;">
                         <mat-label>States</mat-label>
                         <mat-select [(value)]="selectedStates" formControlName="states"  multiple required>
-                            <div *ngFor="let item of states">
-                                <div *ngIf="item.org==selectedOrgType">
-                                    <mat-option *ngFor="let states of item.states"  [value]="states">
-                                        {{states}}
+                                
+                                    <mat-option *ngFor="let item of stateList"  [value]="item.state_name">
+                                        {{item.state_name}}
                                     </mat-option>
-                                </div>
-                            </div>
+                                
                         </mat-select>
                         <mat-error>This field is mandatory.</mat-error> 
                     </mat-form-field>

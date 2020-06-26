@@ -26,10 +26,15 @@ export class AuthGuard implements CanActivate {
             return true;
         }else{
             // this.openPopUp();
-            this.dialog.open(TokenExpiredDialog,{
+            const dialogRef = this.dialog.open(TokenExpiredDialog,{
 
             });
-            this.router.navigateByUrl('/');
+            dialogRef.afterClosed()
+        .subscribe(res => {
+         this.router.navigateByUrl('/')
+            return false;
+        });
+            
                     // return true;
         }
     

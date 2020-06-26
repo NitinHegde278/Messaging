@@ -1,3 +1,4 @@
+import { CityService } from './../city/city.service';
 import { StateService } from './../state/state.service';
 import { routes } from './../app.routing';
 import { MatTableDataSource } from '@angular/material/table';
@@ -115,6 +116,7 @@ export class SendMessageComponent implements OnInit {
 export class AddOrganizationDialog {
    myForm : FormGroup;
    name = [];
+   stateList = [];
    states= [];
    sms= true;
    whatsapp= null;
@@ -130,7 +132,7 @@ export class AddOrganizationDialog {
     // @Inject(OnboardingService) public onboardservice:OnboardingService,
     @Inject(ToasterService) public toasterService: ToasterService,
 
-    public dialogRef: MatDialogRef<AddOrganizationDialog>, public service: StateService){
+    public dialogRef: MatDialogRef<AddOrganizationDialog>, public service: StateService, public stateService: CityService){
       this.myForm = this.formBuilder.group({
         name: ['',[Validators.required]],
         states: ['', [Validators.required]],
@@ -145,6 +147,9 @@ export class AddOrganizationDialog {
       }
       this.service.getState(payload).subscribe(response =>{
         this.name = response;
+      });
+      this.stateService.getCity(payload).subscribe(response => {
+        this.stateList = response;
       });
       this.states = STATES;
     }
