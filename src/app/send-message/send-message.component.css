@@ -4,7 +4,20 @@
 
   .mat-form-field-appearance-outline .mat-form-field-outline {
     color: white;
-  }
+}
+
+/* focused color */
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #1d8b4e;
+}
+
+/* floating label color */
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-label { 
+    color: #1d8b4e; 
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: #1d8b4e;
+}
   mat-form-field .mat-form-field-flex{ 
       background-color: white; 
       border-radius: 0.5rem !important;
@@ -39,12 +52,12 @@
       max-width: 970px;
   }
   #sending{
-    height: 300px;
-    width: 400px;
+    height: 200px;
+    width: 300px;
     text-align: center;
   }
-  #sending .h2{
-    padding: 30px;
+  #sending .h3{
+    padding: 20px;
   }
 
   

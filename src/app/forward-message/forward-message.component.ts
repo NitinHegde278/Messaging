@@ -31,6 +31,8 @@ let TABLEDATA1 = [
 
 let temp = [];
 let sent = false;
+let deleteUser = false;
+let deleteAdmin = false;
 
 @Component({
   selector: 'app-forward-message',
@@ -127,10 +129,14 @@ export class ForwardDialog{
   @Inject(ToasterService) public toasterService: ToasterService,public service: AuthService) { 
     if(this.service.role_id==1){
       this.user=true;
+      deleteUser=true;
+      deleteAdmin = false;
       this.admin=false;
     
     }else if(this.service.role_id==3){
       this.user=false;
+      deleteUser=false;
+      deleteAdmin = true;
       this.admin=true;
       
     }
@@ -140,10 +146,14 @@ export class ForwardDialog{
       // console.log(this.service.role_id,"undefined this.service.role_id")
       if(this.service.role_id==1){
         this.user=true;
+        deleteUser=true;
+      deleteAdmin = false;
       this.admin=false;
       }
       else if(this.service.role_id==3){
         this.user=false;
+        deleteUser=false;
+      deleteAdmin = true;
       this.admin=true;
       }
     }
@@ -175,6 +185,7 @@ export class ForwardDialog{
       });
       sent= false;
       this.dialogRef.close();
+      
       // dialogSuccess.afterClosed().subscribe( data =>
       // this.dialogRef.close() );
     }
@@ -183,16 +194,22 @@ export class ForwardDialog{
   }
    
   deleting(){
-    if(this.user){
-      let rem = TABLEDATA.filter(obj => obj !==this.temp );
-      TABLEDATA = rem;
-    }else if(this.admin){
-      let rem = TABLEDATA1.filter(obj => obj !==this.temp );
-      TABLEDATA1 = rem;
-    }
+    // if(this.user){
+    //   let rem = TABLEDATA.filter(obj => obj !==this.temp );
+    //   TABLEDATA = rem;
+    // }else if(this.admin){
+    //   let rem = TABLEDATA1.filter(obj => obj !==this.temp );
+    //   TABLEDATA1 = rem;
+    // }
     let dialogDelete = this.dialog.open(ForwardDelete,{
     });
-    this.dialogRef.close();
+    dialogDelete.afterClosed().subscribe(data => {
+      
+      if(data == undefined){
+      this.dialogRef.close();
+      }
+    });
+    
   }
 
 }
@@ -220,8 +237,26 @@ export class ForwardSuccess{
 })
 
 export class ForwardDelete{
-  constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<ForwardDelete>){ };
+  temp : any;
+  constructor(@Inject(ToasterService) public toasterService: ToasterService,
+  public dialog: MatDialog, public dialogRef: MatDialogRef<ForwardDelete>){ 
+    this.temp = temp;
+  };
   ngOnInit(){
-
+  }
+  deleteForward(){
+    if(deleteUser){
+      let rem = TABLEDATA.filter(obj => obj !== this.temp );
+      TABLEDATA = rem;
+    }else if(deleteAdmin){
+      let rem = TABLEDATA1.filter(obj => obj !==this.temp );
+      TABLEDATA1 = rem;
+    }
+    this.dialogRef.close();
+    this.toasterService.pop(
+      "success",
+      "Request Deleted successfully",
+    );
+    return "success";
   }
 }

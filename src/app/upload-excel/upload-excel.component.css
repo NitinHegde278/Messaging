@@ -23,12 +23,12 @@
 }
 
 #sending{
-    height: 300px;
-    width: 400px;
+    height: 200px;
+    width: 300px;
     text-align: center;
   }
-  #sending .h2{
-    padding: 30px;
+  #sending .h3{
+    padding: 20px;
   }
 
   /* .custom-file{
