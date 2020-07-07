@@ -31,10 +31,6 @@ button.btn.btn-default.bg-info.pull-right.m-3 {
     color: #1d8b4e;
     
   }
-  th,td{
-    font-family: 'Montserrat', sans-serif;
-
-  }
 // mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
 // padding: 0px 25px !important;
 // }
@@ -86,5 +82,26 @@ a {
   }
   .container{
     width:310px;
+  }
+}
+.mat-table {
+  overflow: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+@media(max-width: 500px) {
+  /* .mobile-label {
+    width: 80px;
+    display: inline-block;
+        font-weight: bold;
+  } */
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row { 
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 44px;
   }
 }

@@ -1,116 +1,169 @@
-<div mat-dialog-content style="width: 800px;height: 700px;" *ngIf="user">
-    <!--User-->
-    <div class="container" id="forward">
-        <div class="row" style="border-bottom: 1px solid;">
-            <p style="margin-right: 10px;">Campaign Name: </p>
-            <div>{{temp.campaign}}</div>
-        </div><br> 
-        <div class="row">
-            <p>Message Content</p>
-            <div id="message" style="border:2px solid #1d8b4e; padding:7px; margin-bottom: 15px;height: 70px;overflow:auto;">
-                {{temp.message}}</div>
-        </div>
-        <div class="row gap">
-            <p>Sent From: </p>
-            <p>{{temp.sentFrom}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Contact: </p>
-            <p>{{temp.contact}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Contact No: </p>
-            <p>{{temp.contactNo}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Recieved Date: </p>
-            <p>{{temp.receivedDate}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Target States: </p>
-            <p>{{temp.states}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>SMS to send: </p>
-            <p>{{temp.sms}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Whatsapp to send: </p>
-            <p>{{temp.whatsapp}}</p><br>
-        </div>
-        <div class="row" style="float:right;">
-            <button class="btn btn-danger" (click)="dialogRef.close()">Cancel</button>
-            <button class="btn btn-success" (click)="forward()">Forward</button>
-        </div>
+<div mat-dialog-content style="width: 800px; height: 700px;" *ngIf="user">
+  <!--User-->
+  <div class="container" id="forward">
+    <div class="row" style="border-bottom: 1px solid;">
+      <p style="margin-right: 10px;">Campaign Name:</p>
+      <div>{{temp.campaign}}</div>
     </div>
-</div>    
+    <br />
+    <div class="row">
+      <p>Message Content</p>
+      <div
+        id="message"
+        style="
+          border: 2px solid #1d8b4e;
+          padding: 7px;
+          margin-bottom: 15px;
+          height: 70px;
+          overflow: auto;
+        "
+      >
+        {{temp.message}}
+      </div>
+    </div>
+    <div class="row gap">
+      <p>Sent From:</p>
+      <p>{{temp.sentFrom}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Contact:</p>
+      <p>{{temp.contact}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Contact No:</p>
+      <p>{{temp.contactNo}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Recieved Date:</p>
+      <p>{{temp.receivedDate}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Target States:</p>
+      <p>{{temp.states}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>SMS to send:</p>
+      <p>{{temp.sms}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Whatsapp to send:</p>
+      <p>{{temp.whatsapp}}</p>
+      <br />
+    </div>
+    <div class="row" style="float: right;">
+      <button class="btn btn-danger" (click)="dialogRef.close()">Cancel</button>
+      <button class="btn btn-success" (click)="forward()">Forward</button>
+    </div>
+  </div>
+</div>
 <!-- <div mat-dialog-title>
     <button class="btn btn-secondary" (click)="dialogRef.close()" 
     style="float: right; background-color: white; padding: 6px;"><mat-icon>clear</mat-icon></button>
 </div> -->
-<div mat-dialog-content style="width: 800px; height: 2500px !important;" *ngIf="admin">
-    <!--Admin-->
-    <div class="container" id="forward" *ngIf="admin">
-        <button class="btn btn-secondary pull-right" (click)="dialogRef.close()" 
-    style="background-color: white; padding: 5px; border: 1.5px solid #1d8b4e; margin-top: -8px;"><mat-icon>clear</mat-icon></button>
+<div
+  mat-dialog-content
+  style="width: 800px; height: 2500px !important; position: relative;"
+  *ngIf="admin"
+>
+  <!--Admin-->
+  <div class="container" id="forward" *ngIf="admin">
+    <button class="btn btn-secondary clear" (click)="dialogRef.close()">
+      <mat-icon>clear</mat-icon>
+    </button>
 
-        <div class="row" style="border-bottom: 1px solid #1d8b4e;margin-top: 10px;">
-            <p style="margin-right: 10px;">Campaign Name: </p>
-            <div>{{temp.campaign}}</div>
-            
-        </div><br> 
-        <div class="row">
-            <p>Message Content</p>
-            <div id="message" style="border:2px solid #1d8b4e; padding:7px; margin-bottom: 15px;height: 70px;overflow:auto;">
-                {{temp.message}}</div>
-        </div>
-        <div class="row gap">
-            <p>Sent From: </p>
-            <p>{{temp.sentFrom}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Contact: </p>
-            <p>{{temp.contact}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Contact No: </p>
-            <p>{{temp.contactNo}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Sent Date: </p>
-            <p>{{temp.receivedDate}}</p><br>
-        </div>
-        <div class="row gap" style="border-bottom: 1px solid #1d8b4e; margin-bottom: 10px;">
-            <p>Target States: </p>
-            <p>{{temp.states}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Forwarded From: </p>
-            <p>{{temp.sentTo}}</p><br>
-        </div>
-        <div class="row gap">
-            <p> Contact: </p>
-            <p>{{temp.Fcontact}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Contact No: </p>
-            <p>{{temp.FcontactNo}}</p><br>
-        </div>
-        <div class="row gap" style="border-bottom: 1px solid #1d8b4e; margin-bottom: 10px;">
-            <p>Forwarded Date: </p>
-            <p>{{temp.forwardedDate}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>SMS msgs: </p>
-            <p>{{temp.sms}}</p><br>
-        </div>
-        <div class="row gap">
-            <p>Whatsapp msgs: </p>
-            <p>{{temp.whatsapp}}</p><br>
-        </div>
-        <div class="row" style="float:right;">
-            <button class="btn btn-danger" (click)="deleting()">Delete</button>
-            <button class="btn btn-success" (click)="forward()">Send</button>
-        </div>
+    <div
+      class="row"
+      style="border-bottom: 1px solid #1d8b4e; margin-top: 10px;"
+    >
+      <p style="margin-right: 10px;">Campaign Name:</p>
+      <div>{{temp.campaign}}</div>
     </div>
+    <br />
+    <div class="row">
+      <p>Message Content</p>
+      <div
+        id="message"
+        style="
+          border: 2px solid #1d8b4e;
+          padding: 7px;
+          margin-bottom: 15px;
+          height: 70px;
+          overflow: auto;
+        "
+      >
+        {{temp.message}}
+      </div>
+    </div>
+    <div class="row gap">
+      <p>Sent From:</p>
+      <p>{{temp.sentFrom}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Contact:</p>
+      <p>{{temp.contact}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Contact No:</p>
+      <p>{{temp.contactNo}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Sent Date:</p>
+      <p>{{temp.receivedDate}}</p>
+      <br />
+    </div>
+    <div
+      class="row gap"
+      style="border-bottom: 1px solid #1d8b4e; margin-bottom: 10px;"
+    >
+      <p>Target States:</p>
+      <p>{{temp.states}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Forwarded From:</p>
+      <p>{{temp.sentTo}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Contact:</p>
+      <p>{{temp.Fcontact}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Contact No:</p>
+      <p>{{temp.FcontactNo}}</p>
+      <br />
+    </div>
+    <div
+      class="row gap"
+      style="border-bottom: 1px solid #1d8b4e; margin-bottom: 10px;"
+    >
+      <p>Forwarded Date:</p>
+      <p>{{temp.forwardedDate}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>SMS msgs:</p>
+      <p>{{temp.sms}}</p>
+      <br />
+    </div>
+    <div class="row gap">
+      <p>Whatsapp msgs:</p>
+      <p>{{temp.whatsapp}}</p>
+      <br />
+    </div>
+    <div class="row" style="float: right;">
+      <button class="btn btn-danger" (click)="deleting()">Delete</button>
+      <button class="btn btn-success" (click)="forward()">Send</button>
+    </div>
+  </div>
 </div>

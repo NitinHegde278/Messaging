@@ -2,9 +2,6 @@
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5) !important;
   padding-bottom: 10px !important;
 }
-th,td{
-  font-family: 'Montserrat', sans-serif;
-}
 
 .asterisk_input:after {
 content: " *";
@@ -70,5 +67,26 @@ a {
   }
   .toggle{
     margin: 0px 5px !important;
+  }
+}
+.mat-table {
+  overflow: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+@media(max-width: 500px) {
+  /* .mobile-label {
+    width: 80px;
+    display: inline-block;
+        font-weight: bold;
+  } */
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row { 
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 44px;
   }
 }

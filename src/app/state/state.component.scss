@@ -3,10 +3,6 @@
   padding-bottom: 10px !important;
 }
 
-th,td{
-  font-family: 'Montserrat', sans-serif;
-}
-
 .asterisk_input:after {
 content: " *";
 color: #e32;
@@ -86,5 +82,26 @@ a {
   }
   .container{
     width:310px;
+  }
+}
+.mat-table {
+  overflow: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+@media(max-width: 500px) {
+  /* .mobile-label {
+    width: 80px;
+    display: inline-block;
+        font-weight: bold;
+  } */
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row { 
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 44px;
   }
 }

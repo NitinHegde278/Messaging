@@ -17,31 +17,32 @@
                             </div>
                         </div>
                     </div>
-                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
                         <!-- Name Column -->
                         <ng-container matColumnDef="position">
-                            <th mat-header-cell *matHeaderCellDef> No. </th>
-                            <td mat-cell *matCellDef="let row; let i = index;"> {{i+1}} </td>
+                            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index;"> {{i+1}} </mat-cell>
                         </ng-container>
                         <!-- Name Column -->
                         <ng-container matColumnDef="org_name">
-                            <th mat-header-cell *matHeaderCellDef  class="card-container"> Name </th>
-                            <td mat-cell *matCellDef="let row"  class="card-container"> {{row.org_name}} </td>
+                            <mat-header-cell *matHeaderCellDef  class="card-container"> Name </mat-header-cell>
+                            <mat-cell *matCellDef="let row"  class="card-container"> {{row.org_name}} </mat-cell>
                         </ng-container>
                         <!-- Action Column -->
                         <ng-container matColumnDef="action">
-                            <th mat-header-cell *matHeaderCellDef  class="card-container">Actions </th>
-                            <td mat-cell *matCellDef="let row"  class="card-container">
+                            <mat-header-cell *matHeaderCellDef  class="card-container">Actions </mat-header-cell>
+                            <mat-cell *matCellDef="let row"  class="card-container">
                                 <a (click)="edit_low(row) " style="color:#1d8b4e; cursor:pointer;">
                                     <mat-icon aria-label="Edit">edit</mat-icon>
                                 </a>
                                 <a (click)="delete_low(row)" style="color:red; cursor:pointer;">
                                     <mat-icon aria-label="Delete">delete</mat-icon>
                                 </a>
+                            </mat-cell>
                         </ng-container>
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
                     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
                 </div>
             </div>
