@@ -118,7 +118,7 @@ export class AddOrganizationDialog {
    name = [];
    stateList = [];
    states= [];
-   sms= true;
+   sms= null;
    whatsapp= null;
    dialogTitle = "Add new Organization";
    selectedOrgType = "";
@@ -136,7 +136,7 @@ export class AddOrganizationDialog {
       this.myForm = this.formBuilder.group({
         name: ['',[Validators.required]],
         states: ['', [Validators.required]],
-        sms:['', [Validators.requiredTrue]],
+        sms:[''],
         whatsapp: ['']
        });
     }
@@ -180,6 +180,15 @@ export class AddOrganizationDialog {
       });
       complete = true;
       this.dialogRef.close();
+    }
+
+    validate(){
+      if(this.myForm.valid && (this.sms || this.whatsapp)){
+        return false;
+      }else{
+        return true;
+      }
+
     }
 }
 

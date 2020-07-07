@@ -33,4 +33,5 @@ export class UrlConstants {
     static getMobileUsers ='portal/users/mobusr';
     static defaultsetting = 'portal/users/radio';
     static defaultsettings = 'portal/users/defaultsetting';
+    static excelData = 'portal/users/upload/excel';
 }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-11">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
             <div class="card forward">
                 <div class="card-header card-header-primary">
                     <div class="row">
@@ -60,40 +60,40 @@
                 </table>
 
                     <!--Admin-->
-                    <table mat-table [dataSource]="dataSource" class="shadow-lg" *ngIf="admin">
+                    <mat-table #table [dataSource]="dataSource" class="shadow-lg" *ngIf="admin" [class.isMobile]="isMobile">
                         <!-- Name Column -->
                         <ng-container matColumnDef="position">
-                            <th mat-header-cell *matHeaderCellDef> No. </th>
-                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
                         </ng-container>
     
                         <!-- Name Column -->
                         <ng-container matColumnDef="campaign">
-                            <th mat-header-cell *matHeaderCellDef> Campaign Name </th>
-                            <td mat-cell *matCellDef="let element"> {{element.campaign}} </td>
+                            <mat-header-cell mat-header-cell *matHeaderCellDef> Campaign Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.campaign}} </mat-cell>
                         </ng-container>
     
                         <!-- Email Column -->
                         <ng-container matColumnDef="sentFrom">
-                            <th mat-header-cell *matHeaderCellDef> Sent From Org</th>
-                            <td mat-cell *matCellDef="let element"> {{element.sentFrom}} </td>
+                            <mat-header-cell *matHeaderCellDef> Sent From Org</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.sentFrom}} </mat-cell>
                         </ng-container>
     
                         <ng-container matColumnDef="sentTo">
-                            <th mat-header-cell *matHeaderCellDef> Sent To Org </th>
-                            <td mat-cell *matCellDef="let element"> {{element.sentTo}} </td>
+                            <mat-header-cell *matHeaderCellDef> Sent To Org </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.sentTo}} </mat-cell>
                         </ng-container>
     
                         <!-- Mobile number Column -->
                         <ng-container matColumnDef="receivedDate">
-                            <th mat-header-cell *matHeaderCellDef> Receieved Date </th>
-                            <td mat-cell *matCellDef="let element"> {{element.receivedDate}} </td>
+                            <mat-header-cell *matHeaderCellDef> Receieved Date </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.receivedDate}} </mat-cell>
                         </ng-container>
     
                         <!-- Action Column -->
                         <ng-container matColumnDef="action">
-                            <th mat-header-cell *matHeaderCellDef>Action </th>
-                            <td mat-cell *matCellDef="let element">
+                            <mat-header-cell *matHeaderCellDef>Action </mat-header-cell>
+                            <mat-cell *matCellDef="let element">
                                 <button class="btn btn-info open" (click)="openForward(element)">Open</button>
                                 <!-- <a (click)="edit_low(row) " style="color:#1d8b4e; cursor:pointer;">
                                     <mat-icon aria-label="Edit">edit</mat-icon>
@@ -102,12 +102,12 @@
                                     <mat-icon aria-label="Delete">delete</mat-icon>
                                 </a>
                                 <mat-slide-toggle [checked]="row.status" class="toggle"  [color]="color" (change)="toggle(row,$event)"></mat-slide-toggle> -->
-                                </td>
+                                </mat-cell>
                         </ng-container>
     
-                        <tr mat-header-row *matHeaderRowDef="displayedColumnsAdmin"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumnsAdmin;"></tr>
-                    </table>
+                        <mat-header-row *matHeaderRowDef="displayedColumnsAdmin"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumnsAdmin;"></mat-row>
+                    </mat-table>
                     <mat-paginator [length]="100"
                     [pageSize]="6" [pageSizeOptions]="[6, 15, 25, 100]" showFirstLastButtons></mat-paginator>
                 

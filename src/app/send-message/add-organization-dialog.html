@@ -60,7 +60,7 @@
             </div>
                  <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-default bg-success pull-right m-3" [disabled]="!myForm.valid" (click)="saveOrg()">Save</button>
+                        <button type="button" class="btn btn-default bg-success pull-right m-3" [disabled]="validate()" (click)="saveOrg()">Save</button>
                         <button type="button" class="btn btn-default bg-danger pull-right m-3" mat-dialog-close>Cancel</button>   
                     </div>
                 </div>

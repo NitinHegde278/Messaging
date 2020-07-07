@@ -36,7 +36,9 @@
             <input #myInput type="file" name="myfile" accept=".xlsx, .xls" (change)="onFileUpload($event)"/>Choose a File</button>
           </div>
           <p style="max-width: 280px;max-height: 20px;overflow: hidden;">{{fileName}}</p>
-          <button class="btn upload" [disabled]="!uploaded" type="submit" (click)="saveExcel()"><mat-icon>cloud_upload</mat-icon> Upload</button>
+          <button class="btn upload" [disabled]="!uploaded" type="submit" (click)="saveExcel()"><mat-icon>cloud_upload</mat-icon> Upload
+            <span *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
     </form>
 </div>
 

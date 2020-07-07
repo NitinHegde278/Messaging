@@ -36,7 +36,7 @@
                      </mat-form-field> -->
                      <mat-form-field>
                         <mat-label>Organization Name</mat-label>
-                        <mat-select [(value)]="orgName" formControlName="orgName"  required>
+                        <mat-select [(ngModel)]="orgName" formControlName="orgName"  required>
                           <mat-option *ngFor="let item of orgReference" [value]="item.org_name" >
                             {{item.org_name}}
                           </mat-option>
