@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <mat-form-field style="padding: 0% 6%;">
                         <mat-label>Organization</mat-label>
-                        <mat-select [(value)]="selectedOrgType" formControlName="name"  required>
+                        <mat-select [(ngModel)]="selectedOrgType" formControlName="name"  required>
                           <mat-option *ngFor="let item of name" [value]="item.org_name" >
                             {{item.org_name}}
                           </mat-option>
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <mat-form-field style="padding: 0% 6%;">
                         <mat-label>States</mat-label>
-                        <mat-select [(value)]="selectedStates" formControlName="states"  multiple required>
+                        <mat-select [(ngModel)]="selectedStates" formControlName="states"  multiple required>
                                 
                                     <mat-option *ngFor="let item of stateList"  [value]="item.state_name">
                                         {{item.state_name}}
@@ -60,7 +60,8 @@
             </div>
                  <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-default bg-success pull-right m-3" [disabled]="validate()" (click)="saveOrg()">Save</button>
+                        <button type="button" class="btn btn-default bg-success pull-right m-3" *ngIf="save_user" [disabled]="validate()" (click)="saveOrg()">Save</button>
+                        <button type="button" class="btn btn-default bg-success pull-right m-3" *ngIf="update_user" [disabled]="validate()" (click)="updateOrg()">Update</button>
                         <button type="button" class="btn btn-default bg-danger pull-right m-3" mat-dialog-close>Cancel</button>   
                     </div>
                 </div>

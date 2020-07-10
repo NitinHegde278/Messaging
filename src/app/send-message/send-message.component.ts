@@ -33,7 +33,7 @@ const STATES = [
 export class SendMessageComponent implements OnInit {
   
   myForm: FormGroup;
-  displayedColumns: string[] = ['name', 'states', 'sms', 'whatsapp'];
+  displayedColumns: string[] = ['name', 'states', 'sms', 'whatsapp','action'];
   dataSource: any;
   campaign = "";
   message = "";
@@ -41,7 +41,7 @@ export class SendMessageComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
 
-  constructor(public dialog: MatDialog, private formbuilder: FormBuilder) { 
+  constructor(public dialog: MatDialog, private formbuilder: FormBuilder, private toasterService: ToasterService) { 
     this.myForm = formbuilder.group({
       campaign: ['',[Validators.required]],
       message: ['',[Validators.required]],
@@ -60,11 +60,16 @@ export class SendMessageComponent implements OnInit {
     });  
     dialogRef.afterClosed().subscribe(
       data => {
-        
-          console.log("here i");
           
           this.dataSource.data = TABLEDATA;
-        
+          console.log(TABLEDATA);
+          
+          if(data == "200"){
+            this.toasterService.pop(
+              "success",
+              "Added successfully"
+            );
+          }
       }
     );
   }
@@ -95,6 +100,23 @@ export class SendMessageComponent implements OnInit {
     
   }
 
+  edit_low(row_data){
+    let dialogRef = this.dialog.open(AddOrganizationDialog, {
+      data: {
+        rowData: row_data
+      }
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.dataSource.data = TABLEDATA;
+      if(data == "200"){
+        this.toasterService.pop(
+          "success",
+          "Updated successfully"
+        );
+      }
+    });
+  }
+
   always(){
     if(complete && this.myForm.valid){
       return false;
@@ -120,12 +142,14 @@ export class AddOrganizationDialog {
    states= [];
    sms= null;
    whatsapp= null;
-   dialogTitle = "Add new Organization";
+   dialogTitle = "";
    selectedOrgType = "";
    selectedStates = [];
    selectedSms = null;
    selectedWhatsapp = null;
-
+   save_user = false;
+   update_user = false;
+   dataEdit : any;
   constructor(private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: SendingTable, 
     // @Inject(PortalUserService) public service: PortalUserService,
@@ -133,6 +157,20 @@ export class AddOrganizationDialog {
     @Inject(ToasterService) public toasterService: ToasterService,
 
     public dialogRef: MatDialogRef<AddOrganizationDialog>, public service: StateService, public stateService: CityService){
+      
+      if(data){
+        this.dataEdit = data;
+        this.selectedOrgType = data.rowData['name'];
+        this.selectedStates = data.rowData['states'];
+        this.sms = data.rowData['sms'];
+        this.whatsapp = data.rowData['whatsapp'];
+        this.update_user = true;
+        this.dialogTitle = "Update Organization details";
+      } else{
+        this.save_user = true;
+        this.dialogTitle = "Add new Organization";
+      }
+
       this.myForm = this.formBuilder.group({
         name: ['',[Validators.required]],
         states: ['', [Validators.required]],
@@ -179,7 +217,31 @@ export class AddOrganizationDialog {
         whatsapp:this.selectedWhatsapp
       });
       complete = true;
-      this.dialogRef.close();
+      this.dialogRef.close("200");
+    }
+
+    updateOrg(){
+      for(let x of this.states){
+        if(x.org == this.selectedOrgType){
+          if(this.sms){
+            this.selectedSms = x.sms;
+          }else{
+            this.selectedSms = '';
+          }
+          if(this.whatsapp){
+            this.selectedWhatsapp = x.whatsapp;
+          }else{
+            this.selectedWhatsapp = '';
+          }
+
+        }
+      }
+      let index = TABLEDATA.findIndex(obj => obj.name == this.dataEdit.rowData['name']);
+      TABLEDATA[index].name = this.selectedOrgType;
+      TABLEDATA[index].states = this.selectedStates;
+      TABLEDATA[index].sms = this.selectedSms;
+      TABLEDATA[index].whatsapp = this.selectedWhatsapp;
+      this.dialogRef.close("200");
     }
 
     validate(){
