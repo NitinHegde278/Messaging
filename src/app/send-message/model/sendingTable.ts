@@ -1,6 +1,7 @@
 export interface SendingTable{
-    name: string;
+    name: string[];
     states: string[] ;
+    stateIds: string[];
     sms: number;
     whatsapp: number;
     rowData: string;

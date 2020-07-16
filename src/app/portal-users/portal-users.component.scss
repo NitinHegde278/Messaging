@@ -17,6 +17,12 @@ top:32%;
 width: 85%;
 margin: 20px auto;
 }
+.mat-column-name {
+  flex: 0 0 15% !important;
+}
+.mat-column-email {
+  flex: 0 0 25% !important;
+}
 .iconbutton{
 margin:10px 10px;
 }
@@ -33,6 +39,7 @@ button.btn.btn-default.bg-info.pull-right.m-3:hover{
 }
 td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
     padding-left: 51px;
+    width: 50px;
 }
 .card-title {
   margin: 5px 12px !important;

@@ -8,7 +8,7 @@
                     <mat-form-field style="padding: 0% 6%;">
                         <mat-label>Organization</mat-label>
                         <mat-select [(ngModel)]="selectedOrgType" formControlName="name"  required>
-                          <mat-option *ngFor="let item of name" [value]="item.org_name" >
+                          <mat-option *ngFor="let item of name" [value]="item.org_id" >
                             {{item.org_name}}
                           </mat-option>
                         </mat-select>
@@ -22,7 +22,7 @@
                         <mat-label>States</mat-label>
                         <mat-select [(ngModel)]="selectedStates" formControlName="states"  multiple required>
                                 
-                                    <mat-option *ngFor="let item of stateList"  [value]="item.state_name">
+                                    <mat-option *ngFor="let item of stateList" [value]="item.state_id">
                                         {{item.state_name}}
                                     </mat-option>
                                 
@@ -36,7 +36,7 @@
                     
                         <mat-checkbox color="primary" formControlName="sms" [(ngModel)]="sms" style="padding: 0% 6%;">SMS:
                             <div *ngFor="let item of states" style="display: inline-block;">
-                            <div *ngIf="selectedOrgType == item.org">
+                            <div *ngIf="selectedOrgType == item.id">
                                 {{item.sms}} users
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                     
                         <mat-checkbox color="primary" formControlName="whatsapp" [(ngModel)]="whatsapp" style="padding: 0% 6%;">Whatsapp: 
                             <div *ngFor="let item of states" style="display: inline-block;">
-                                <div *ngIf="selectedOrgType == item.org"> 
+                                <div *ngIf="selectedOrgType == item.id"> 
                                     {{item.whatsapp}} users
                                 </div>
                             </div>

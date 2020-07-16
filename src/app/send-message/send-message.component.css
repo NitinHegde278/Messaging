@@ -1,7 +1,9 @@
 #first{
     margin-top: 60px;
 }
-
+.mat-column-states {
+  flex: 0 0 30% !important;
+}
   .mat-form-field-appearance-outline .mat-form-field-outline {
     color: white;
 }
@@ -34,7 +36,7 @@
   .example{
       max-width: 400px;
       max-height: 40px;
-      margin:40px 130px;
+      margin:40px 125px;
   }
   .example-full-width{
       margin: 30px 60px 30px 125px;

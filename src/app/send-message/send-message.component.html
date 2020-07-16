@@ -3,6 +3,12 @@
     
     <form [formGroup]="myForm">    
         <mat-form-field appearance="outline" class="example shadow-lg rounded" id="first">
+            <mat-label>Sender's Name</mat-label>
+            <input matInput formControlName="sender" type="text" name="sender" [(ngModel)]="sender" required/>
+            <mat-error>This field is Mandatory</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example shadow-lg rounded">
             <mat-label>Campaign Name</mat-label>
             <input matInput formControlName="campaign" type="text" name="campaign" [(ngModel)]="campaign" required/>
             <mat-error>This field is Mandatory</mat-error>
@@ -53,7 +59,7 @@
 
                         <!-- Email Column -->
                         <ng-container matColumnDef="states">
-                            <mat-header-cell *matHeaderCellDef> Selected States </mat-header-cell>
+                            <mat-header-cell *matHeaderCellDef style="justify-content: center;"> Selected States </mat-header-cell>
                             <mat-cell *matCellDef="let element"> {{element.states}} </mat-cell>
                         </ng-container>
 
@@ -74,6 +80,9 @@
                             <mat-cell *matCellDef="let element"  class="card-container">
                                 <a (click)="edit_low(element) " style="color:#1d8b4e; cursor:pointer;">
                                     <mat-icon aria-label="Edit">edit</mat-icon>
+                                </a>
+                                <a (click)="delete_low(element)" style="color:red; cursor:pointer;">
+                                    <mat-icon aria-label="Delete">delete</mat-icon>
                                 </a>
                             </mat-cell>
                         </ng-container>

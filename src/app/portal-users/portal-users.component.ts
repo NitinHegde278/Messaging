@@ -266,7 +266,7 @@ export class AddUserDialog {
       this.name = data.rowdata['name'];
       this.email = data.rowdata['email'];
       this.mobile = data.rowdata['mobile'];
-      this.orgName = data.rowdata['organization_name'];
+      this.orgName = data.rowdata['org_name'];
       this.selectedrole = 1;
       // console.log(this.selectedrole,"hhd")
       // if(this.email && this.email.length > 0) {
@@ -373,12 +373,12 @@ export class AddUserDialog {
       name: this.name,
       email: this.email,
       mobile: this.mobile,
-      organization_name: this.orgName,
+      org_name: this.orgName,
       role: 1,
     }
     // console.log(payload, "payload");
 
-    if (payload.name != '' && payload.email != '' && payload.organization_name != '' && payload.mobile != '' && payload.role != '') {
+    if (payload.name != '' && payload.email != '' && payload.org_name != '' && payload.mobile != '' && payload.role != '') {
 
       // this.save_user_btn=true;
       this.service.saveuser(payload)
@@ -428,11 +428,11 @@ export class AddUserDialog {
       name: this.name,
       email: this.email,
       mobile: this.mobile,
-      organization_name: this.orgName,
+      org_name: this.orgName,
       role: 1,
     }
     // console.log(payload, "payloadpayload");
-    if (payload.name != '' && payload.email != '' && payload.organization_name != '' && payload.mobile != '') {
+    if (payload.name != '' && payload.email != '' && payload.org_name != '' && payload.mobile != '') {
 
       // this.save_user_btn=true;
       this.service.getUpdateUsers(payload)
