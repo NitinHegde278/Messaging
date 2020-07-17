@@ -51,14 +51,14 @@ export class ForwardMessageComponent implements OnInit {
   constructor(public dialog: MatDialog, public service: AuthService) { }
 
   ngOnInit(): void {
-    if(this.service.role_id==1){
+    if(this.service.role=='U'){
       this.user=true;
       this.admin=false;
       this.dataSource = new MatTableDataSource(TABLEDATA);
     this.dataSource.paginator = this.paginator;
     this.dataSource.data = TABLEDATA;
     
-    }else if(this.service.role_id==3){
+    }else if(this.service.role=='A'){
       this.user=false;
       this.admin=true;
       this.dataSource = new MatTableDataSource(TABLEDATA1);
@@ -67,10 +67,10 @@ export class ForwardMessageComponent implements OnInit {
     
     }
 
-    if(this.service.role_id===undefined){
-      this.service.role_id=localStorage.getItem('role');
-      // console.log(this.service.role_id,"undefined this.service.role_id")
-      if(this.service.role_id==1){
+    if(this.service.role===undefined){
+      this.service.role=localStorage.getItem('role');
+      // console.log(this.service.role,"undefined this.service.role")
+      if(this.service.role=='U'){
         this.user=true;
       this.admin=false;
       this.dataSource = new MatTableDataSource(TABLEDATA);
@@ -78,7 +78,7 @@ export class ForwardMessageComponent implements OnInit {
     this.dataSource.data = TABLEDATA;
     
       }
-      else if(this.service.role_id==3){
+      else if(this.service.role=='A'){
         this.user=false;
       this.admin=true;
       this.dataSource = new MatTableDataSource(TABLEDATA1);
@@ -127,13 +127,13 @@ export class ForwardDialog{
   // @Inject(PortalUserService) public service: PortalUserService,
   // @Inject(OnboardingService) public onboardservice:OnboardingService,
   @Inject(ToasterService) public toasterService: ToasterService,public service: AuthService) { 
-    if(this.service.role_id==1){
+    if(this.service.role=='U'){
       this.user=true;
       deleteUser=true;
       deleteAdmin = false;
       this.admin=false;
     
-    }else if(this.service.role_id==3){
+    }else if(this.service.role=='A'){
       this.user=false;
       deleteUser=false;
       deleteAdmin = true;
@@ -141,16 +141,16 @@ export class ForwardDialog{
       
     }
 
-    if(this.service.role_id===undefined){
-      this.service.role_id=localStorage.getItem('role');
-      // console.log(this.service.role_id,"undefined this.service.role_id")
-      if(this.service.role_id==1){
+    if(this.service.role===undefined){
+      this.service.role=localStorage.getItem('role');
+      // console.log(this.service.role,"undefined this.service.role")
+      if(this.service.role=='U'){
         this.user=true;
         deleteUser=true;
       deleteAdmin = false;
       this.admin=false;
       }
-      else if(this.service.role_id==3){
+      else if(this.service.role=='A'){
         this.user=false;
         deleteUser=false;
       deleteAdmin = true;

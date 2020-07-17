@@ -10,7 +10,7 @@ import { Subject } from 'rxjs/Subject';
 export class AuthService {
   private subject = new Subject<any>();
   isLoggedIn = true;
-  role_id: any;
+  role: any;
   userName:string;
   name: string;
   // store the URL so we can redirect after logging in
@@ -23,7 +23,7 @@ export class AuthService {
   }
   incidentData = new EventEmitter<any>();
  
-  signin(userName, role_id, name): Observable<boolean> {
+  signin(userName, role, name): Observable<boolean> {
 
     let resp = this.httpClient.post(this.checkLoginApi, '', {withCredentials: true});
     //  console.log(resp,"dbhbd");
@@ -31,13 +31,13 @@ export class AuthService {
     this.userName=userName;
     this.name = name;
     this.isLoggedIn=true;
-    this.role_id = Number(role_id);
+    this.role = role;
     return of(true);
   }
 
   logout(): void {
     this.isLoggedIn = false;
-    this.role_id=100;
+    this.role=100;
     let resp = this.httpClient.post(this.logoutApi, '', {withCredentials: true});
   
   }

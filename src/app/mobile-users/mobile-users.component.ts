@@ -31,26 +31,26 @@ export class MobileUsersComponent implements OnInit {
     public authservice:AuthService) { }
 
   ngOnInit() {
-    console.log(this.authservice.role_id,"mobile role id")
+    console.log(this.authservice.role,"mobile role id")
     let payload = {};
     this.getMobileUsers(payload);
     this.dataSource = new MatTableDataSource<any>(this.tableData);
     this.dataSource.paginator = this.paginator;
 
-    if(this.authservice.role_id==2){
+    if(this.authservice.role==2){
       this.blur_email=true;
       this.clear_email=false;
-    }else if(this.authservice.role_id==3){
+    }else if(this.authservice.role==3){
       this.clear_email=true;
       this.blur_email=false;
     }
 
-    if(this.authservice.role_id===undefined){
-      this.authservice.role_id=localStorage.getItem('role');
-      if(this.authservice.role_id==2){
+    if(this.authservice.role===undefined){
+      this.authservice.role=localStorage.getItem('role');
+      if(this.authservice.role==2){
         this.blur_email=true;
         this.clear_email=false;
-      }else if(this.authservice.role_id==3){
+      }else if(this.authservice.role==3){
         this.clear_email=true;
         this.blur_email=false;
       }

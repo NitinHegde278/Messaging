@@ -48,25 +48,25 @@ export class SidebarComponent implements OnInit {
   constructor(public service:AuthService) { }
 
   ngOnInit() {
-    if(this.service.role_id==1){
+    if(this.service.role=='U'){
       this.uploader=true;
       this.admin_list=false;
       this.super_admin_list = false;
-    }else if(this.service.role_id==3){
+    }else if(this.service.role=='A'){
       this.super_admin_list = true;
       this.admin_list=false;
       this.uploader=false;
     }
 
-    if(this.service.role_id===undefined){
-      this.service.role_id=localStorage.getItem('role');
-      // console.log(this.service.role_id,"undefined this.service.role_id")
-      if(this.service.role_id==1){
+    if(this.service.role===undefined){
+      this.service.role=localStorage.getItem('role');
+      // console.log(this.service.role,"undefined this.service.role")
+      if(this.service.role=='U'){
         this.uploader=true;
         this.admin_list=false;
         this.super_admin_list = false;
       }
-      else if(this.service.role_id==3){
+      else if(this.service.role=='A'){
         this.super_admin_list = true;
         this.admin_list=false;
         this.uploader=false;

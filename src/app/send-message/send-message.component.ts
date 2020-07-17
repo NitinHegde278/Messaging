@@ -69,22 +69,22 @@ export class SendMessageComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.data = TABLEDATA;
 
-    if(this.authService.role_id==1){
+    if(this.authService.role=='U'){
       this.user=true;
       this.admin=false;
-    }else if(this.authService.role_id==3){
+    }else if(this.authService.role=='A'){
       this.user=false;
       this.admin=true;
       }
 
-    if(this.authService.role_id===undefined){
-      this.authService.role_id=localStorage.getItem('role');
-      // console.log(this.service.role_id,"undefined this.service.role_id")
-      if(this.authService.role_id==1){
+    if(this.authService.role===undefined){
+      this.authService.role=localStorage.getItem('role');
+      // console.log(this.service.role,"undefined this.service.role")
+      if(this.authService.role=='U'){
         this.user=true;
       this.admin=false;
      }
-      else if(this.authService.role_id==3){
+      else if(this.authService.role=='A'){
         this.user=false;
       this.admin=true;
       }

@@ -57,29 +57,29 @@ export class LoginComponent implements OnInit {
     this.service.signin(this.signinForm.value.email, this.signinForm.value.password)
     .subscribe(
         response => {  
-          // console.log(response, "vbdvj");     
+          console.log(response, "vbdvj");     
           if(response.success && response.token) {
             // console.log(response.RawData,"response.RawDataresponse.RawData");
             localStorage.setItem("user", response.RawData[0].email);
             localStorage.setItem("name", response.RawData[0].name);
             localStorage.setItem("userID", response.RawData[0].id);
-            localStorage.setItem("role", response.RawData[0].role_id);
-            localStorage.setItem("status", response.RawData[0].status);
+            localStorage.setItem("role", response.RawData[0].role);
+            localStorage.setItem("orgName", response.RawData[0].org_name);
             localStorage.setItem("token", response.token);
             localStorage.setItem(ProjectCustomUtils.projectJWTToken, response.token);
              const decodedToken = ProjectCustomUtils.decodeTokenAndStoreCredentials();
             //  console.log(decodedToken,"decodedTokendecodedToken");
              if(decodedToken){
-              this.authService.signin(response.RawData[0].email,response.RawData[0].role_id,response.RawData[0].name)
+              this.authService.signin(response.RawData[0].email,response.RawData[0].role,response.RawData[0].name)
               .subscribe(() => {
                 // console.log(this.authService.isLoggedIn,"this.authService.isLoggedIn");
                   if (this.authService.isLoggedIn){
                     // console.log(this.authService.role_id,"this.authService.role_id");
-                    this.isUploader = this.authService.role_id == 1? true : false;
-                    this.isSuperAdmin = this.authService.role_id == 3? true :false;
-                    this.isAdmin = this.authService.role_id == 2? true:false;
+                    this.isUploader = this.authService.role == 'U'? true : false;
+                    this.isSuperAdmin = this.authService.role == 'A'? true :false;
+                    this.isAdmin = this.authService.role == 'Z'? true:false;
                     // this.authService.incidentData.emit(response.RawData[0].role_id);
-                    if(response.RawData[0].role_id == 1 || response.RawData[0].role_id == 3 || response.RawData[0].role_id == 2 ||  response.RawData[0].role_id == 4){
+                    if(response.RawData[0].role == 'U' || response.RawData[0].role == 'A' || response.RawData[0].role == 'Z'){
                       this.toasterService.pop(
                         "success",
                         "Login",

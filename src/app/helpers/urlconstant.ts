@@ -33,7 +33,8 @@ export class UrlConstants {
     static getMobileUsers ='portal/users/mobusr';
     static defaultsetting = 'portal/users/radio';
     static defaultsettings = 'portal/users/defaultsetting';
-    static excelData = 'upload/excel';
+    static excelData = 'upload/exceltest';
+    static excelCorrection = 'upload/excelstatecorrection'
     static sendMessage = 'https://cors-anywhere.herokuapp.com/https://api.msg91.com/api/v5/flow/';
     static getNumbers = 'upload/getexcel';
     static createMessage = 'message/createmessage';

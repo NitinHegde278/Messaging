@@ -1,4 +1,5 @@
-import { UploadDialog } from './upload-excel/upload-excel.component';
+import { AdminAuthGuardService, DeniedAccess } from './auth/admin-auth-guard.service';
+import { UploadDialog, Correction } from './upload-excel/upload-excel.component';
 import { ForwardDialog, ForwardSuccess, ForwardDelete } from './forward-message/forward-message.component';
 import { AddOrganizationDialog } from './send-message/send-message.component';
 import { SendingDialog } from './send-message/send-message.component';
@@ -166,6 +167,7 @@ export function jwtTokenGetter() {
     DeleteDialogComponent,
     ForgotPasswordComponent,
     TokenExpiredDialog,
+    DeniedAccess,
     tokenDialog,
     SetPasswordComponent,
     defaultpasswordDialog,
@@ -174,7 +176,8 @@ export function jwtTokenGetter() {
     ForwardDialog,
     ForwardSuccess,
     ForwardDelete,
-    UploadDialog
+    UploadDialog,
+    Correction
     
     // CityComponent,
     // VideoUploadComponent,
@@ -196,6 +199,7 @@ export function jwtTokenGetter() {
     VideoEditDialogComponent,
     DeleteDialogComponent,
     TokenExpiredDialog,
+    DeniedAccess,
     tokenDialog,
     defaultpasswordDialog,
     AddOrganizationDialog,
@@ -203,7 +207,8 @@ export function jwtTokenGetter() {
     ForwardDialog,
     ForwardSuccess,
     ForwardDelete,
-    UploadDialog
+    UploadDialog,
+    Correction
 
     // VideoDetailsDialog,
 
@@ -214,7 +219,7 @@ export function jwtTokenGetter() {
     multi: true,
 },
 {provide: LocationStrategy, useClass: HashLocationStrategy},
-AuthGuard,],
+AuthGuard,AdminAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

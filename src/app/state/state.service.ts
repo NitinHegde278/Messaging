@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UrlConstants } from 'app/helpers/urlconstant';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { StateUser } from './model/state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
-
-  constructor(private httpClient:HttpClient) { }
+  options;
+  token = localStorage.getItem('token');
+  constructor(private httpClient:HttpClient) { 
+    let httpHeaders = new HttpHeaders({
+      'authorization': this.token,
+    });
+    this.options = {
+      headers: httpHeaders
+    };
+  }
 
   
   saveState(payload): Observable<any> {
@@ -18,10 +26,10 @@ export class StateService {
     return this.httpClient.post<any>(url, payload);
     }
 
-    getState(payload):Observable<StateUser[]> {
+    getState(payload):Observable<any> {
     const url = UrlConstants.MAINURL + UrlConstants.getstatelist;
     // console.log(url,"outgoing url");
-    return this.httpClient.post<any>(url,payload);
+    return this.httpClient.post<any>(url,payload,this.options);
 
   }
 

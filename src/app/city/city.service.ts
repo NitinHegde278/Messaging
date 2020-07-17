@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UrlConstants } from 'app/helpers/urlconstant';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CityUser } from './model/city';
 
 @Injectable({
@@ -16,8 +16,16 @@ export class CityService {
   // portaladdteamUrl = environment.backendUrl + 'portal/users/addupdateuser';
   // portalroleUrl = environment.backendUrl + 'portal/users/getroles';
   // deleteportalUrl = environment.backendUrl + 'portal/users/removeuser';
-
-  constructor(private httpClient:HttpClient) { }
+  options;
+  token = localStorage.getItem('token');
+  constructor(private httpClient:HttpClient) {
+    let httpHeaders = new HttpHeaders({
+      'authorization': this.token,
+    });
+    this.options = {
+      headers: httpHeaders
+    };
+   }
 
   
   saveCity(payload): Observable<any> {
@@ -26,10 +34,10 @@ export class CityService {
     return this.httpClient.post<any>(url, payload);
     }
 
-    getCity(payload):Observable<CityUser[]> {
+    getCity(payload):Observable<any> {
     const url = UrlConstants.MAINURL + UrlConstants.getcitylist;
     // console.log(url,"outgoing url");
-    return this.httpClient.post<any>(url,payload);
+    return this.httpClient.post<any>(url,payload,this.options);
 
   }
   getRolesData(payload):Observable<CityUser[]> {

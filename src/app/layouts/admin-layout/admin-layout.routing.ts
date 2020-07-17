@@ -1,3 +1,4 @@
+import { AdminAuthGuardService } from './../../auth/admin-auth-guard.service';
 import { TotalMessagesComponent } from './../../total-messages/total-messages.component';
 import { ExcelReportComponent } from './../../excel-report/excel-report.component';
 import { ForwardedReportComponent } from './../../forwarded-report/forwarded-report.component';
@@ -22,11 +23,11 @@ import { UploadResponseComponent } from 'app/video-upload/upload-response/upload
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'video-upload', component: VideoUploadComponent },
-    { path: 'portal-users', component: PortalUsersComponent },
+    { path: 'portal-users', component: PortalUsersComponent, canActivate: [AdminAuthGuardService] },
     { path: 'mobile-users', component: MobileUsersComponent },
     { path: 'default-settings', component: DefaultSettingsComponent },
-    { path: 'organization', component: StateComponent },
-    { path: 'state', component: CityComponent },
+    { path: 'organization', component: StateComponent, canActivate: [AdminAuthGuardService]},
+    { path: 'state', component: CityComponent, canActivate: [AdminAuthGuardService] },
     { path: 'video-response', component: UploadResponseComponent },
     {path: 'send-message', component: SendMessageComponent},
     {path: 'upload-excel', component: UploadExcelComponent},
@@ -34,5 +35,5 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'sent-report', component: SentReportComponent},
     {path: 'forwarded-report', component: ForwardedReportComponent},
     {path: 'excel-report', component: ExcelReportComponent},
-    {path: 'total-messages', component: TotalMessagesComponent}
+    {path: 'total-messages', component: TotalMessagesComponent,canActivate: [AdminAuthGuardService]}
 ];
