@@ -13,6 +13,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/denied-access.html":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/denied-access.html ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div mat-dialog-content style=\"width: 250px; height: 150px;\">\r\n    <div class=\"row\" style=\"text-align: center;\">\r\n        <div class=\"col-md-12\" style=\"margin-bottom: 30px;\">\r\n                <h2> Access Denied </h2>\r\n                    \r\n       </div>\r\n    </div>\r\n    <div class=\"row\" style=\"justify-content: center;\">\r\n            <button type=\"button\" class=\"btn btn-default bg-success\" mat-dialog-close >Ok</button>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/token-expired-dialog.html":
 /*!**************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/token-expired-dialog.html ***!
@@ -22,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div mat-dialog-content>\n    <div class=\"row\" style=\"text-align: center;\">\n        <div class=\"col-md-12\">\n                <h4> Your session has expired </h4>\n                    <h4>please login again</h4>\n       </div>\n    </div>\n    <div class=\"row\" style=\"justify-content: center;\">\n            <button type=\"button\" class=\"btn btn-default bg-success\" mat-dialog-close >ok</button>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div mat-dialog-content>\n    <div class=\"row\" style=\"text-align: center;\">\n        <div class=\"col-md-12\">\n                <h4> Your session has expired </h4>\n                    <h4>please login again</h4>\n       </div>\n    </div>\n    <div class=\"row\" style=\"justify-content: center;\">\n            <button type=\"button\" class=\"btn btn-default bg-success\" mat-dialog-close >Ok</button>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -347,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"col-lg-12\">\r\n    <!-- <mat-spinner id=\"spinner\" *ngIf=\"showSpinner\" [diameter]=\"35\" style=\"margin-left: 130px;\"></mat-spinner> -->\r\n    <h1 mat-dialog-title>{{dialogTitle}}</h1>\r\n    <div mat-dialog-content class=\"cardbox\">\r\n        <form [formGroup]=\"myForm\" (ngSubmit)=\"saveOrg()\">\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    <mat-form-field style=\"padding: 0% 6%;\">\r\n                        <mat-label>Organization</mat-label>\r\n                        <mat-select [(ngModel)]=\"selectedOrgType\" formControlName=\"name\"  required>\r\n                          <mat-option *ngFor=\"let item of name\" [value]=\"item.org_name\" >\r\n                            {{item.org_name}}\r\n                          </mat-option>\r\n                        </mat-select>\r\n                        <mat-error>This field is mandatory.</mat-error>\r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    <mat-form-field style=\"padding: 0% 6%;\">\r\n                        <mat-label>States</mat-label>\r\n                        <mat-select [(ngModel)]=\"selectedStates\" formControlName=\"states\"  multiple required>\r\n                                \r\n                                    <mat-option *ngFor=\"let item of stateList\" [value]=\"item.state_name\">\r\n                                        {{item.state_name}}\r\n                                    </mat-option>\r\n                                \r\n                        </mat-select>\r\n                        <mat-error>This field is mandatory.</mat-error> \r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    \r\n                        <mat-checkbox color=\"primary\" formControlName=\"sms\" [(ngModel)]=\"sms\" style=\"padding: 0% 6%;\">SMS:\r\n                            <div *ngFor=\"let item of states\" style=\"display: inline-block;\">\r\n                            <div *ngIf=\"selectedOrgType == item.org\">\r\n                                {{item.sms}} users\r\n                            </div>\r\n                        </div>\r\n                    </mat-checkbox>    \r\n                    \r\n                </div>\r\n            </div>\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    \r\n                        <mat-checkbox color=\"primary\" formControlName=\"whatsapp\" [(ngModel)]=\"whatsapp\" style=\"padding: 0% 6%;\">Whatsapp: \r\n                            <div *ngFor=\"let item of states\" style=\"display: inline-block;\">\r\n                                <div *ngIf=\"selectedOrgType == item.org\"> \r\n                                    {{item.whatsapp}} users\r\n                                </div>\r\n                            </div>\r\n                        </mat-checkbox>\r\n                        \r\n                    \r\n                </div>\r\n            </div>\r\n                 <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <button type=\"button\" class=\"btn btn-default bg-success pull-right m-3\" *ngIf=\"save_user\" [disabled]=\"validate()\" (click)=\"saveOrg()\">Save</button>\r\n                        <button type=\"button\" class=\"btn btn-default bg-success pull-right m-3\" *ngIf=\"update_user\" [disabled]=\"validate()\" (click)=\"updateOrg()\">Update</button>\r\n                        <button type=\"button\" class=\"btn btn-default bg-danger pull-right m-3\" mat-dialog-close>Cancel</button>   \r\n                    </div>\r\n                </div>\r\n            </form>\r\n    </div>\r\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"col-lg-12\">\r\n    <!-- <mat-spinner id=\"spinner\" *ngIf=\"showSpinner\" [diameter]=\"35\" style=\"margin-left: 130px;\"></mat-spinner> -->\r\n    <h1 mat-dialog-title>{{dialogTitle}}</h1>\r\n    <div mat-dialog-content class=\"cardbox\">\r\n        <form [formGroup]=\"myForm\" (ngSubmit)=\"saveOrg()\">\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    <mat-form-field style=\"padding: 0% 6%;\">\r\n                        <mat-label>Organization</mat-label>\r\n                        <mat-select [(ngModel)]=\"selectedOrgType\" formControlName=\"name\"  required>\r\n                          <mat-option *ngFor=\"let item of name\" [value]=\"item.org_id\" >\r\n                            {{item.org_name}}\r\n                          </mat-option>\r\n                        </mat-select>\r\n                        <mat-error>This field is mandatory.</mat-error>\r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    <mat-form-field style=\"padding: 0% 6%;\">\r\n                        <mat-label>States</mat-label>\r\n                        <mat-select [(ngModel)]=\"selectedStates\" formControlName=\"states\"  multiple required>\r\n                                \r\n                                    <mat-option *ngFor=\"let item of stateList\" [value]=\"item.state_id\">\r\n                                        {{item.state_name}}\r\n                                    </mat-option>\r\n                                \r\n                        </mat-select>\r\n                        <mat-error>This field is mandatory.</mat-error> \r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    \r\n                        <mat-checkbox color=\"primary\" formControlName=\"sms\" [(ngModel)]=\"sms\" style=\"padding: 0% 6%;\">SMS:\r\n                            <div *ngFor=\"let item of states\" style=\"display: inline-block;\">\r\n                            <div *ngIf=\"selectedOrgType == item.id\">\r\n                                {{item.sms}} users\r\n                            </div>\r\n                        </div>\r\n                    </mat-checkbox>    \r\n                    \r\n                </div>\r\n            </div>\r\n            <div class=\"row container\">\r\n                <div class=\"col-md-12\">\r\n                    \r\n                        <mat-checkbox color=\"primary\" formControlName=\"whatsapp\" [(ngModel)]=\"whatsapp\" style=\"padding: 0% 6%;\">Whatsapp: \r\n                            <div *ngFor=\"let item of states\" style=\"display: inline-block;\">\r\n                                <div *ngIf=\"selectedOrgType == item.id\"> \r\n                                    {{item.whatsapp}} users\r\n                                </div>\r\n                            </div>\r\n                        </mat-checkbox>\r\n                        \r\n                    \r\n                </div>\r\n            </div>\r\n                 <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <button type=\"button\" class=\"btn btn-default bg-success pull-right m-3\" *ngIf=\"save_user\" [disabled]=\"validate()\" (click)=\"saveOrg()\">Save</button>\r\n                        <button type=\"button\" class=\"btn btn-default bg-success pull-right m-3\" *ngIf=\"update_user\" [disabled]=\"validate()\" (click)=\"updateOrg()\">Update</button>\r\n                        <button type=\"button\" class=\"btn btn-default bg-danger pull-right m-3\" mat-dialog-close>Cancel</button>   \r\n                    </div>\r\n                </div>\r\n            </form>\r\n    </div>\r\n    </div>");
 
 /***/ }),
 
@@ -413,6 +426,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-md-7\">\n                <div class=\"card\">\n                    <div class=\"card-header card-header-primary\">\n                        <div class=\"row\">\n                            <div class=\"col-lg-12 col-md-6 \">\n                                <button type=\"button\" class=\"btn btn-default bg-info pull-right m-3\"\n                                    (click)=\"adduser()\">Add\n                                    Organization</button>\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <h4 class=\"card-title\">Organization</h4>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <mat-table #table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"position\">\n                            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row; let i = index;\"> {{i+1}} </mat-cell>\n                        </ng-container>\n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"org_name\">\n                            <mat-header-cell *matHeaderCellDef  class=\"card-container\"> Name </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"  class=\"card-container\"> {{row.org_name}} </mat-cell>\n                        </ng-container>\n                        <!-- Action Column -->\n                        <ng-container matColumnDef=\"action\">\n                            <mat-header-cell *matHeaderCellDef  class=\"card-container\">Actions </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"  class=\"card-container\">\n                                <a (click)=\"edit_low(row) \" style=\"color:#1d8b4e; cursor:pointer;\">\n                                    <mat-icon aria-label=\"Edit\">edit</mat-icon>\n                                </a>\n                                <a (click)=\"delete_low(row)\" style=\"color:red; cursor:pointer;\">\n                                    <mat-icon aria-label=\"Delete\">delete</mat-icon>\n                                </a>\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\" showFirstLastButtons></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/upload-excel/correction.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/upload-excel/correction.html ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"col-lg-12\" style=\"width: 500px;text-align: center;\">\r\n    <!-- <mat-spinner id=\"spinner\" *ngIf=\"showSpinner\" [diameter]=\"35\" style=\"margin-left: 130px;\"></mat-spinner> -->\r\n    <h2 mat-dialog-title>{{dialogTitle}}</h2>\r\n    <div mat-dialog-content class=\"cardbox\">\r\n        <form [formGroup]=\"myForm\">\r\n            <div class=\"row\">\r\n            <h3 style=\"margin: 10px;\">No.</h3>\r\n                <h3 style=\"margin: 10px 20px;\">Mismatched States</h3>\r\n                <h3 style=\"margin: 10px;\">Select</h3>\r\n            </div>\r\n        <div *ngFor=\"let item of element;let i = index;\" id=\"trial\">\r\n            <div class=\"row\">\r\n                <p style=\"margin: 16px;\">{{i+1}}</p> \r\n                <p style=\"margin: 16px 10px 16px 24px;width: 70px;\">{{item.mis_state}}</p>\r\n            <mat-form-field style=\"right:-80px;\">\r\n                <mat-label>State</mat-label>\r\n                <mat-select [(ngModel)]=\"selectedStates[i]\" formControlName=\"states\" required>\r\n                        \r\n                            <mat-option *ngFor=\"let item of stateList\" [value]=\"item.state_id\">\r\n                                {{item.state_name}}\r\n                            </mat-option>\r\n                        \r\n                </mat-select>\r\n                <mat-error>This field is mandatory.</mat-error> \r\n            </mat-form-field>\r\n            </div>\r\n            \r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <button type=\"button\" class=\"btn btn-default bg-success pull-right m-3\" [disabled]=\"check()\" (click)=\"saveStates()\">Save</button>\r\n                <button type=\"button\" class=\"btn btn-default bg-danger pull-right m-3\" mat-dialog-close>Discard</button>   \r\n            </div>\r\n        </div>\r\n        </form>\r\n    </div>\r\n    </div>");
 
 /***/ }),
 
@@ -607,64 +633,66 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jwtTokenGetter", function() { return jwtTokenGetter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./upload-excel/upload-excel.component */ "./src/app/upload-excel/upload-excel.component.ts");
-/* harmony import */ var _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forward-message/forward-message.component */ "./src/app/forward-message/forward-message.component.ts");
-/* harmony import */ var _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./send-message/send-message.component */ "./src/app/send-message/send-message.component.ts");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/fesm5/dialog.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm5/card.js");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/fesm5/table.js");
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/fesm5/toolbar.js");
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/fesm5/menu.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
-/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/fesm5/progress-spinner.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/fesm5/select.js");
-/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/fesm5/paginator.js");
-/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/fesm5/sort.js");
-/* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/slide-toggle */ "./node_modules/@angular/material/fesm5/slide-toggle.js");
-/* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/fesm5/checkbox.js");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
-/* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/components.module */ "./src/app/components/components.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var mat_video__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! mat-video */ "./node_modules/mat-video/fesm5/mat-video.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm5/agm-core.js");
-/* harmony import */ var _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./layouts/admin-layout/admin-layout.component */ "./src/app/layouts/admin-layout/admin-layout.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _helpers_must_match_directive__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./helpers/must-match.directive */ "./src/app/helpers/must-match.directive.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./portal-users/portal-users.component */ "./src/app/portal-users/portal-users.component.ts");
-/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/reset-password/reset-password.component.ts");
-/* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
-/* harmony import */ var _state_state_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./state/state.component */ "./src/app/state/state.component.ts");
-/* harmony import */ var _city_city_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./city/city.component */ "./src/app/city/city.component.ts");
-/* harmony import */ var _video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./video-upload/video-upload.component */ "./src/app/video-upload/video-upload.component.ts");
-/* harmony import */ var ngx_owl_carousel_o__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ngx-owl-carousel-o */ "./node_modules/ngx-owl-carousel-o/fesm5/ngx-owl-carousel-o.js");
-/* harmony import */ var _video_upload_video_dialog_video_dialog_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./video-upload/video-dialog/video-dialog.component */ "./src/app/video-upload/video-dialog/video-dialog.component.ts");
-/* harmony import */ var _video_upload_video_edit_dialog_video_edit_dialog_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./video-upload/video-edit-dialog/video-edit-dialog.component */ "./src/app/video-upload/video-edit-dialog/video-edit-dialog.component.ts");
-/* harmony import */ var _video_upload_delete_dialog_delete_dialog_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./video-upload/delete-dialog/delete-dialog.component */ "./src/app/video-upload/delete-dialog/delete-dialog.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../app/helpers/request.interceptor */ "./src/app/helpers/request.interceptor.ts");
-/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/fesm5/auth0-angular-jwt.js");
-/* harmony import */ var _app_helpers_ProjectCustomUtils__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../app/helpers/ProjectCustomUtils */ "./src/app/helpers/ProjectCustomUtils.ts");
-/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/forgot-password/forgot-password.component.ts");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
-/* harmony import */ var _reset_password_set_password_set_password_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./reset-password/set-password/set-password.component */ "./src/app/reset-password/set-password/set-password.component.ts");
-/* harmony import */ var app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! app/default-settings/default-settings.component */ "./src/app/default-settings/default-settings.component.ts");
+/* harmony import */ var _auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth/admin-auth-guard.service */ "./src/app/auth/admin-auth-guard.service.ts");
+/* harmony import */ var _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./upload-excel/upload-excel.component */ "./src/app/upload-excel/upload-excel.component.ts");
+/* harmony import */ var _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./forward-message/forward-message.component */ "./src/app/forward-message/forward-message.component.ts");
+/* harmony import */ var _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./send-message/send-message.component */ "./src/app/send-message/send-message.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/fesm5/input.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/fesm5/form-field.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/fesm5/dialog.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/fesm5/button.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm5/card.js");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/fesm5/table.js");
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/fesm5/toolbar.js");
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/fesm5/menu.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/fesm5/icon.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/fesm5/progress-spinner.js");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/fesm5/select.js");
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/fesm5/paginator.js");
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/fesm5/sort.js");
+/* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/slide-toggle */ "./node_modules/@angular/material/fesm5/slide-toggle.js");
+/* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/fesm5/checkbox.js");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
+/* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/components.module */ "./src/app/components/components.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var mat_video__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! mat-video */ "./node_modules/mat-video/fesm5/mat-video.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm5/agm-core.js");
+/* harmony import */ var _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./layouts/admin-layout/admin-layout.component */ "./src/app/layouts/admin-layout/admin-layout.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _helpers_must_match_directive__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./helpers/must-match.directive */ "./src/app/helpers/must-match.directive.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./portal-users/portal-users.component */ "./src/app/portal-users/portal-users.component.ts");
+/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/reset-password/reset-password.component.ts");
+/* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
+/* harmony import */ var _state_state_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./state/state.component */ "./src/app/state/state.component.ts");
+/* harmony import */ var _city_city_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./city/city.component */ "./src/app/city/city.component.ts");
+/* harmony import */ var _video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./video-upload/video-upload.component */ "./src/app/video-upload/video-upload.component.ts");
+/* harmony import */ var ngx_owl_carousel_o__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ngx-owl-carousel-o */ "./node_modules/ngx-owl-carousel-o/fesm5/ngx-owl-carousel-o.js");
+/* harmony import */ var _video_upload_video_dialog_video_dialog_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./video-upload/video-dialog/video-dialog.component */ "./src/app/video-upload/video-dialog/video-dialog.component.ts");
+/* harmony import */ var _video_upload_video_edit_dialog_video_edit_dialog_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./video-upload/video-edit-dialog/video-edit-dialog.component */ "./src/app/video-upload/video-edit-dialog/video-edit-dialog.component.ts");
+/* harmony import */ var _video_upload_delete_dialog_delete_dialog_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./video-upload/delete-dialog/delete-dialog.component */ "./src/app/video-upload/delete-dialog/delete-dialog.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../app/helpers/request.interceptor */ "./src/app/helpers/request.interceptor.ts");
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/fesm5/auth0-angular-jwt.js");
+/* harmony import */ var _app_helpers_ProjectCustomUtils__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ../app/helpers/ProjectCustomUtils */ "./src/app/helpers/ProjectCustomUtils.ts");
+/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/forgot-password/forgot-password.component.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var _reset_password_set_password_set_password_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./reset-password/set-password/set-password.component */ "./src/app/reset-password/set-password/set-password.component.ts");
+/* harmony import */ var app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! app/default-settings/default-settings.component */ "./src/app/default-settings/default-settings.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -728,51 +756,51 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 function jwtTokenGetter() {
-    return localStorage.getItem(_app_helpers_ProjectCustomUtils__WEBPACK_IMPORTED_MODULE_47__["ProjectCustomUtils"].projectJWTToken);
+    return localStorage.getItem(_app_helpers_ProjectCustomUtils__WEBPACK_IMPORTED_MODULE_48__["ProjectCustomUtils"].projectJWTToken);
 }
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_31__["CommonModule"],
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__["BrowserModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
-                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"],
-                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"],
-                _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
-                _angular_material_input__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialogModule"],
-                _angular_material_table__WEBPACK_IMPORTED_MODULE_13__["MatTableModule"],
-                _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__["MatMenuModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"],
-                _angular_material_select__WEBPACK_IMPORTED_MODULE_18__["MatSelectModule"],
-                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_17__["MatProgressSpinnerModule"],
-                _angular_material_sort__WEBPACK_IMPORTED_MODULE_20__["MatSortModule"],
-                _angular_material_paginator__WEBPACK_IMPORTED_MODULE_19__["MatPaginatorModule"],
-                _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_21__["MatSlideToggleModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_32__["CommonModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_33__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormFieldModule"],
+                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_15__["MatToolbarModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_13__["MatCardModule"],
+                _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialogModule"],
+                _angular_material_table__WEBPACK_IMPORTED_MODULE_14__["MatTableModule"],
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__["MatIconModule"],
+                _angular_material_select__WEBPACK_IMPORTED_MODULE_19__["MatSelectModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__["MatProgressSpinnerModule"],
+                _angular_material_sort__WEBPACK_IMPORTED_MODULE_21__["MatSortModule"],
+                _angular_material_paginator__WEBPACK_IMPORTED_MODULE_20__["MatPaginatorModule"],
+                _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_22__["MatSlideToggleModule"],
                 // MatCardTitleModule,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_6__["HttpModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_44__["HttpClientModule"],
-                _components_components_module__WEBPACK_IMPORTED_MODULE_24__["ComponentsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"],
-                mat_video__WEBPACK_IMPORTED_MODULE_26__["MatVideoModule"],
-                ngx_spinner__WEBPACK_IMPORTED_MODULE_49__["NgxSpinnerModule"],
-                _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_22__["MatCheckboxModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_7__["HttpModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpClientModule"],
+                _components_components_module__WEBPACK_IMPORTED_MODULE_25__["ComponentsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"],
+                mat_video__WEBPACK_IMPORTED_MODULE_27__["MatVideoModule"],
+                ngx_spinner__WEBPACK_IMPORTED_MODULE_50__["NgxSpinnerModule"],
+                _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_23__["MatCheckboxModule"],
                 // CarouselModule,
-                angular2_toaster__WEBPACK_IMPORTED_MODULE_35__["ToasterModule"].forRoot(),
-                _agm_core__WEBPACK_IMPORTED_MODULE_27__["AgmCoreModule"].forRoot({
+                angular2_toaster__WEBPACK_IMPORTED_MODULE_36__["ToasterModule"].forRoot(),
+                _agm_core__WEBPACK_IMPORTED_MODULE_28__["AgmCoreModule"].forRoot({
                     apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
                 }),
-                _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(_app_routing__WEBPACK_IMPORTED_MODULE_23__["routes"], { useHash: false }),
-                _agm_core__WEBPACK_IMPORTED_MODULE_27__["AgmCoreModule"].forRoot({
+                _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"].forRoot(_app_routing__WEBPACK_IMPORTED_MODULE_24__["routes"], { useHash: false }),
+                _agm_core__WEBPACK_IMPORTED_MODULE_28__["AgmCoreModule"].forRoot({
                     apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
                 }),
-                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_46__["JwtModule"].forRoot({
+                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_47__["JwtModule"].forRoot({
                     config: {
                         tokenGetter: jwtTokenGetter,
                         // () => {
@@ -784,85 +812,89 @@ var AppModule = /** @class */ (function () {
                 }),
             ],
             exports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_31__["CommonModule"],
-                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
-                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormFieldModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"],
-                _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
-                _angular_material_input__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialogModule"],
-                _angular_material_table__WEBPACK_IMPORTED_MODULE_13__["MatTableModule"],
-                _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__["MatMenuModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"],
-                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_17__["MatProgressSpinnerModule"],
-                _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_21__["MatSlideToggleModule"],
-                ngx_owl_carousel_o__WEBPACK_IMPORTED_MODULE_39__["CarouselModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_32__["CommonModule"],
+                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_15__["MatToolbarModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormFieldModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_13__["MatCardModule"],
+                _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialogModule"],
+                _angular_material_table__WEBPACK_IMPORTED_MODULE_14__["MatTableModule"],
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__["MatIconModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__["MatProgressSpinnerModule"],
+                _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_22__["MatSlideToggleModule"],
+                ngx_owl_carousel_o__WEBPACK_IMPORTED_MODULE_40__["CarouselModule"],
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_25__["AppComponent"],
-                _helpers_must_match_directive__WEBPACK_IMPORTED_MODULE_30__["MustMatchDirective"],
-                _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_28__["AdminLayoutComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_29__["LoginComponent"],
-                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_33__["DeleteUserDialog"],
-                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_33__["AddUserDialog"],
-                _video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_38__["VideoUploadDialog"],
-                _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_34__["ResetPasswordComponent"],
-                _state_state_component__WEBPACK_IMPORTED_MODULE_36__["AddStateDialog"],
-                _state_state_component__WEBPACK_IMPORTED_MODULE_36__["DeleteStateDialog"],
-                _city_city_component__WEBPACK_IMPORTED_MODULE_37__["AddCityDialog"],
-                _city_city_component__WEBPACK_IMPORTED_MODULE_37__["DeleteCityDialog"],
+                _app_component__WEBPACK_IMPORTED_MODULE_26__["AppComponent"],
+                _helpers_must_match_directive__WEBPACK_IMPORTED_MODULE_31__["MustMatchDirective"],
+                _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_29__["AdminLayoutComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_30__["LoginComponent"],
+                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_34__["DeleteUserDialog"],
+                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_34__["AddUserDialog"],
+                _video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_39__["VideoUploadDialog"],
+                _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_35__["ResetPasswordComponent"],
+                _state_state_component__WEBPACK_IMPORTED_MODULE_37__["AddStateDialog"],
+                _state_state_component__WEBPACK_IMPORTED_MODULE_37__["DeleteStateDialog"],
+                _city_city_component__WEBPACK_IMPORTED_MODULE_38__["AddCityDialog"],
+                _city_city_component__WEBPACK_IMPORTED_MODULE_38__["DeleteCityDialog"],
                 // VideoDetailsDialog,
-                _login_login_component__WEBPACK_IMPORTED_MODULE_29__["forgotDialog"],
-                _video_upload_video_dialog_video_dialog_component__WEBPACK_IMPORTED_MODULE_40__["VideoDialogComponent"],
-                _video_upload_video_edit_dialog_video_edit_dialog_component__WEBPACK_IMPORTED_MODULE_41__["VideoEditDialogComponent"],
-                _video_upload_delete_dialog_delete_dialog_component__WEBPACK_IMPORTED_MODULE_42__["DeleteDialogComponent"],
-                _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_48__["ForgotPasswordComponent"],
-                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_43__["TokenExpiredDialog"],
-                _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_45__["tokenDialog"],
-                _reset_password_set_password_set_password_component__WEBPACK_IMPORTED_MODULE_50__["SetPasswordComponent"],
-                app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_51__["defaultpasswordDialog"],
-                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_2__["AddOrganizationDialog"],
-                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_2__["SendingDialog"],
-                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__["ForwardDialog"],
-                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__["ForwardSuccess"],
-                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__["ForwardDelete"],
-                _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_0__["UploadDialog"]
+                _login_login_component__WEBPACK_IMPORTED_MODULE_30__["forgotDialog"],
+                _video_upload_video_dialog_video_dialog_component__WEBPACK_IMPORTED_MODULE_41__["VideoDialogComponent"],
+                _video_upload_video_edit_dialog_video_edit_dialog_component__WEBPACK_IMPORTED_MODULE_42__["VideoEditDialogComponent"],
+                _video_upload_delete_dialog_delete_dialog_component__WEBPACK_IMPORTED_MODULE_43__["DeleteDialogComponent"],
+                _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_49__["ForgotPasswordComponent"],
+                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_44__["TokenExpiredDialog"],
+                _auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["DeniedAccess"],
+                _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_46__["tokenDialog"],
+                _reset_password_set_password_set_password_component__WEBPACK_IMPORTED_MODULE_51__["SetPasswordComponent"],
+                app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_52__["defaultpasswordDialog"],
+                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_3__["AddOrganizationDialog"],
+                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_3__["SendingDialog"],
+                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__["ForwardDialog"],
+                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__["ForwardSuccess"],
+                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__["ForwardDelete"],
+                _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_1__["UploadDialog"],
+                _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_1__["Correction"]
                 // CityComponent,
                 // VideoUploadComponent,
                 // StateComponent
                 // PortalUsersComponent
             ],
             entryComponents: [
-                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_33__["DeleteUserDialog"],
-                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_33__["AddUserDialog"],
-                _video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_38__["VideoUploadDialog"],
-                _state_state_component__WEBPACK_IMPORTED_MODULE_36__["AddStateDialog"],
-                _state_state_component__WEBPACK_IMPORTED_MODULE_36__["DeleteStateDialog"],
-                _city_city_component__WEBPACK_IMPORTED_MODULE_37__["AddCityDialog"],
-                _city_city_component__WEBPACK_IMPORTED_MODULE_37__["DeleteCityDialog"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_29__["forgotDialog"],
-                _video_upload_video_dialog_video_dialog_component__WEBPACK_IMPORTED_MODULE_40__["VideoDialogComponent"],
-                _video_upload_video_edit_dialog_video_edit_dialog_component__WEBPACK_IMPORTED_MODULE_41__["VideoEditDialogComponent"],
-                _video_upload_delete_dialog_delete_dialog_component__WEBPACK_IMPORTED_MODULE_42__["DeleteDialogComponent"],
-                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_43__["TokenExpiredDialog"],
-                _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_45__["tokenDialog"],
-                app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_51__["defaultpasswordDialog"],
-                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_2__["AddOrganizationDialog"],
-                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_2__["SendingDialog"],
-                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__["ForwardDialog"],
-                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__["ForwardSuccess"],
-                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_1__["ForwardDelete"],
-                _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_0__["UploadDialog"]
+                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_34__["DeleteUserDialog"],
+                _portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_34__["AddUserDialog"],
+                _video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_39__["VideoUploadDialog"],
+                _state_state_component__WEBPACK_IMPORTED_MODULE_37__["AddStateDialog"],
+                _state_state_component__WEBPACK_IMPORTED_MODULE_37__["DeleteStateDialog"],
+                _city_city_component__WEBPACK_IMPORTED_MODULE_38__["AddCityDialog"],
+                _city_city_component__WEBPACK_IMPORTED_MODULE_38__["DeleteCityDialog"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_30__["forgotDialog"],
+                _video_upload_video_dialog_video_dialog_component__WEBPACK_IMPORTED_MODULE_41__["VideoDialogComponent"],
+                _video_upload_video_edit_dialog_video_edit_dialog_component__WEBPACK_IMPORTED_MODULE_42__["VideoEditDialogComponent"],
+                _video_upload_delete_dialog_delete_dialog_component__WEBPACK_IMPORTED_MODULE_43__["DeleteDialogComponent"],
+                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_44__["TokenExpiredDialog"],
+                _auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["DeniedAccess"],
+                _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_46__["tokenDialog"],
+                app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_52__["defaultpasswordDialog"],
+                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_3__["AddOrganizationDialog"],
+                _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_3__["SendingDialog"],
+                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__["ForwardDialog"],
+                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__["ForwardSuccess"],
+                _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_2__["ForwardDelete"],
+                _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_1__["UploadDialog"],
+                _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_1__["Correction"]
                 // VideoDetailsDialog,
             ],
             providers: [{
-                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_44__["HTTP_INTERCEPTORS"],
-                    useClass: _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_45__["RequestInterceptor"],
+                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HTTP_INTERCEPTORS"],
+                    useClass: _app_helpers_request_interceptor__WEBPACK_IMPORTED_MODULE_46__["RequestInterceptor"],
                     multi: true,
                 },
-                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_31__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_31__["HashLocationStrategy"] },
-                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_43__["AuthGuard"],],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_25__["AppComponent"]]
+                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_32__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_32__["HashLocationStrategy"] },
+                _auth_auth_guard__WEBPACK_IMPORTED_MODULE_44__["AuthGuard"], _auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["AdminAuthGuardService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_26__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -936,6 +968,80 @@ var routes = [
 //   ],
 // })
 // export class AppRoutingModule { }
+
+
+/***/ }),
+
+/***/ "./src/app/auth/admin-auth-guard.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/auth/admin-auth-guard.service.ts ***!
+  \**************************************************/
+/*! exports provided: AdminAuthGuardService, DeniedAccess */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminAuthGuardService", function() { return AdminAuthGuardService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeniedAccess", function() { return DeniedAccess; });
+/* harmony import */ var app_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/fesm5/dialog.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+var AdminAuthGuardService = /** @class */ (function () {
+    function AdminAuthGuardService(dialog, authService) {
+        this.dialog = dialog;
+        this.authService = authService;
+    }
+    AdminAuthGuardService.prototype.canActivate = function (route, state) {
+        if (this.authService.role && this.authService.role == 'A') {
+            return true;
+        }
+        else {
+            var dialogRef = this.dialog.open(DeniedAccess, {});
+            dialogRef.afterClosed().subscribe(function (data) {
+                return false;
+            });
+        }
+    };
+    AdminAuthGuardService.ctorParameters = function () { return [
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
+        { type: app_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__["AuthService"] }
+    ]; };
+    AdminAuthGuardService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], app_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__["AuthService"]])
+    ], AdminAuthGuardService);
+    return AdminAuthGuardService;
+}());
+
+var DeniedAccess = /** @class */ (function () {
+    function DeniedAccess() {
+    }
+    DeniedAccess = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'denied-access',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./denied-access.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/denied-access.html")).default,
+        })
+    ], DeniedAccess);
+    return DeniedAccess;
+}());
+
 
 
 /***/ }),
@@ -1070,19 +1176,19 @@ var AuthService = /** @class */ (function () {
         this.logoutApi = environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].backendUrl + 'auth/logout';
         this.incidentData = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
-    AuthService.prototype.signin = function (userName, role_id, name) {
+    AuthService.prototype.signin = function (userName, role, name) {
         var resp = this.httpClient.post(this.checkLoginApi, '', { withCredentials: true });
         //  console.log(resp,"dbhbd");
         //validate jwt tokens here
         this.userName = userName;
         this.name = name;
         this.isLoggedIn = true;
-        this.role_id = Number(role_id);
+        this.role = role;
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(true);
     };
     AuthService.prototype.logout = function () {
         this.isLoggedIn = false;
-        this.role_id = 100;
+        this.role = 100;
         var resp = this.httpClient.post(this.logoutApi, '', { withCredentials: true });
     };
     AuthService.prototype.sendMessage = function (data) {
@@ -1428,15 +1534,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CityService = /** @class */ (function () {
-    // getPortalColumns() {
-    //   throw new Error("Method not implemented.");
-    // }
-    // portalUserUrl = environment.backendUrl + 'portal/users/getuserlist';
-    // portaladdteamUrl = environment.backendUrl + 'portal/users/addupdateuser';
-    // portalroleUrl = environment.backendUrl + 'portal/users/getroles';
-    // deleteportalUrl = environment.backendUrl + 'portal/users/removeuser';
     function CityService(httpClient) {
         this.httpClient = httpClient;
+        this.token = localStorage.getItem('token');
+        var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'authorization': this.token,
+        });
+        this.options = {
+            headers: httpHeaders
+        };
     }
     CityService.prototype.saveCity = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].saveCity;
@@ -1446,7 +1552,7 @@ var CityService = /** @class */ (function () {
     CityService.prototype.getCity = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].getcitylist;
         // console.log(url,"outgoing url");
-        return this.httpClient.post(url, payload);
+        return this.httpClient.post(url, payload, this.options);
     };
     CityService.prototype.getRolesData = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].getcats;
@@ -2041,25 +2147,25 @@ var SidebarComponent = /** @class */ (function () {
         this.super_admin_list = false;
     }
     SidebarComponent.prototype.ngOnInit = function () {
-        if (this.service.role_id == 1) {
+        if (this.service.role == 'U') {
             this.uploader = true;
             this.admin_list = false;
             this.super_admin_list = false;
         }
-        else if (this.service.role_id == 3) {
+        else if (this.service.role == 'A') {
             this.super_admin_list = true;
             this.admin_list = false;
             this.uploader = false;
         }
-        if (this.service.role_id === undefined) {
-            this.service.role_id = localStorage.getItem('role');
-            // console.log(this.service.role_id,"undefined this.service.role_id")
-            if (this.service.role_id == 1) {
+        if (this.service.role === undefined) {
+            this.service.role = localStorage.getItem('role');
+            // console.log(this.service.role,"undefined this.service.role")
+            if (this.service.role == 'U') {
                 this.uploader = true;
                 this.admin_list = false;
                 this.super_admin_list = false;
             }
-            else if (this.service.role_id == 3) {
+            else if (this.service.role == 'A') {
                 this.super_admin_list = true;
                 this.admin_list = false;
                 this.uploader = false;
@@ -2550,31 +2656,31 @@ var ForwardMessageComponent = /** @class */ (function () {
         this.admin = false;
     }
     ForwardMessageComponent.prototype.ngOnInit = function () {
-        if (this.service.role_id == 1) {
+        if (this.service.role == 'U') {
             this.user = true;
             this.admin = false;
             this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](TABLEDATA);
             this.dataSource.paginator = this.paginator;
             this.dataSource.data = TABLEDATA;
         }
-        else if (this.service.role_id == 3) {
+        else if (this.service.role == 'A') {
             this.user = false;
             this.admin = true;
             this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](TABLEDATA1);
             this.dataSource.paginator = this.paginator;
             this.dataSource.data = TABLEDATA1;
         }
-        if (this.service.role_id === undefined) {
-            this.service.role_id = localStorage.getItem('role');
-            // console.log(this.service.role_id,"undefined this.service.role_id")
-            if (this.service.role_id == 1) {
+        if (this.service.role === undefined) {
+            this.service.role = localStorage.getItem('role');
+            // console.log(this.service.role,"undefined this.service.role")
+            if (this.service.role == 'U') {
                 this.user = true;
                 this.admin = false;
                 this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](TABLEDATA);
                 this.dataSource.paginator = this.paginator;
                 this.dataSource.data = TABLEDATA;
             }
-            else if (this.service.role_id == 3) {
+            else if (this.service.role == 'A') {
                 this.user = false;
                 this.admin = true;
                 this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](TABLEDATA1);
@@ -2629,28 +2735,28 @@ var ForwardDialog = /** @class */ (function () {
         this.service = service;
         this.user = false;
         this.admin = false;
-        if (this.service.role_id == 1) {
+        if (this.service.role == 'U') {
             this.user = true;
             deleteUser = true;
             deleteAdmin = false;
             this.admin = false;
         }
-        else if (this.service.role_id == 3) {
+        else if (this.service.role == 'A') {
             this.user = false;
             deleteUser = false;
             deleteAdmin = true;
             this.admin = true;
         }
-        if (this.service.role_id === undefined) {
-            this.service.role_id = localStorage.getItem('role');
-            // console.log(this.service.role_id,"undefined this.service.role_id")
-            if (this.service.role_id == 1) {
+        if (this.service.role === undefined) {
+            this.service.role = localStorage.getItem('role');
+            // console.log(this.service.role,"undefined this.service.role")
+            if (this.service.role == 'U') {
                 this.user = true;
                 deleteUser = true;
                 deleteAdmin = false;
                 this.admin = false;
             }
-            else if (this.service.role_id == 3) {
+            else if (this.service.role == 'A') {
                 this.user = false;
                 deleteUser = false;
                 deleteAdmin = true;
@@ -3085,9 +3191,11 @@ var UrlConstants = /** @class */ (function () {
     UrlConstants.getMobileUsers = 'portal/users/mobusr';
     UrlConstants.defaultsetting = 'portal/users/radio';
     UrlConstants.defaultsettings = 'portal/users/defaultsetting';
-    UrlConstants.excelData = 'upload/excel';
+    UrlConstants.excelData = 'upload/exceltest';
+    UrlConstants.excelCorrection = 'upload/excelstatecorrection';
     UrlConstants.sendMessage = 'https://cors-anywhere.herokuapp.com/https://api.msg91.com/api/v5/flow/';
     UrlConstants.getNumbers = 'upload/getexcel';
+    UrlConstants.createMessage = 'message/createmessage';
     return UrlConstants;
 }());
 
@@ -3366,29 +3474,29 @@ var LoginComponent = /** @class */ (function () {
         this.signininbutton_disable = true;
         this.service.signin(this.signinForm.value.email, this.signinForm.value.password)
             .subscribe(function (response) {
-            // console.log(response, "vbdvj");     
+            console.log(response, "vbdvj");
             if (response.success && response.token) {
                 // console.log(response.RawData,"response.RawDataresponse.RawData");
                 localStorage.setItem("user", response.RawData[0].email);
                 localStorage.setItem("name", response.RawData[0].name);
                 localStorage.setItem("userID", response.RawData[0].id);
-                localStorage.setItem("role", response.RawData[0].role_id);
-                localStorage.setItem("status", response.RawData[0].status);
+                localStorage.setItem("role", response.RawData[0].role);
+                localStorage.setItem("orgName", response.RawData[0].org_name);
                 localStorage.setItem("token", response.token);
                 localStorage.setItem(app_helpers_ProjectCustomUtils__WEBPACK_IMPORTED_MODULE_7__["ProjectCustomUtils"].projectJWTToken, response.token);
                 var decodedToken = app_helpers_ProjectCustomUtils__WEBPACK_IMPORTED_MODULE_7__["ProjectCustomUtils"].decodeTokenAndStoreCredentials();
                 //  console.log(decodedToken,"decodedTokendecodedToken");
                 if (decodedToken) {
-                    _this.authService.signin(response.RawData[0].email, response.RawData[0].role_id, response.RawData[0].name)
+                    _this.authService.signin(response.RawData[0].email, response.RawData[0].role, response.RawData[0].name)
                         .subscribe(function () {
                         // console.log(this.authService.isLoggedIn,"this.authService.isLoggedIn");
                         if (_this.authService.isLoggedIn) {
                             // console.log(this.authService.role_id,"this.authService.role_id");
-                            _this.isUploader = _this.authService.role_id == 1 ? true : false;
-                            _this.isSuperAdmin = _this.authService.role_id == 3 ? true : false;
-                            _this.isAdmin = _this.authService.role_id == 2 ? true : false;
+                            _this.isUploader = _this.authService.role == 'U' ? true : false;
+                            _this.isSuperAdmin = _this.authService.role == 'A' ? true : false;
+                            _this.isAdmin = _this.authService.role == 'Z' ? true : false;
                             // this.authService.incidentData.emit(response.RawData[0].role_id);
-                            if (response.RawData[0].role_id == 1 || response.RawData[0].role_id == 3 || response.RawData[0].role_id == 2 || response.RawData[0].role_id == 4) {
+                            if (response.RawData[0].role == 'U' || response.RawData[0].role == 'A' || response.RawData[0].role == 'Z') {
                                 _this.toasterService.pop("success", "Login", "Login Successfull");
                                 var redirect = _this.authService.redirectUrl ? _this.authService.redirectUrl : '/send-message';
                                 // console.log(redirect,"bdhcbh")
@@ -4653,15 +4761,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendMessageComponent", function() { return SendMessageComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddOrganizationDialog", function() { return AddOrganizationDialog; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendingDialog", function() { return SendingDialog; });
-/* harmony import */ var _send_message_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./send-message.service */ "./src/app/send-message/send-message.service.ts");
-/* harmony import */ var _city_city_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../city/city.service */ "./src/app/city/city.service.ts");
-/* harmony import */ var _state_state_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../state/state.service */ "./src/app/state/state.service.ts");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/fesm5/table.js");
-/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/fesm5/paginator.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/fesm5/dialog.js");
-/* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
+/* harmony import */ var app_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _send_message_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./send-message.service */ "./src/app/send-message/send-message.service.ts");
+/* harmony import */ var _city_city_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../city/city.service */ "./src/app/city/city.service.ts");
+/* harmony import */ var _state_state_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../state/state.service */ "./src/app/state/state.service.ts");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/fesm5/table.js");
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/fesm5/paginator.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/fesm5/dialog.js");
+/* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4686,13 +4795,14 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var STATES = [
-    { org: 'Organization-A', states: ['Karnataka', 'Kerala'], sms: 30000, whatsapp: 38000 },
-    { org: 'Organization-B', states: ['Karnataka', 'Maharashtra', 'Tamil Nadu'], sms: 50000, whatsapp: 28000 },
-    { org: 'Organization-C', states: ['Madhya Pradesh', 'Kerala', 'Odissa'], sms: 35000, whatsapp: 15000 },
-    { org: 'Organization-D', states: ['Karnataka', 'Andhra Pradesh', 'Telangana'], sms: 80600, whatsapp: 98000 },
-    { org: 'Organization-E', states: ['Maharashtra', 'Andhra Pradesh', 'Telangana', 'Kerala'], sms: 20000, whatsapp: 38000 },
-    { org: 'Organization-F', states: ['Odissa', 'Andhra Pradesh', 'Punjab', 'Uttar Pradesh'], sms: 60000, whatsapp: 78000 },
+    { id: 1, org: 'Organization-A', states: ['Karnataka', 'Kerala'], sms: 30000, whatsapp: 38000 },
+    { id: 6, org: 'Organization-B', states: ['Karnataka', 'Maharashtra', 'Tamil Nadu'], sms: 50000, whatsapp: 28000 },
+    { id: 7, org: 'Organization-C', states: ['Madhya Pradesh', 'Kerala', 'Odissa'], sms: 35000, whatsapp: 15000 },
+    { id: 8, org: 'Organization-D', states: ['Karnataka', 'Andhra Pradesh', 'Telangana'], sms: 80600, whatsapp: 98000 },
+    { id: 9, org: 'Organization-E', states: ['Maharashtra', 'Andhra Pradesh', 'Telangana', 'Kerala'], sms: 20000, whatsapp: 38000 },
+    { id: 17, org: 'Organization-F', states: ['Odissa', 'Andhra Pradesh', 'Punjab', 'Uttar Pradesh'], sms: 60000, whatsapp: 78000 },
 ];
 // const TRIAL = [
 //   {fname: 'Nitin', number: 9739888651},
@@ -4704,27 +4814,50 @@ var sent = false;
 var complete = false;
 var stateSend = [];
 var SendMessageComponent = /** @class */ (function () {
-    function SendMessageComponent(dialog, formbuilder, toasterService, service) {
+    function SendMessageComponent(dialog, formbuilder, toasterService, authService, service) {
         this.dialog = dialog;
         this.formbuilder = formbuilder;
         this.toasterService = toasterService;
+        this.authService = authService;
         this.service = service;
         this.displayedColumns = ['name', 'states', 'sms', 'whatsapp', 'action'];
         this.sender = "";
         this.campaign = "";
         this.message = "";
         this.sending = false;
+        this.user = false;
+        this.admin = false;
         this.myForm = formbuilder.group({
-            sender: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-            campaign: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-            message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-            dataSource: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].minLength(1)]]
+            sender: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+            campaign: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+            message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+            dataSource: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(1)]]
         });
     }
     SendMessageComponent.prototype.ngOnInit = function () {
-        this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](TABLEDATA);
+        this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](TABLEDATA);
         this.dataSource.paginator = this.paginator;
         this.dataSource.data = TABLEDATA;
+        if (this.authService.role == 'U') {
+            this.user = true;
+            this.admin = false;
+        }
+        else if (this.authService.role == 'A') {
+            this.user = false;
+            this.admin = true;
+        }
+        if (this.authService.role === undefined) {
+            this.authService.role = localStorage.getItem('role');
+            // console.log(this.service.role,"undefined this.service.role")
+            if (this.authService.role == 'U') {
+                this.user = true;
+                this.admin = false;
+            }
+            else if (this.authService.role == 'A') {
+                this.user = false;
+                this.admin = true;
+            }
+        }
     };
     SendMessageComponent.prototype.addOrganization = function () {
         var _this = this;
@@ -4739,63 +4872,91 @@ var SendMessageComponent = /** @class */ (function () {
     };
     SendMessageComponent.prototype.sendingMessage = function () {
         var _this = this;
-        var recepients = [];
-        trial.forEach(function (obj) {
-            if (recepients.length <= 1) {
-                recepients.push({
-                    mobiles: "91" + obj.phone,
-                    name: obj.name,
-                    message: _this.message + "\n-" + _this.sender
+        var dialogRef;
+        if (this.admin) {
+            var recepients_1 = [];
+            trial.forEach(function (obj) {
+                if (recepients_1.length <= 1) {
+                    recepients_1.push({
+                        mobiles: "91" + obj.phone,
+                        name: obj.name,
+                        message: _this.message + "\n-" + _this.sender
+                    });
+                    console.log("in if");
+                }
+                else {
+                    var payload_1 = {
+                        flow_id: "5f06b885d6fc052a7a01833f",
+                        recipients: recepients_1
+                    };
+                    console.log(payload_1);
+                    _this.service.sendMessage(payload_1).subscribe(function (response) {
+                        console.log(response);
+                        // if(response.type == "success"){
+                        //   dialogRef.close();
+                        // }
+                    });
+                    recepients_1 = [];
+                    recepients_1.push({
+                        mobiles: "91" + obj.phone,
+                        name: obj.name,
+                        message: _this.message + "<br/>-" + _this.sender
+                    });
+                }
+            });
+            console.log(recepients_1);
+            var payload = {
+                flow_id: "5f06b885d6fc052a7a01833f",
+                recipients: recepients_1
+            };
+            console.log(payload);
+            this.service.sendMessage(payload).subscribe(function (response) {
+                console.log(response);
+                if (response.type == "success") {
+                    dialogRef.close();
+                }
+            });
+            // let payload = {
+            //   flow_id: "5f06b885d6fc052a7a01833f",
+            //   recipients: recepients
+            // };
+            // console.log(payload);
+            dialogRef = this.dialog.open(SendingDialog, {});
+            // setInterval(() => 
+            // dialogRef.close()
+            // ,5000);
+            // this.service.sendMessage(payload).subscribe(response => {
+            //   console.log(response);
+            //   if(response.type == "success"){
+            //     dialogRef.close();
+            //   }
+            // });
+        }
+        else {
+            var orgs_1 = [];
+            TABLEDATA.forEach(function (obj) {
+                orgs_1.push({
+                    org_id: "" + obj.orgId,
+                    states: obj.stateIds,
+                    msg_type_id: (obj.sms && obj.whatsapp) ? "3" : (obj.sms) ? "1" : "2"
                 });
-                console.log("in if");
-            }
-            else {
-                var payload_1 = {
-                    flow_id: "5f06b885d6fc052a7a01833f",
-                    recipients: recepients
-                };
-                console.log(payload_1);
-                _this.service.sendMessage(payload_1).subscribe(function (response) {
-                    console.log(response);
-                    // if(response.type == "success"){
-                    //   dialogRef.close();
-                    // }
-                });
-                recepients = [];
-                recepients.push({
-                    mobiles: "91" + obj.phone,
-                    name: obj.name,
-                    message: _this.message + "<br/>-" + _this.sender
-                });
-            }
-        });
-        console.log(recepients);
-        var payload = {
-            flow_id: "5f06b885d6fc052a7a01833f",
-            recipients: recepients
-        };
-        console.log(payload);
-        this.service.sendMessage(payload).subscribe(function (response) {
-            console.log(response);
-            if (response.type == "success") {
-                dialogRef.close();
-            }
-        });
-        // let payload = {
-        //   flow_id: "5f06b885d6fc052a7a01833f",
-        //   recipients: recepients
-        // };
-        // console.log(payload);
-        var dialogRef = this.dialog.open(SendingDialog, {});
-        // setInterval(() => 
-        // dialogRef.close()
-        // ,5000);
-        // this.service.sendMessage(payload).subscribe(response => {
-        //   console.log(response);
-        //   if(response.type == "success"){
-        //     dialogRef.close();
-        //   }
-        // });
+            });
+            console.log(orgs_1);
+            var payload = {
+                senderName: this.sender,
+                campaignName: this.campaign,
+                message: this.message,
+                portaluser: localStorage.getItem("userID"),
+                orgs: orgs_1
+            };
+            console.log(payload);
+            dialogRef = this.dialog.open(SendingDialog, {});
+            this.service.createMessage(payload).subscribe(function (response) {
+                if (response == "200") {
+                    dialogRef.close();
+                }
+            });
+        }
         dialogRef.afterClosed().subscribe(function (data) {
             sent = true;
             _this.dialog.open(SendingDialog, {});
@@ -4838,25 +4999,27 @@ var SendMessageComponent = /** @class */ (function () {
         }
     };
     SendMessageComponent.ctorParameters = function () { return [
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
-        { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_8__["ToasterService"] },
-        { type: _send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"], args: [_send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"],] }] }
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
+        { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_9__["ToasterService"] },
+        { type: app_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__["AuthService"] },
+        { type: _send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"], args: [_send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"],] }] }
     ]; };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"], { static: true }),
-        __metadata("design:type", _angular_material_paginator__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], { static: true }),
+        __metadata("design:type", _angular_material_paginator__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"])
     ], SendMessageComponent.prototype, "paginator", void 0);
     SendMessageComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
             selector: 'app-send-message',
             template: __importDefault(__webpack_require__(/*! raw-loader!./send-message.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/send-message/send-message.component.html")).default,
-            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_5__["ViewEncapsulation"].None,
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_6__["ViewEncapsulation"].None,
             styles: [__importDefault(__webpack_require__(/*! ./send-message.component.css */ "./src/app/send-message/send-message.component.css")).default]
         }),
-        __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"])(_send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"])),
-        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], angular2_toaster__WEBPACK_IMPORTED_MODULE_8__["ToasterService"],
-            _send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"]])
+        __param(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(_send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"])),
+        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"], angular2_toaster__WEBPACK_IMPORTED_MODULE_9__["ToasterService"],
+            app_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__["AuthService"],
+            _send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"]])
     ], SendMessageComponent);
     return SendMessageComponent;
 }());
@@ -4879,16 +5042,19 @@ var AddOrganizationDialog = /** @class */ (function () {
         this.sms = null;
         this.whatsapp = null;
         this.dialogTitle = "";
-        this.selectedOrgType = "";
+        this.selectedOrgType = [];
         this.selectedStates = [];
         this.selectedSms = null;
         this.selectedWhatsapp = null;
+        this.stateName = [];
+        this.orgName = "";
         this.save_user = false;
         this.update_user = false;
         if (data) {
             this.dataEdit = data;
-            this.selectedOrgType = data.rowData['name'];
-            this.selectedStates = data.rowData['states'];
+            console.log(data.rowData['name']);
+            this.selectedOrgType = data.rowData['orgId'];
+            this.selectedStates = data.rowData['stateIds'];
             this.sms = data.rowData['sms'];
             this.whatsapp = data.rowData['whatsapp'];
             this.update_user = true;
@@ -4899,8 +5065,8 @@ var AddOrganizationDialog = /** @class */ (function () {
             this.dialogTitle = "Add new Organization";
         }
         this.myForm = this.formBuilder.group({
-            name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-            states: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+            name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+            states: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
             sms: [''],
             whatsapp: ['']
         });
@@ -4919,9 +5085,26 @@ var AddOrganizationDialog = /** @class */ (function () {
         this.states = STATES;
     };
     AddOrganizationDialog.prototype.saveOrg = function () {
+        var _this = this;
+        this.name.forEach(function (obj) {
+            if (obj.org_id === _this.selectedOrgType) {
+                _this.orgName = obj.org_name;
+            }
+        });
+        this.selectedStates.forEach(function (obj) {
+            for (var _i = 0, _a = _this.stateList; _i < _a.length; _i++) {
+                var i = _a[_i];
+                if (obj === i.state_id) {
+                    _this.stateName.push(i.state_name);
+                    console.log(_this.stateName);
+                    break;
+                }
+            }
+        });
         for (var _i = 0, _a = this.states; _i < _a.length; _i++) {
             var x = _a[_i];
-            if (x.org == this.selectedOrgType) {
+            if (x.org == this.orgName) {
+                console.log("here in ", this.orgName);
                 if (this.sms) {
                     this.selectedSms = x.sms;
                 }
@@ -4936,15 +5119,21 @@ var AddOrganizationDialog = /** @class */ (function () {
                 }
             }
         }
+        console.log(this.selectedOrgType);
+        // let stateNames = this.selectedStates.map(obj => obj.state_name);
+        // let stateIds = this.selectedStates.map(obj => obj.state_id);
+        // console.log(stateNames);
         TABLEDATA.push({
-            name: this.selectedOrgType,
-            states: this.selectedStates,
+            name: this.orgName,
+            orgId: this.selectedOrgType,
+            states: this.stateName,
+            stateIds: this.selectedStates,
             sms: this.selectedSms,
             whatsapp: this.selectedWhatsapp
         });
         complete = true;
         var payload = {
-            states: this.selectedStates
+            states: this.stateName
         };
         this.Numberservice.getNumbers(payload).subscribe(function (response) {
             if (response) {
@@ -4956,9 +5145,24 @@ var AddOrganizationDialog = /** @class */ (function () {
     };
     AddOrganizationDialog.prototype.updateOrg = function () {
         var _this = this;
+        this.name.forEach(function (obj) {
+            if (obj.org_id === _this.selectedOrgType) {
+                _this.orgName = obj.org_name;
+            }
+        });
+        this.selectedStates.forEach(function (obj) {
+            for (var _i = 0, _a = _this.stateList; _i < _a.length; _i++) {
+                var i = _a[_i];
+                if (obj === i.state_id) {
+                    _this.stateName.push(i.state_name);
+                    console.log(_this.stateName);
+                    break;
+                }
+            }
+        });
         for (var _i = 0, _a = this.states; _i < _a.length; _i++) {
             var x = _a[_i];
-            if (x.org == this.selectedOrgType) {
+            if (x.org == this.orgName) {
                 if (this.sms) {
                     this.selectedSms = x.sms;
                 }
@@ -4973,9 +5177,11 @@ var AddOrganizationDialog = /** @class */ (function () {
                 }
             }
         }
-        var index = TABLEDATA.findIndex(function (obj) { return obj.name == _this.dataEdit.rowData['name']; });
-        TABLEDATA[index].name = this.selectedOrgType;
-        TABLEDATA[index].states = this.selectedStates;
+        var index = TABLEDATA.findIndex(function (obj) { return obj.orgId == _this.dataEdit.rowData['orgId']; });
+        TABLEDATA[index].name = this.orgName;
+        TABLEDATA[index].orgId = this.selectedOrgType;
+        TABLEDATA[index].stateIds = this.selectedStates;
+        TABLEDATA[index].states = this.stateName;
         TABLEDATA[index].sms = this.selectedSms;
         TABLEDATA[index].whatsapp = this.selectedWhatsapp;
         this.dialogRef.close("200");
@@ -4993,26 +5199,26 @@ var AddOrganizationDialog = /** @class */ (function () {
         }
     };
     AddOrganizationDialog.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
-        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MAT_DIALOG_DATA"],] }] },
-        { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_8__["ToasterService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"], args: [angular2_toaster__WEBPACK_IMPORTED_MODULE_8__["ToasterService"],] }] },
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"] },
-        { type: _state_state_service__WEBPACK_IMPORTED_MODULE_2__["StateService"] },
-        { type: _city_city_service__WEBPACK_IMPORTED_MODULE_1__["CityService"] },
-        { type: _send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"], args: [_send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"],] }] }
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MAT_DIALOG_DATA"],] }] },
+        { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_9__["ToasterService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"], args: [angular2_toaster__WEBPACK_IMPORTED_MODULE_9__["ToasterService"],] }] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogRef"] },
+        { type: _state_state_service__WEBPACK_IMPORTED_MODULE_3__["StateService"] },
+        { type: _city_city_service__WEBPACK_IMPORTED_MODULE_2__["CityService"] },
+        { type: _send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"], args: [_send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"],] }] }
     ]; };
     AddOrganizationDialog = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
             selector: 'add-organization-dialog',
             template: __importDefault(__webpack_require__(/*! raw-loader!./add-organization-dialog.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/send-message/add-organization-dialog.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./send-message.component.css */ "./src/app/send-message/send-message.component.css")).default]
         }),
-        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MAT_DIALOG_DATA"])),
-        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"])(angular2_toaster__WEBPACK_IMPORTED_MODULE_8__["ToasterService"])),
-        __param(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Inject"])(_send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"])),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], Object, angular2_toaster__WEBPACK_IMPORTED_MODULE_8__["ToasterService"],
-            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"], _state_state_service__WEBPACK_IMPORTED_MODULE_2__["StateService"], _city_city_service__WEBPACK_IMPORTED_MODULE_1__["CityService"],
-            _send_message_service__WEBPACK_IMPORTED_MODULE_0__["SendMessageService"]])
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MAT_DIALOG_DATA"])),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(angular2_toaster__WEBPACK_IMPORTED_MODULE_9__["ToasterService"])),
+        __param(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Inject"])(_send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"])),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"], Object, angular2_toaster__WEBPACK_IMPORTED_MODULE_9__["ToasterService"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogRef"], _state_state_service__WEBPACK_IMPORTED_MODULE_3__["StateService"], _city_city_service__WEBPACK_IMPORTED_MODULE_2__["CityService"],
+            _send_message_service__WEBPACK_IMPORTED_MODULE_1__["SendMessageService"]])
     ], AddOrganizationDialog);
     return AddOrganizationDialog;
 }());
@@ -5026,16 +5232,16 @@ var SendingDialog = /** @class */ (function () {
     SendingDialog.prototype.ngOnInit = function () {
     };
     SendingDialog.ctorParameters = function () { return [
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"] }
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogRef"] }
     ]; };
     SendingDialog = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
             selector: 'sending-dialog',
             template: __importDefault(__webpack_require__(/*! raw-loader!./sending-dialog.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/send-message/sending-dialog.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./send-message.component.css */ "./src/app/send-message/send-message.component.css")).default]
         }),
-        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"]])
+        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialogRef"]])
     ], SendingDialog);
     return SendingDialog;
 }());
@@ -5097,6 +5303,10 @@ var SendMessageService = /** @class */ (function () {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].sendMessage;
         // console.log(url,"outgoing url");
         return this.httpClient.post(url, payload, options);
+    };
+    SendMessageService.prototype.createMessage = function (payload) {
+        var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].createMessage;
+        return this.httpClient.post(url, payload);
     };
     SendMessageService.prototype.getNumbers = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].getNumbers;
@@ -5433,6 +5643,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var StateService = /** @class */ (function () {
     function StateService(httpClient) {
         this.httpClient = httpClient;
+        this.token = localStorage.getItem('token');
+        var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'authorization': this.token,
+        });
+        this.options = {
+            headers: httpHeaders
+        };
     }
     StateService.prototype.saveState = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].saveState;
@@ -5442,7 +5659,7 @@ var StateService = /** @class */ (function () {
     StateService.prototype.getState = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].getstatelist;
         // console.log(url,"outgoing url");
-        return this.httpClient.post(url, payload);
+        return this.httpClient.post(url, payload, this.options);
     };
     StateService.prototype.updateState = function (payload) {
         var url = app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].MAINURL + app_helpers_urlconstant__WEBPACK_IMPORTED_MODULE_1__["UrlConstants"].updateState;
@@ -5479,7 +5696,7 @@ var StateService = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".container #template .btn{\r\n    border-radius: 2.5rem !important;\r\n    padding: 10px 10px;\r\n    border: 2px solid #1d8b4e;\r\n    background-color: #1d8b4e;\r\n}\r\n\r\n.container #template .btn:hover{\r\n    background-color: white;\r\n    color: #1d8b4e;\r\n}\r\n\r\n.btn.upload{\r\n    border-radius: 2.5rem !important;\r\n    padding: 10px 20px;\r\n    font-size: 15px;\r\n    border: 2px solid #1d8b4e;\r\n    background-color: #1d8b4e;\r\n}\r\n\r\n.btn.upload:hover{\r\n    background-color: white;\r\n    color: #1d8b4e;\r\n}\r\n\r\n#sending{\r\n    height: 200px;\r\n    width: 300px;\r\n    text-align: center;\r\n  }\r\n\r\n#sending .h3{\r\n    padding: 20px;\r\n  }\r\n\r\n/* .custom-file{\r\n      background-color: white;\r\n      border: 2px solid #1d8b4e;\r\n  }\r\n  #customFile:hover{\r\n    cursor: pointer;\r\n} */\r\n\r\n.upload-btn-wrapper {\r\n    position: relative;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n  }\r\n\r\n#choose {\r\n    border: 2px solid #1d8b4e;\r\n    color: #1d8b4e;\r\n    background-color: white;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-weight: bold;\r\n  }\r\n\r\n.upload-btn-wrapper input[type=file] {\r\n    font-size: 100px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n.upload-btn-wrapper input[type=file]::-webkit-file-upload-button { \r\n    cursor: pointer; \r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkLWV4Y2VsL3VwbG9hZC1leGNlbC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0NBQWdDO0lBQ2hDLGtCQUFrQjtJQUNsQix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxnQ0FBZ0M7SUFDaEMsa0JBQWtCO0lBQ2xCLGVBQWU7SUFDZix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCOztBQUNBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsWUFBWTtJQUNaLGtCQUFrQjtFQUNwQjs7QUFDQTtJQUNFLGFBQWE7RUFDZjs7QUFFQTs7Ozs7O0dBTUM7O0FBRUg7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLHFCQUFxQjtFQUN2Qjs7QUFFRjtJQUNJLHlCQUF5QjtJQUN6QixjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsaUJBQWlCO0VBQ25COztBQUVBO0lBQ0UsZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixPQUFPO0lBQ1AsTUFBTTtJQUNOLFVBQVU7RUFDWjs7QUFDQTtJQUNFLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC91cGxvYWQtZXhjZWwvdXBsb2FkLWV4Y2VsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyICN0ZW1wbGF0ZSAuYnRue1xyXG4gICAgYm9yZGVyLXJhZGl1czogMi41cmVtICFpbXBvcnRhbnQ7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDEwcHg7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMWQ4YjRlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzFkOGI0ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lciAjdGVtcGxhdGUgLmJ0bjpob3ZlcntcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgY29sb3I6ICMxZDhiNGU7XHJcbn1cclxuXHJcbi5idG4udXBsb2Fke1xyXG4gICAgYm9yZGVyLXJhZGl1czogMi41cmVtICFpbXBvcnRhbnQ7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDIwcHg7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMWQ4YjRlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzFkOGI0ZTtcclxufVxyXG4uYnRuLnVwbG9hZDpob3ZlcntcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgY29sb3I6ICMxZDhiNGU7XHJcbn1cclxuXHJcbiNzZW5kaW5ne1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcbiAgI3NlbmRpbmcgLmgze1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICB9XHJcblxyXG4gIC8qIC5jdXN0b20tZmlsZXtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICAgIGJvcmRlcjogMnB4IHNvbGlkICMxZDhiNGU7XHJcbiAgfVxyXG4gICNjdXN0b21GaWxlOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59ICovXHJcblxyXG4udXBsb2FkLWJ0bi13cmFwcGVyIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgfVxyXG4gIFxyXG4jY2hvb3NlIHtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICMxZDhiNGU7XHJcbiAgICBjb2xvcjogIzFkOGI0ZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgcGFkZGluZzogOHB4IDIwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICB9XHJcbiAgXHJcbiAgLnVwbG9hZC1idG4td3JhcHBlciBpbnB1dFt0eXBlPWZpbGVdIHtcclxuICAgIGZvbnQtc2l6ZTogMTAwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgb3BhY2l0eTogMDtcclxuICB9XHJcbiAgLnVwbG9hZC1idG4td3JhcHBlciBpbnB1dFt0eXBlPWZpbGVdOjotd2Via2l0LWZpbGUtdXBsb2FkLWJ1dHRvbiB7IFxyXG4gICAgY3Vyc29yOiBwb2ludGVyOyBcclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".container #template .btn{\r\n    border-radius: 2.5rem !important;\r\n    padding: 10px 10px;\r\n    border: 2px solid #1d8b4e;\r\n    background-color: #1d8b4e;\r\n}\r\n\r\n.container #template .btn:hover{\r\n    background-color: white;\r\n    color: #1d8b4e;\r\n}\r\n\r\n.btn.upload{\r\n    border-radius: 2.5rem !important;\r\n    padding: 10px 20px;\r\n    font-size: 15px;\r\n    border: 2px solid #1d8b4e;\r\n    background-color: #1d8b4e;\r\n}\r\n\r\n.btn.upload:hover{\r\n    background-color: white;\r\n    color: #1d8b4e;\r\n}\r\n\r\n#sending{\r\n    height: 200px;\r\n    width: 300px;\r\n    text-align: center;\r\n  }\r\n\r\n#sending .h3{\r\n    padding: 20px;\r\n  }\r\n\r\n/* .custom-file{\r\n      background-color: white;\r\n      border: 2px solid #1d8b4e;\r\n  }\r\n  #customFile:hover{\r\n    cursor: pointer;\r\n} */\r\n\r\n.upload-btn-wrapper {\r\n    position: relative;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n  }\r\n\r\n#choose {\r\n    border: 2px solid #1d8b4e;\r\n    color: #1d8b4e;\r\n    background-color: white;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-weight: bold;\r\n  }\r\n\r\n.upload-btn-wrapper input[type=file] {\r\n    font-size: 100px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n.upload-btn-wrapper input[type=file]::-webkit-file-upload-button { \r\n    cursor: pointer; \r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkLWV4Y2VsL3VwbG9hZC1leGNlbC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0NBQWdDO0lBQ2hDLGtCQUFrQjtJQUNsQix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxnQ0FBZ0M7SUFDaEMsa0JBQWtCO0lBQ2xCLGVBQWU7SUFDZix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCOztBQUNBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsWUFBWTtJQUNaLGtCQUFrQjtFQUNwQjs7QUFDQTtJQUNFLGFBQWE7RUFDZjs7QUFFQTs7Ozs7O0dBTUM7O0FBRUg7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLHFCQUFxQjtFQUN2Qjs7QUFFRjtJQUNJLHlCQUF5QjtJQUN6QixjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsaUJBQWlCO0VBQ25COztBQUVBO0lBQ0UsZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixPQUFPO0lBQ1AsTUFBTTtJQUNOLFVBQVU7RUFDWjs7QUFDQTtJQUNFLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC91cGxvYWQtZXhjZWwvdXBsb2FkLWV4Y2VsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyICN0ZW1wbGF0ZSAuYnRue1xyXG4gICAgYm9yZGVyLXJhZGl1czogMi41cmVtICFpbXBvcnRhbnQ7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDEwcHg7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMWQ4YjRlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzFkOGI0ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lciAjdGVtcGxhdGUgLmJ0bjpob3ZlcntcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgY29sb3I6ICMxZDhiNGU7XHJcbn1cclxuXHJcbi5idG4udXBsb2Fke1xyXG4gICAgYm9yZGVyLXJhZGl1czogMi41cmVtICFpbXBvcnRhbnQ7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDIwcHg7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMWQ4YjRlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzFkOGI0ZTtcclxufVxyXG4uYnRuLnVwbG9hZDpob3ZlcntcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgY29sb3I6ICMxZDhiNGU7XHJcbn1cclxuXHJcbiNzZW5kaW5ne1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcbiAgI3NlbmRpbmcgLmgze1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICB9XHJcblxyXG4gIC8qIC5jdXN0b20tZmlsZXtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICAgIGJvcmRlcjogMnB4IHNvbGlkICMxZDhiNGU7XHJcbiAgfVxyXG4gICNjdXN0b21GaWxlOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59ICovXHJcblxyXG4udXBsb2FkLWJ0bi13cmFwcGVyIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgfVxyXG4gIFxyXG4jY2hvb3NlIHtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICMxZDhiNGU7XHJcbiAgICBjb2xvcjogIzFkOGI0ZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgcGFkZGluZzogOHB4IDIwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICB9XHJcbiAgXHJcbiAgLnVwbG9hZC1idG4td3JhcHBlciBpbnB1dFt0eXBlPWZpbGVdIHtcclxuICAgIGZvbnQtc2l6ZTogMTAwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgb3BhY2l0eTogMDtcclxuICB9XHJcbiAgLnVwbG9hZC1idG4td3JhcHBlciBpbnB1dFt0eXBlPWZpbGVdOjotd2Via2l0LWZpbGUtdXBsb2FkLWJ1dHRvbiB7IFxyXG4gICAgY3Vyc29yOiBwb2ludGVyOyBcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -5487,13 +5704,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************!*\
   !*** ./src/app/upload-excel/upload-excel.component.ts ***!
   \********************************************************/
-/*! exports provided: UploadExcelComponent, UploadDialog */
+/*! exports provided: UploadExcelComponent, UploadDialog, Correction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadExcelComponent", function() { return UploadExcelComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadDialog", function() { return UploadDialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Correction", function() { return Correction; });
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/fesm5/dialog.js");
@@ -5501,6 +5719,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(xlsx__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _upload_excel_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./upload-excel.service */ "./src/app/upload-excel/upload-excel.service.ts");
 /* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
+/* harmony import */ var app_city_city_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/city/city.service */ "./src/app/city/city.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5516,6 +5735,7 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -5554,7 +5774,7 @@ var UploadExcelComponent = /** @class */ (function () {
             var ws = wb.Sheets[wsname];
             // console.log(ws);
             _this.data = (xlsx__WEBPACK_IMPORTED_MODULE_3__["utils"].sheet_to_json(ws, { header: 2 }));
-            // console.log(this.data);
+            console.log(_this.data);
         };
         reader.readAsBinaryString(excelFile);
     };
@@ -5576,14 +5796,25 @@ var UploadExcelComponent = /** @class */ (function () {
         this.showSpinner = true;
         console.log(this.data);
         this.excelService.excelData(this.data).subscribe(function (response) {
-            if (response == "200") {
+            console.log(response);
+            if (response.mis_st_json[0]) {
                 _this.showSpinner = false;
-                console.log(response);
-                _this.toasterService.pop("success", "Uploaded Successfully");
+                // this.toasterService.pop(
+                //   "error",
+                //    "Something went wrong!");
+                var dialogRef = _this.dialog.open(Correction, {
+                    data: {
+                        rowData: response
+                    },
+                    disableClose: true
+                });
+                dialogRef.afterClosed().subscribe(function (data) {
+                });
             }
             else {
                 _this.showSpinner = false;
-                _this.toasterService.pop("error", "Something went wrong!");
+                console.log("from if");
+                _this.toasterService.pop("success", "Uploaded Successfully");
             }
         });
         excelFile = null;
@@ -5637,6 +5868,96 @@ var UploadDialog = /** @class */ (function () {
     return UploadDialog;
 }());
 
+var Correction = /** @class */ (function () {
+    function Correction(formBuilder, dialog, dialogRef, data, stateService, excelService, toasterService) {
+        this.formBuilder = formBuilder;
+        this.dialog = dialog;
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.stateService = stateService;
+        this.excelService = excelService;
+        this.toasterService = toasterService;
+        this.fullName = "";
+        this.homeState = "";
+        this.element = [];
+        this.error_values = [];
+        this.stateList = [];
+        this.selectedStates = [];
+        this.dialogTitle = "These states are not matching with our Database. Please choose the right states";
+        this.element = data.rowData['mis_st_json'];
+        this.error_values = data.rowData['err_values'];
+        this.myForm = this.formBuilder.group({
+            states: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]]
+        });
+    }
+    Correction.prototype.ngOnInit = function () {
+        var _this = this;
+        var payload = {};
+        this.stateService.getCity(payload).subscribe(function (response) {
+            _this.stateList = response;
+        });
+    };
+    Correction.prototype.saveStates = function () {
+        var _this = this;
+        console.log(this.selectedStates);
+        var mis_st_json = [];
+        this.element.forEach(function (obj) {
+            mis_st_json.push({
+                mis_state: obj.mis_state,
+                state_id: _this.selectedStates[0]
+            });
+            _this.selectedStates.shift();
+        });
+        var payload = {
+            err_values: this.error_values,
+            mis_st_json: mis_st_json
+        };
+        console.log("payload", payload);
+        this.excelService.excelCorrection(payload).subscribe(function (response) {
+            console.log(response);
+            if (response.status == 200) {
+                _this.toasterService.pop("success", "Updated Successfully");
+                _this.dialogRef.close();
+            }
+            else {
+                _this.toasterService.pop("error", "Updation failed");
+            }
+        });
+    };
+    Correction.prototype.check = function () {
+        var checking = this.selectedStates.filter(function (obj) { return obj != undefined; });
+        if (checking.length == this.element.length) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    Correction.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
+        { type: app_city_city_service__WEBPACK_IMPORTED_MODULE_6__["CityService"] },
+        { type: _upload_excel_service__WEBPACK_IMPORTED_MODULE_4__["UploadExcelService"] },
+        { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_5__["ToasterService"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [angular2_toaster__WEBPACK_IMPORTED_MODULE_5__["ToasterService"],] }] }
+    ]; };
+    Correction = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'correction',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./correction.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/upload-excel/correction.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./upload-excel.component.css */ "./src/app/upload-excel/upload-excel.component.css")).default]
+        }),
+        __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __param(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(angular2_toaster__WEBPACK_IMPORTED_MODULE_5__["ToasterService"])),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, app_city_city_service__WEBPACK_IMPORTED_MODULE_6__["CityService"],
+            _upload_excel_service__WEBPACK_IMPORTED_MODULE_4__["UploadExcelService"],
+            angular2_toaster__WEBPACK_IMPORTED_MODULE_5__["ToasterService"]])
+    ], Correction);
+    return Correction;
+}());
+
 
 
 /***/ }),
@@ -5669,10 +5990,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var UploadExcelService = /** @class */ (function () {
     function UploadExcelService(httpClient) {
         this.httpClient = httpClient;
+        this.token = localStorage.getItem('token');
+        var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+            'authorization': this.token,
+        });
+        this.options = {
+            headers: httpHeaders
+        };
     }
     UploadExcelService.prototype.excelData = function (payload) {
         var url = _helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].MAINURL + _helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].excelData;
-        return this.httpClient.post(url, payload);
+        return this.httpClient.post(url, payload, this.options);
+    };
+    UploadExcelService.prototype.excelCorrection = function (payload) {
+        var url = _helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].MAINURL + _helpers_urlconstant__WEBPACK_IMPORTED_MODULE_2__["UrlConstants"].excelCorrection;
+        return this.httpClient.post(url, payload, this.options);
     };
     UploadExcelService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"] }

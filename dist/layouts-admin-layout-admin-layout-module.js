@@ -3851,21 +3851,23 @@ var AdminLayoutModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLayoutRoutes", function() { return AdminLayoutRoutes; });
-/* harmony import */ var _total_messages_total_messages_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../total-messages/total-messages.component */ "./src/app/total-messages/total-messages.component.ts");
-/* harmony import */ var _excel_report_excel_report_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../excel-report/excel-report.component */ "./src/app/excel-report/excel-report.component.ts");
-/* harmony import */ var _forwarded_report_forwarded_report_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../forwarded-report/forwarded-report.component */ "./src/app/forwarded-report/forwarded-report.component.ts");
-/* harmony import */ var _sent_report_sent_report_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../sent-report/sent-report.component */ "./src/app/sent-report/sent-report.component.ts");
-/* harmony import */ var _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../forward-message/forward-message.component */ "./src/app/forward-message/forward-message.component.ts");
-/* harmony import */ var _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../upload-excel/upload-excel.component */ "./src/app/upload-excel/upload-excel.component.ts");
-/* harmony import */ var _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../send-message/send-message.component */ "./src/app/send-message/send-message.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var app_portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/portal-users/portal-users.component */ "./src/app/portal-users/portal-users.component.ts");
-/* harmony import */ var app_state_state_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/state/state.component */ "./src/app/state/state.component.ts");
-/* harmony import */ var app_city_city_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/city/city.component */ "./src/app/city/city.component.ts");
-/* harmony import */ var app_video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! app/video-upload/video-upload.component */ "./src/app/video-upload/video-upload.component.ts");
-/* harmony import */ var app_mobile_users_mobile_users_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! app/mobile-users/mobile-users.component */ "./src/app/mobile-users/mobile-users.component.ts");
-/* harmony import */ var app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! app/default-settings/default-settings.component */ "./src/app/default-settings/default-settings.component.ts");
-/* harmony import */ var app_video_upload_upload_response_upload_response_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! app/video-upload/upload-response/upload-response.component */ "./src/app/video-upload/upload-response/upload-response.component.ts");
+/* harmony import */ var _auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../auth/admin-auth-guard.service */ "./src/app/auth/admin-auth-guard.service.ts");
+/* harmony import */ var _total_messages_total_messages_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../total-messages/total-messages.component */ "./src/app/total-messages/total-messages.component.ts");
+/* harmony import */ var _excel_report_excel_report_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../excel-report/excel-report.component */ "./src/app/excel-report/excel-report.component.ts");
+/* harmony import */ var _forwarded_report_forwarded_report_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../forwarded-report/forwarded-report.component */ "./src/app/forwarded-report/forwarded-report.component.ts");
+/* harmony import */ var _sent_report_sent_report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../sent-report/sent-report.component */ "./src/app/sent-report/sent-report.component.ts");
+/* harmony import */ var _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../forward-message/forward-message.component */ "./src/app/forward-message/forward-message.component.ts");
+/* harmony import */ var _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../upload-excel/upload-excel.component */ "./src/app/upload-excel/upload-excel.component.ts");
+/* harmony import */ var _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../send-message/send-message.component */ "./src/app/send-message/send-message.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var app_portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/portal-users/portal-users.component */ "./src/app/portal-users/portal-users.component.ts");
+/* harmony import */ var app_state_state_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/state/state.component */ "./src/app/state/state.component.ts");
+/* harmony import */ var app_city_city_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! app/city/city.component */ "./src/app/city/city.component.ts");
+/* harmony import */ var app_video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! app/video-upload/video-upload.component */ "./src/app/video-upload/video-upload.component.ts");
+/* harmony import */ var app_mobile_users_mobile_users_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! app/mobile-users/mobile-users.component */ "./src/app/mobile-users/mobile-users.component.ts");
+/* harmony import */ var app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! app/default-settings/default-settings.component */ "./src/app/default-settings/default-settings.component.ts");
+/* harmony import */ var app_video_upload_upload_response_upload_response_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! app/video-upload/upload-response/upload-response.component */ "./src/app/video-upload/upload-response/upload-response.component.ts");
+
 
 
 
@@ -3883,21 +3885,21 @@ __webpack_require__.r(__webpack_exports__);
 
 // import { AdminLayoutComponent } from './admin-layout.component';
 var AdminLayoutRoutes = [
-    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"] },
-    { path: 'video-upload', component: app_video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_11__["VideoUploadComponent"] },
-    { path: 'portal-users', component: app_portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_8__["PortalUsersComponent"] },
-    { path: 'mobile-users', component: app_mobile_users_mobile_users_component__WEBPACK_IMPORTED_MODULE_12__["MobileUsersComponent"] },
-    { path: 'default-settings', component: app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_13__["DefaultSettingsComponent"] },
-    { path: 'organization', component: app_state_state_component__WEBPACK_IMPORTED_MODULE_9__["StateComponent"] },
-    { path: 'state', component: app_city_city_component__WEBPACK_IMPORTED_MODULE_10__["CityComponent"] },
-    { path: 'video-response', component: app_video_upload_upload_response_upload_response_component__WEBPACK_IMPORTED_MODULE_14__["UploadResponseComponent"] },
-    { path: 'send-message', component: _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_6__["SendMessageComponent"] },
-    { path: 'upload-excel', component: _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_5__["UploadExcelComponent"] },
-    { path: 'forward-message', component: _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_4__["ForwardMessageComponent"] },
-    { path: 'sent-report', component: _sent_report_sent_report_component__WEBPACK_IMPORTED_MODULE_3__["SentReportComponent"] },
-    { path: 'forwarded-report', component: _forwarded_report_forwarded_report_component__WEBPACK_IMPORTED_MODULE_2__["ForwardedReportComponent"] },
-    { path: 'excel-report', component: _excel_report_excel_report_component__WEBPACK_IMPORTED_MODULE_1__["ExcelReportComponent"] },
-    { path: 'total-messages', component: _total_messages_total_messages_component__WEBPACK_IMPORTED_MODULE_0__["TotalMessagesComponent"] }
+    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"] },
+    { path: 'video-upload', component: app_video_upload_video_upload_component__WEBPACK_IMPORTED_MODULE_12__["VideoUploadComponent"] },
+    { path: 'portal-users', component: app_portal_users_portal_users_component__WEBPACK_IMPORTED_MODULE_9__["PortalUsersComponent"], canActivate: [_auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["AdminAuthGuardService"]] },
+    { path: 'mobile-users', component: app_mobile_users_mobile_users_component__WEBPACK_IMPORTED_MODULE_13__["MobileUsersComponent"] },
+    { path: 'default-settings', component: app_default_settings_default_settings_component__WEBPACK_IMPORTED_MODULE_14__["DefaultSettingsComponent"] },
+    { path: 'organization', component: app_state_state_component__WEBPACK_IMPORTED_MODULE_10__["StateComponent"], canActivate: [_auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["AdminAuthGuardService"]] },
+    { path: 'state', component: app_city_city_component__WEBPACK_IMPORTED_MODULE_11__["CityComponent"], canActivate: [_auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["AdminAuthGuardService"]] },
+    { path: 'video-response', component: app_video_upload_upload_response_upload_response_component__WEBPACK_IMPORTED_MODULE_15__["UploadResponseComponent"] },
+    { path: 'send-message', component: _send_message_send_message_component__WEBPACK_IMPORTED_MODULE_7__["SendMessageComponent"] },
+    { path: 'upload-excel', component: _upload_excel_upload_excel_component__WEBPACK_IMPORTED_MODULE_6__["UploadExcelComponent"] },
+    { path: 'forward-message', component: _forward_message_forward_message_component__WEBPACK_IMPORTED_MODULE_5__["ForwardMessageComponent"] },
+    { path: 'sent-report', component: _sent_report_sent_report_component__WEBPACK_IMPORTED_MODULE_4__["SentReportComponent"] },
+    { path: 'forwarded-report', component: _forwarded_report_forwarded_report_component__WEBPACK_IMPORTED_MODULE_3__["ForwardedReportComponent"] },
+    { path: 'excel-report', component: _excel_report_excel_report_component__WEBPACK_IMPORTED_MODULE_2__["ExcelReportComponent"] },
+    { path: 'total-messages', component: _total_messages_total_messages_component__WEBPACK_IMPORTED_MODULE_1__["TotalMessagesComponent"], canActivate: [_auth_admin_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["AdminAuthGuardService"]] }
 ];
 
 
@@ -3959,26 +3961,26 @@ var MobileUsersComponent = /** @class */ (function () {
         this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.tableData);
     }
     MobileUsersComponent.prototype.ngOnInit = function () {
-        console.log(this.authservice.role_id, "mobile role id");
+        console.log(this.authservice.role, "mobile role id");
         var payload = {};
         this.getMobileUsers(payload);
         this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.tableData);
         this.dataSource.paginator = this.paginator;
-        if (this.authservice.role_id == 2) {
+        if (this.authservice.role == 2) {
             this.blur_email = true;
             this.clear_email = false;
         }
-        else if (this.authservice.role_id == 3) {
+        else if (this.authservice.role == 3) {
             this.clear_email = true;
             this.blur_email = false;
         }
-        if (this.authservice.role_id === undefined) {
-            this.authservice.role_id = localStorage.getItem('role');
-            if (this.authservice.role_id == 2) {
+        if (this.authservice.role === undefined) {
+            this.authservice.role = localStorage.getItem('role');
+            if (this.authservice.role == 2) {
                 this.blur_email = true;
                 this.clear_email = false;
             }
-            else if (this.authservice.role_id == 3) {
+            else if (this.authservice.role == 3) {
                 this.clear_email = true;
                 this.blur_email = false;
             }

@@ -182,9 +182,9 @@ export class Correction{
     }
     console.log("payload",payload);
     this.excelService.excelCorrection(payload).subscribe(response => {
-      console.log(response);
-      
-      if(response.status == 200){
+     console.log("inside response",response);
+     
+      if(response == "OK"){
         this.toasterService.pop(
           "success",
           "Updated Successfully"
@@ -193,7 +193,7 @@ export class Correction{
       }else{
         this.toasterService.pop(
           "error",
-          "Updation failed"
+          "Updation failed. Try again"
         );
       }
     });
