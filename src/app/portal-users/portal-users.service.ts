@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, from } from 'rxjs';
 
 import { PortalUser } from 'app/portal-users/model/portal';
@@ -17,25 +17,34 @@ export class PortalUserService {
 
   
 
-  constructor(private httpClient:HttpClient) { }
+  options;
+  token = localStorage.getItem('token');
+  constructor(private httpClient:HttpClient) { 
+    let httpHeaders = new HttpHeaders({
+      'authorization': this.token,
+    });
+    this.options = {
+      headers: httpHeaders
+    };
+  }
 
   saveuser(payload): Observable<any> {
     const url = UrlConstants.MAINURL + UrlConstants.saveUser;
     // console.log(url,"outgoing url");
-    return this.httpClient.post<any>(url, payload);
+    return this.httpClient.post<any>(url, payload,this.options);
     }
 
-  getPortalUsers(payload):Observable<PortalUser[]> {
+  getPortalUsers(payload):Observable<any> {
     const url = UrlConstants.MAINURL + UrlConstants.getuserlist;
     // console.log(url,"outgoing url");
-    return this.httpClient.post<any>(url,payload);
+    return this.httpClient.post<any>(url,payload,this.options);
 
   }
 
-  statuscheck(payload):Observable<[]>{
-    const url =UrlConstants.MAINURL + UrlConstants.statuscheck;
-    return this.httpClient.post<any>(url,payload);
-  }
+  // statuscheck(payload):Observable<[]>{
+  //   const url =UrlConstants.MAINURL + UrlConstants.statuscheck;
+  //   return this.httpClient.post<any>(url,payload);
+  // }
 
   getRolesData(payload):Observable<PortalUser[]> {
     const url = UrlConstants.MAINURL + UrlConstants.getroles;
@@ -43,17 +52,17 @@ export class PortalUserService {
     return this.httpClient.post<any>(url, payload);
  }
 
-  deleteUser(data1):Observable<PortalUser[]> {
+  deleteUser(data1):Observable<any> {
     const url = UrlConstants.MAINURL + UrlConstants.deleteportalUrl;
     // console.log(url,"outgoing url");
-    return this.httpClient.post<PortalUser[]>(url,data1);
+    return this.httpClient.post<PortalUser[]>(url,data1,this.options);
  }
  
 
- getUpdateUsers(payload):Observable<PortalUser[]> {
+ getUpdateUsers(payload):Observable<any> {
   const url = UrlConstants.MAINURL + UrlConstants.updateUser;
   // console.log(url,"outgoing url");
-  return this.httpClient.post<PortalUser[]>(url,payload);
+  return this.httpClient.post<PortalUser[]>(url,payload,this.options);
 }
 
   

@@ -14,16 +14,7 @@ import { AddUserDialog } from 'app/portal-users/portal-users.component';
 import { ToasterService } from 'angular2-toaster';
 import { stringify } from 'querystring';
 
-const STATES = [
-  {id:1, org: 'Organization-A', states:['Karnataka','Kerala'],sms:30000, whatsapp:38000},
-  {id:6, org: 'Organization-B', states:['Karnataka','Maharashtra','Tamil Nadu'], sms:50000, whatsapp:28000},
-  {id:7, org: 'Organization-C', states:['Madhya Pradesh','Kerala','Odissa'], sms:35000, whatsapp:15000},
-  {id:8, org: 'Organization-D', states:['Karnataka','Andhra Pradesh','Telangana'], sms:80600, whatsapp:98000},
-  {id:9, org: 'Organization-E', states:['Maharashtra','Andhra Pradesh','Telangana','Kerala'], sms:20000, whatsapp:38000},
-  {id:17, org: 'Organization-F', states:['Odissa','Andhra Pradesh','Punjab','Uttar Pradesh'], sms:60000, whatsapp:78000},
-  
-  
-];
+
 // const TRIAL = [
 //   {fname: 'Nitin', number: 9739888651},
 //   {fname: 'Chidambar', number: 9449650338}
@@ -192,7 +183,9 @@ export class SendMessageComponent implements OnInit {
       orgs.push({
         org_id: ""+obj.orgId,
         states: obj.stateIds,
-        msg_type_id: (obj.sms && obj.whatsapp) ? "3" : (obj.sms) ? "1" : "2"
+        msg_type_id: (obj.sms && obj.whatsapp) ? "3" : (obj.sms) ? "1" : "2",
+        sms_cnt: obj.sms,
+        wa_cnt: obj.whatsapp
       });
     });
     console.log(orgs);
@@ -282,8 +275,11 @@ export class AddOrganizationDialog {
    name = [];
    stateList = [];
    states= [];
+   count = [];
    sms= null;
    whatsapp= null;
+   countSms = null;
+   countWhatsapp = null;
    dialogTitle = "";
    selectedOrgType = [];
    selectedStates = [];
@@ -301,11 +297,19 @@ export class AddOrganizationDialog {
     @Inject(ToasterService) public toasterService: ToasterService,
 
     public dialogRef: MatDialogRef<AddOrganizationDialog>, public service: StateService, public stateService: CityService,
-    @Inject(SendMessageService) private Numberservice: SendMessageService){
+    @Inject(SendMessageService) private sendService: SendMessageService){
       
       if(data){
         this.dataEdit = data;
-        console.log(data.rowData['name']);
+        console.log(data);
+        let payload = {
+          org_id : data.rowData['orgId']
+        }
+        this.sendService.getStateCount(payload).subscribe(response => {
+          this.count = response;
+          console.log(this.count);
+          this.stateChange({value : data.rowData['stateIds']});
+        });
         
         this.selectedOrgType = data.rowData['orgId'];
         this.selectedStates = data.rowData['stateIds'];
@@ -336,7 +340,34 @@ export class AddOrganizationDialog {
       this.stateService.getCity(payload).subscribe(response => {
         this.stateList = response;
       });
-      this.states = STATES;
+    }
+
+    orgChange(evt){
+      let payload = {
+        org_id : evt.value
+      }
+      this.sendService.getStateCount(payload).subscribe(response => {
+        this.count = response;
+        console.log(this.count);
+        
+      });
+    }
+    stateChange(evt){
+      console.log(evt);
+      
+      this.countSms = null;
+      this.countWhatsapp = null;
+      // (evt.value).forEach(obj => {
+      //   temp.push(this.count.filter(count => count.state_id == obj));
+      // });
+      this.count.forEach(obj => {
+        (evt.value).forEach(evtObj => {
+          if(evtObj == obj.state_id){
+            this.countSms+=obj.sms_cnt;
+            this.countWhatsapp+=obj.wa_cnt;
+          }
+        });
+      });
     }
 
     saveOrg(){
@@ -349,28 +380,30 @@ export class AddOrganizationDialog {
         for(let i of this.stateList){
           if(obj === i.state_id){
             this.stateName.push(i.state_name);
-            console.log(this.stateName);
             break;
           }
         }  
       });
-      for(let x of this.states){
-        if(x.org == this.orgName){
-          console.log("here in ",this.orgName);
+      
+      // for(let x of this.states){
+      //   if(x.org == this.orgName){
+      //     console.log("here in ",this.orgName);
           
-          if(this.sms){
-            this.selectedSms = x.sms;
-          }else{
-            this.selectedSms = '';
-          }
-          if(this.whatsapp){
-            this.selectedWhatsapp = x.whatsapp;
-          }else{
-            this.selectedWhatsapp = '';
-          }
+      //     if(this.sms){
+      //       this.selectedSms = x.sms;
+      //     }else{
+      //       this.selectedSms = '';
+      //     }
+      //     if(this.whatsapp){
+      //       this.selectedWhatsapp = x.whatsapp;
+      //     }else{
+      //       this.selectedWhatsapp = '';
+      //     }
 
-        }
-      }
+      //   }
+      // }
+      this.sms ? this.selectedSms = this.countSms : this.selectedSms = '';
+      this.whatsapp ? this.selectedWhatsapp = this.countWhatsapp : this.selectedWhatsapp = '';
       console.log(this.selectedOrgType);
       
       // let stateNames = this.selectedStates.map(obj => obj.state_name);
@@ -383,13 +416,13 @@ export class AddOrganizationDialog {
         states: this.stateName,
         stateIds: this.selectedStates,
         sms: this.selectedSms,
-        whatsapp:this.selectedWhatsapp
+        whatsapp: this.selectedWhatsapp
       });
       complete = true;
       let payload = {
-        states: this.stateName
+        states: this.selectedStates.map(obj => obj.state_id)
       };
-      this.Numberservice.getNumbers(payload).subscribe(response => {
+      this.sendService.getNumbers(payload).subscribe(response => {
         if(response){
           trial = response;
         }
@@ -414,21 +447,23 @@ export class AddOrganizationDialog {
           }
         }  
       });
-      for(let x of this.states){
-        if(x.org == this.orgName){
-          if(this.sms){
-            this.selectedSms = x.sms;
-          }else{
-            this.selectedSms = '';
-          }
-          if(this.whatsapp){
-            this.selectedWhatsapp = x.whatsapp;
-          }else{
-            this.selectedWhatsapp = '';
-          }
+      // for(let x of this.states){
+      //   if(x.org == this.orgName){
+      //     if(this.sms){
+      //       this.selectedSms = x.sms;
+      //     }else{
+      //       this.selectedSms = '';
+      //     }
+      //     if(this.whatsapp){
+      //       this.selectedWhatsapp = x.whatsapp;
+      //     }else{
+      //       this.selectedWhatsapp = '';
+      //     }
 
-        }
-      }
+      //   }
+      // }
+      this.sms ? this.selectedSms = this.countSms : this.selectedSms = '';
+      this.whatsapp ? this.selectedWhatsapp = this.countWhatsapp : this.selectedWhatsapp = '';
       let index = TABLEDATA.findIndex(obj => obj.orgId == this.dataEdit.rowData['orgId']);
       TABLEDATA[index].name = this.orgName;
       TABLEDATA[index].orgId = this.selectedOrgType;

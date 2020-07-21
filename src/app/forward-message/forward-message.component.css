@@ -52,6 +52,7 @@
   padding: 5px !important;
   border: 1.5px solid #1d8b4e !important;
   position: absolute !important;
+  z-index: 999;
   right: 0px !important;
-  top: 0px !important;
+  top: -5px !important;
 }

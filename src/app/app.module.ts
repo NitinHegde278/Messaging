@@ -1,6 +1,6 @@
 import { AdminAuthGuardService, DeniedAccess } from './auth/admin-auth-guard.service';
 import { UploadDialog, Correction } from './upload-excel/upload-excel.component';
-import { ForwardDialog, ForwardSuccess, ForwardDelete } from './forward-message/forward-message.component';
+import { ForwardDialog, ForwardSuccess, ForwardConfirm } from './forward-message/forward-message.component';
 import { AddOrganizationDialog } from './send-message/send-message.component';
 import { SendingDialog } from './send-message/send-message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -175,7 +175,7 @@ export function jwtTokenGetter() {
     SendingDialog,
     ForwardDialog,
     ForwardSuccess,
-    ForwardDelete,
+    ForwardConfirm,
     UploadDialog,
     Correction
     
@@ -206,7 +206,7 @@ export function jwtTokenGetter() {
     SendingDialog,
     ForwardDialog,
     ForwardSuccess,
-    ForwardDelete,
+    ForwardConfirm,
     UploadDialog,
     Correction
 

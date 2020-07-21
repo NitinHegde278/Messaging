@@ -4,7 +4,7 @@ export class UrlConstants {
     
     static MAINURL = 'http://localhost:3000/';
     // static usersGetTableItems = 'ex/register/submit';
-    static saveUser =  'portal/users/addupdateuser';
+    static saveUser =  'portal/users/adduser';
     static updateUser = 'portal/users/updateportal';
     static getroles  = 'portal/users/getroles';
     static getuserlist = 'portal/users/getuserlist';
@@ -38,4 +38,9 @@ export class UrlConstants {
     static sendMessage = 'https://cors-anywhere.herokuapp.com/https://api.msg91.com/api/v5/flow/';
     static getNumbers = 'upload/getexcel';
     static createMessage = 'message/createmessage';
+    static getStateCount = 'message/getstatemsgcount';
+    static getUserForwardRequest = 'message/userforwordrequest';
+    static userForwardDetails = 'message/getmessagedetail';
+    static userForwardButton = 'message/usermessagefwd';
+    static userDeleteButton = 'message/usermessagedelete';
 }

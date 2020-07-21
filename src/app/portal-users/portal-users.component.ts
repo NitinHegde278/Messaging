@@ -15,10 +15,6 @@ import {
   BodyOutputType,
   ToasterConfig
 } from "angular2-toaster";
-import { inject } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
-import { enableDebugTools } from '@angular/platform-browser';
-import { variable } from '@angular/compiler/src/output/output_ast';
 
 export interface PeriodicElement {
   id: string;
@@ -47,7 +43,7 @@ export class PortalUsersComponent implements OnInit {
 
 
   /** For the Add user dialog box */
-  displayedColumns: string[] = ['name', 'email', 'mobile', 'role', 'action'];
+  displayedColumns: string[] = ['name', 'email', 'mobile', 'role', 'action','status'];
   public dataSource = new MatTableDataSource<any>(this.tableData);
   
 
@@ -80,28 +76,28 @@ export class PortalUsersComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   
-  toggle(row_data: any, event) {
-    let Active_state;
-    // console.log(event.checked, "vhg");
-    if (event.checked == true) {
-      Active_state = "Active";
-    } else {
-      Active_state = "Disable";
-    }
+  // toggle(row_data: any, event) {
+  //   let Active_state;
+  //   // console.log(event.checked, "vhg");
+  //   if (event.checked == true) {
+  //     Active_state = "Active";
+  //   } else {
+  //     Active_state = "Disable";
+  //   }
 
-    let payload = {
-      user_id : row_data.id,
-      Active_status: Active_state,
-    }
-    // console.log(payload, "ghghjg")
+  //   let payload = {
+  //     user_id : row_data.id,
+  //     Active_status: Active_state,
+  //   }
+  //   // console.log(payload, "ghghjg")
    
-    this.service.statuscheck(payload)
-      .subscribe(response => {
-        let data;
-        data=response;
-        // console.log(data,"true")
-      });
-  }
+  //   this.service.statuscheck(payload)
+  //     .subscribe(response => {
+  //       let data;
+  //       data=response;
+  //       // console.log(data,"true")
+  //     });
+  // }
 
   delete_low(row_data: any) {
     // console.log(row_data, "row_datarow_data")
@@ -240,7 +236,7 @@ export class AddUserDialog {
   name = "";
   email = "";
   mobile = "";
-  orgName = "";
+  orgName: number;
   selectedrole;
   dialogTitle = "Add new user";
   portal_user_id;
@@ -266,7 +262,7 @@ export class AddUserDialog {
       this.name = data.rowdata['name'];
       this.email = data.rowdata['email'];
       this.mobile = data.rowdata['mobile'];
-      this.orgName = data.rowdata['org_name'];
+      this.orgName = data.rowdata['org_id'];
       this.selectedrole = 1;
       // console.log(this.selectedrole,"hhd")
       // if(this.email && this.email.length > 0) {
@@ -373,12 +369,13 @@ export class AddUserDialog {
       name: this.name,
       email: this.email,
       mobile: this.mobile,
-      org_name: this.orgName,
-      role: 1,
+      orgid: this.orgName
     }
+    console.log(payload);
+    
     // console.log(payload, "payload");
 
-    if (payload.name != '' && payload.email != '' && payload.org_name != '' && payload.mobile != '' && payload.role != '') {
+    if (payload.name != '' && payload.email != '' && payload.mobile != '') {
 
       // this.save_user_btn=true;
       this.service.saveuser(payload)
@@ -387,22 +384,23 @@ export class AddUserDialog {
           let data: any;
           data = response;
           // console.log(response, "incoming response")
-          if (data == "200") {
+          console.log(data);
+          
+          if (data) {
             this.showSpinner=false;
             this.dialogRef.close(data);  
             this.toasterService.pop(
               "success",
-              "User",
-              "User added successfully"
+              data
             );
             // this.save_user_btn=false;
 
           } else {
             // this.getPortalUsers(payload);
+            this.showSpinner=false;
             this.toasterService.pop(
               "error",
-              "User",
-              "User already exist"
+              "User already exists"
             );
           }
 
@@ -410,9 +408,9 @@ export class AddUserDialog {
 
 
     } else {
+      this.showSpinner=false;
       this.toasterService.pop(
         "error",
-        "User",
         "Please fill all mandatory fields"
       );
       // this.save_user_btn=false;
@@ -426,13 +424,11 @@ export class AddUserDialog {
     let payload = {
       userid: this.data.rowdata['id'],
       name: this.name,
-      email: this.email,
       mobile: this.mobile,
-      org_name: this.orgName,
-      role: 1,
+      org_id: this.orgName,
     }
     // console.log(payload, "payloadpayload");
-    if (payload.name != '' && payload.email != '' && payload.org_name != '' && payload.mobile != '') {
+    if (payload.name != '' && payload.mobile != '') {
 
       // this.save_user_btn=true;
       this.service.getUpdateUsers(payload)
@@ -446,7 +442,6 @@ export class AddUserDialog {
             this.dialogRef.close(data);
             this.toasterService.pop(
               "success",
-              "User",
               "User updated successfully"
             );
           } else {
@@ -456,7 +451,6 @@ export class AddUserDialog {
     } else {
       this.toasterService.pop(
         "error",
-        "User",
         "Please fill all mandatory fields"
       );
     }
@@ -497,7 +491,6 @@ export class DeleteUserDialog {
         // this.delete_btn=false;   
         this.toasterService.pop(
           "success",
-          "User",
           "User Deleted successfully"
         );
       });

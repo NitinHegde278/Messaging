@@ -23,8 +23,16 @@ import { UrlConstants } from "app/helpers/urlconstant";
     providedIn: 'root'
   })
   export class SendMessageService {
-    constructor(private httpClient:HttpClient) { }
-
+    options;
+    token = localStorage.getItem('token');
+    constructor(private httpClient: HttpClient){
+      let httpHeaders = new HttpHeaders({
+        'authorization': this.token,
+      });
+      this.options = {
+        headers: httpHeaders
+      };
+     }
     sendMessage(payload): Observable<any> {
       let httpHeaders = new HttpHeaders({
         'Content-Type' : 'application/json',
@@ -40,11 +48,16 @@ import { UrlConstants } from "app/helpers/urlconstant";
 
       createMessage(payload): Observable<any> {
         const url = UrlConstants.MAINURL + UrlConstants.createMessage;
-        return this.httpClient.post<any>(url,payload);
+        return this.httpClient.post<any>(url,payload,this.options);
       }
 
       getNumbers(payload): Observable<any> {
         const url = UrlConstants.MAINURL + UrlConstants.getNumbers;
         return this.httpClient.post<any>(url,payload);
+      }
+
+      getStateCount(payload): Observable<any> {
+        const url = UrlConstants.MAINURL + UrlConstants.getStateCount;
+        return this.httpClient.post<any>(url,payload,this.options);
       }
   }

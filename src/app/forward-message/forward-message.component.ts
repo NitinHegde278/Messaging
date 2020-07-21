@@ -1,7 +1,8 @@
+import { ForwardMessageService } from './forward-message.service';
 import { AuthService } from './../auth/auth.service';
 import { element } from 'protractor';
 
-import { Component, OnInit, ViewEncapsulation, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, Inject, Injectable } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
@@ -9,14 +10,7 @@ import { SendingTable } from 'app/send-message/model/sendingTable';
 import { ToasterService } from 'angular2-toaster';
 import { AddOrganizationDialog } from 'app/send-message/send-message.component';
 
-let TABLEDATA = [
-  {campaign: 'Olika Varianter av',message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
-   sentFrom: 'Organization-A',contact:'Nitin',contactNo:'9739888651', receivedDate: '23/08/2019',states:['karnataka','kerala'], sms: 34000, whatsapp: 80000},
-  {campaign: 'Olika VarS', message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-   sentFrom: 'Organization-C',contact:'Bill',contactNo:'923923651', receivedDate: '13/02/2020',states:['Maharashtra','kerala'], sms: 24000, whatsapp: 60000},
-  {campaign: 'Den unspruliga',message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-   sentFrom: 'Organization-D',contact:'Django',contactNo:'7234888651', receivedDate: '28/03/2020',states:['karnataka','Andhra Pradesh','Telangana'], sms: 44000, whatsapp: 90000}
-];
+let TABLEDATA = [];
 
 let TABLEDATA1 = [
   {campaign: 'Olika Varianter av',message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
@@ -48,62 +42,88 @@ export class ForwardMessageComponent implements OnInit {
   admin: boolean= false;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(public dialog: MatDialog, public service: AuthService) { }
-
-  ngOnInit(): void {
-    if(this.service.role=='U'){
-      this.user=true;
-      this.admin=false;
-      this.dataSource = new MatTableDataSource(TABLEDATA);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.data = TABLEDATA;
-    
-    }else if(this.service.role=='A'){
-      this.user=false;
-      this.admin=true;
-      this.dataSource = new MatTableDataSource(TABLEDATA1);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.data = TABLEDATA1;
-    
+  constructor(public dialog: MatDialog, public service: AuthService,
+    @Inject(ForwardMessageService) private forwardService: ForwardMessageService) { 
+      
     }
 
-    if(this.service.role===undefined){
-      this.service.role=localStorage.getItem('role');
-      // console.log(this.service.role,"undefined this.service.role")
-      if(this.service.role=='U'){
-        this.user=true;
-      this.admin=false;
-      this.dataSource = new MatTableDataSource(TABLEDATA);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.data = TABLEDATA;
+  ngOnInit(): void {
+    let payload ={};
+    if(this.user){
+      
+      this.forwardService.getUserForwardRequest(payload).subscribe(response => {
+        TABLEDATA = response;
+        TABLEDATA.forEach(obj => {
+          let date = new Date(obj.received_date);
+          obj.received_date = date.toLocaleDateString();
+        });
+        console.log(TABLEDATA);
+        if(this.service.role=='U'){
+          this.user=true;
+          this.admin=false;
+          this.dataSource = new MatTableDataSource(TABLEDATA);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.data = TABLEDATA;
+        
+        }else if(this.service.role=='A'){
+          this.user=false;
+          this.admin=true;
+          this.dataSource = new MatTableDataSource(TABLEDATA1);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.data = TABLEDATA1;
+        
+        }
     
-      }
-      else if(this.service.role=='A'){
-        this.user=false;
-      this.admin=true;
-      this.dataSource = new MatTableDataSource(TABLEDATA1);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.data = TABLEDATA1;
-    
-      }
+        if(this.service.role===undefined){
+          this.service.role=localStorage.getItem('role');
+          // console.log(this.service.role,"undefined this.service.role")
+          if(this.service.role=='U'){
+            this.user=true;
+          this.admin=false;
+          this.dataSource = new MatTableDataSource(TABLEDATA);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.data = TABLEDATA;
+        
+          }
+          else if(this.service.role=='A'){
+            this.user=false;
+          this.admin=true;
+          this.dataSource = new MatTableDataSource(TABLEDATA1);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.data = TABLEDATA1;
+        
+          }
+        }
+      });
+      
     }
 
     
   }
 
   openForward(val){
-    temp = val;
-    console.log(temp);
-    
     const dialogRef = this.dialog.open(ForwardDialog,{
+      data: {
+        rowData: val,
+        user:this.user,
+        admin:this.admin
+      },
+      disableClose: true
     });
     dialogRef.afterClosed().subscribe(data=> {
+      let payload ={};
       if(this.user){
+        this.forwardService.getUserForwardRequest(payload).subscribe(response => {
+          TABLEDATA = response;
+          TABLEDATA.forEach(obj => {
+            let date = new Date(obj.received_date);
+            obj.received_date = date.toLocaleDateString();
+          });
+          this.dataSource = new MatTableDataSource(TABLEDATA);
+        this.dataSource.paginator = this.paginator;
         this.dataSource.data = TABLEDATA;
-      } else if(this.admin){
-        this.dataSource.data = TABLEDATA1;
-      }
-     
+      });
+    }
     });
 
   }
@@ -117,97 +137,66 @@ export class ForwardMessageComponent implements OnInit {
   styleUrls: ['./forward-message.component.css']
 })
 
-export class ForwardDialog{
+export class ForwardDialog implements OnInit{
   temp: any;
   user: boolean= false;
   admin: boolean= false;
+  campaignId: number = null;
+  forwardData: any = [];
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: SendingTable,
-    public dialog: MatDialog, public dialogRef: MatDialogRef<ForwardSuccess>, 
-  // @Inject(PortalUserService) public service: PortalUserService,
-  // @Inject(OnboardingService) public onboardservice:OnboardingService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialog: MatDialog, public dialogRef: MatDialogRef<ForwardDialog>, 
+  @Inject(ForwardMessageService) public forwardService: ForwardMessageService,
   @Inject(ToasterService) public toasterService: ToasterService,public service: AuthService) { 
-    if(this.service.role=='U'){
-      this.user=true;
-      deleteUser=true;
-      deleteAdmin = false;
-      this.admin=false;
-    
-    }else if(this.service.role=='A'){
-      this.user=false;
-      deleteUser=false;
-      deleteAdmin = true;
-      this.admin=true;
-      
-    }
-
-    if(this.service.role===undefined){
-      this.service.role=localStorage.getItem('role');
-      // console.log(this.service.role,"undefined this.service.role")
-      if(this.service.role=='U'){
-        this.user=true;
-        deleteUser=true;
-      deleteAdmin = false;
-      this.admin=false;
-      }
-      else if(this.service.role=='A'){
-        this.user=false;
-        deleteUser=false;
-      deleteAdmin = true;
-      this.admin=true;
-      }
-    }
+    this.user = data.user;
+    this.admin = data.admin;
+    this.campaignId = data.rowData['campagn_id'];
     this.temp = temp;
   }
 
-  forward(){
+  ngOnInit(): void{
+    let payload = {
+      campaign_id : this.campaignId
+    };
     if(this.user){
-      let rem = TABLEDATA.filter(obj => obj !==this.temp );
-      TABLEDATA = rem;
-    }else if(this.admin){
-      let rem = TABLEDATA1.filter(obj => obj !==this.temp );
-      TABLEDATA1 = rem;
+      this.forwardService.userForwardDetails(payload).subscribe(response =>{
+        this.forwardData = response;
+      });
     }
-   
+    
+  }
 
-    let dialogSuccess = this.dialog.open(ForwardSuccess,{
+  forward(){
+    let dialogConfirm = this.dialog.open(ForwardConfirm,{
+      data: {
+        campaignId : this.campaignId,
+        user: this.user,
+        admin: this.admin,
+        action: 'Forward'
+      }
+    });
+    dialogConfirm.afterClosed().subscribe(data => {
+      if(data == undefined){
+        this.dialogRef.close();
+      }
     });
 
-    setInterval(() => {
-      dialogSuccess.close();
-    }, 3000);
-
-    dialogSuccess.afterClosed().subscribe(
-      data =>{
-      sent =true;
-      this.dialog.open(ForwardSuccess, {
-
-      });
-      sent= false;
-      this.dialogRef.close();
-      
-      // dialogSuccess.afterClosed().subscribe( data =>
-      // this.dialogRef.close() );
-    }
-    );
-    
   }
    
   deleting(){
-    // if(this.user){
-    //   let rem = TABLEDATA.filter(obj => obj !==this.temp );
-    //   TABLEDATA = rem;
-    // }else if(this.admin){
-    //   let rem = TABLEDATA1.filter(obj => obj !==this.temp );
-    //   TABLEDATA1 = rem;
-    // }
-    let dialogDelete = this.dialog.open(ForwardDelete,{
+    let dialogConfirm = this.dialog.open(ForwardConfirm,{
+      data: {
+        campaignId : this.campaignId,
+        user: this.user,
+        admin: this.admin,
+        action: 'Delete'
+      },
+      disableClose: true
     });
-    dialogDelete.afterClosed().subscribe(data => {
-      
+    dialogConfirm.afterClosed().subscribe(data => {
       if(data == undefined){
-      this.dialogRef.close();
-      }
+        this.dialogRef.close();
+      } 
     });
     
   }
@@ -231,32 +220,71 @@ export class ForwardSuccess{
 
 
 @Component({
-  selector: 'forward-delete',
-  templateUrl: './forward-delete.html',
+  selector: 'forward-confirm',
+  templateUrl: './forward-confirm.html',
   styleUrls: ['./forward-message.component.css']
 })
 
-export class ForwardDelete{
-  temp : any;
+export class ForwardConfirm{
+  user : boolean = false;
+  admin: boolean = false;
+  campaignId: number = null;
+  action: string = '';
   constructor(@Inject(ToasterService) public toasterService: ToasterService,
-  public dialog: MatDialog, public dialogRef: MatDialogRef<ForwardDelete>){ 
-    this.temp = temp;
+  @Inject(MAT_DIALOG_DATA) public data: any,
+  public dialog: MatDialog, public dialogRef: MatDialogRef<ForwardConfirm>,
+  @Inject(ForwardMessageService) private forwardService: ForwardMessageService){ 
+    this.campaignId = data.campaignId;
+    this.user = data.user;
+    this.admin = data.admin;
+    this.action = data.action;
   };
   ngOnInit(){
   }
-  deleteForward(){
-    if(deleteUser){
-      let rem = TABLEDATA.filter(obj => obj !== this.temp );
-      TABLEDATA = rem;
-    }else if(deleteAdmin){
-      let rem = TABLEDATA1.filter(obj => obj !==this.temp );
-      TABLEDATA1 = rem;
+  forwardMessage(){
+    let payload = {
+      campaign_id: this.campaignId
     }
-    this.dialogRef.close();
-    this.toasterService.pop(
-      "success",
-      "Request Deleted successfully",
-    );
-    return "success";
+    let dialogSuccess = this.dialog.open(ForwardSuccess,{
+    });
+    if(this.user){
+      this.forwardService.userForwardButton(payload).subscribe(response => {
+        if(response){
+        dialogSuccess.close();
+        }
+      });
+      dialogSuccess.afterClosed().subscribe(
+        data =>{
+        sent =true;
+        this.dialog.open(ForwardSuccess, {
+  
+        });
+        sent= false;
+        this.dialogRef.close();
+        return "success";
+        // dialogSuccess.afterClosed().subscribe( data =>
+        // this.dialogRef.close() );
+      }
+      );
+      
+    }
+  }
+  deleteForward(){
+    let payload = {
+      campaign_id: this.campaignId
+    }
+    if(this.user){
+      this.forwardService.userDeleteButton(payload).subscribe(response => {
+        if(response){
+          this.dialogRef.close();
+          this.toasterService.pop(
+            "success",
+            "Request Deleted successfully",
+          );
+            return "success";
+        }
+      });
+    }
+    
   }
 }

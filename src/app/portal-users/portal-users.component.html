@@ -58,8 +58,18 @@
                                 <a (click)="delete_low(row)" style="color:red; cursor:pointer;">
                                     <mat-icon aria-label="Delete">delete</mat-icon>
                                 </a>
-                                <mat-slide-toggle [checked]="row.status" class="toggle"  [color]="primary" (change)="toggle(row,$event)"></mat-slide-toggle>
+                                <!-- <mat-slide-toggle [checked]="row.status" class="toggle"  [color]="primary" (change)="toggle(row,$event)"></mat-slide-toggle> -->
                                 </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="status">
+                            <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> <div *ngIf="row.st == 'A'">
+                                Active
+                            </div> 
+                            <div *ngIf="row.st == 'V'">
+                                Verification
+                            </div>
+                        </mat-cell>
                         </ng-container>
 
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

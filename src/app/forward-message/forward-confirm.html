@@ -17,18 +17,19 @@
         </div>
     </div>
 </div> -->
-<h1 mat-dialog-title style="text-align:center;">Delete Request</h1>
+<h1 mat-dialog-title style="text-align:center;">{{action}} Request</h1>
 <div mat-dialog-content>
     
     <div class="row">
         <div class="col-md-12">
-           <p style="text-align:center;">Are you sure you want to Delete ? </p>
+           <p style="text-align:center;">Are you sure you want to {{action}} ? </p>
        </div>
     </div>
     <div class="row">
 
         <div class="col-md-12">
-            <button type="button" class="btn btn-default bg-success pull-right m-3" (click)="deleteForward()">Confirm</button>       
+            <button type="button" class="btn btn-default bg-success pull-right m-3" *ngIf="action == 'Forward'" (click)="forwardMessage()">Confirm</button>       
+            <button type="button" class="btn btn-default bg-success pull-right m-3" *ngIf="action == 'Delete'" (click)="deleteForward()">Confirm</button>       
             <button type="button" class="btn btn-default bg-danger pull-right m-3" mat-dialog-close>Cancel</button>   
         </div>
     </div>

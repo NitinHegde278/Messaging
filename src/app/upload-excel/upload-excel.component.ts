@@ -59,22 +59,7 @@ showSpinner = false;
   }
 
   saveExcel(){
-    // let dialogRef = this.dialog.open(UploadDialog, {
-
-    // });  
-    // setInterval(() => {
-    //   dialogRef.close();
-    // }, 3000);
     
-    // dialogRef.afterClosed().subscribe(
-    //   data =>{
-    //   sent =true;
-    //   this.dialog.open(UploadDialog, {
-      
-    //   });
-    //   sent= false;
-    // }
-    // );
     this.showSpinner = true;
     console.log(this.data);
     
@@ -83,9 +68,7 @@ showSpinner = false;
       
       if(response.mis_st_json[0]){
         this.showSpinner = false;
-        // this.toasterService.pop(
-        //   "error",
-        //    "Something went wrong!");
+        
         const dialogRef = this.dialog.open(Correction,{
           data : {
             rowData: response
@@ -93,7 +76,10 @@ showSpinner = false;
           disableClose: true
         });
         dialogRef.afterClosed().subscribe(data =>{
-
+          this.toasterService.pop(
+            "success",
+            "Updated successfully"
+          );
         });
       } else{
        
@@ -185,10 +171,6 @@ export class Correction{
      console.log("inside response",response);
      
       if(response == "OK"){
-        this.toasterService.pop(
-          "success",
-          "Updated Successfully"
-        );
         this.dialogRef.close();
       }else{
         this.toasterService.pop(

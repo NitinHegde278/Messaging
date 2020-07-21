@@ -25,19 +25,19 @@
                     <!-- Name Column -->
                     <ng-container matColumnDef="campaign">
                         <mat-header-cell *matHeaderCellDef> Campaign Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.campaign}} </mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.campaign_name}} </mat-cell>
                     </ng-container>
 
                     <!-- Email Column -->
                     <ng-container matColumnDef="sentFrom">
                         <mat-header-cell *matHeaderCellDef> Sent From </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.sentFrom}} </mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.org_name}} </mat-cell>
                     </ng-container>
 
                     <!-- Mobile number Column -->
                     <ng-container matColumnDef="receivedDate">
                         <mat-header-cell *matHeaderCellDef> Receieved Date </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.receivedDate}} </mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.received_date}} </mat-cell>
                     </ng-container>
 
                     <!-- Action Column -->
@@ -70,7 +70,7 @@
                         <!-- Name Column -->
                         <ng-container matColumnDef="campaign">
                             <mat-header-cell mat-header-cell *matHeaderCellDef> Campaign Name </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.campaign}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.campaign_name}} </mat-cell>
                         </ng-container>
     
                         <!-- Email Column -->
@@ -81,13 +81,13 @@
     
                         <ng-container matColumnDef="sentTo">
                             <mat-header-cell *matHeaderCellDef> Sent To Org </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.sentTo}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.org_name}} </mat-cell>
                         </ng-container>
     
                         <!-- Mobile number Column -->
                         <ng-container matColumnDef="receivedDate">
                             <mat-header-cell *matHeaderCellDef> Receieved Date </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.receivedDate}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.received_date}} </mat-cell>
                         </ng-container>
     
                         <!-- Action Column -->

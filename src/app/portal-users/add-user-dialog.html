@@ -10,11 +10,22 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row container">
+            <div *ngIf="dialogTitle == 'Add User'" class="row container">
                 <div class="col-md-12">
                     <mat-form-field>
                         <input matInput placeholder="Email" [disabled]="editmode" formControlName="email" [(ngModel)]="email"
                         required>
+                        <mat-error>Please add valid email.</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="dialogTitle == 'Update user'" class="row container">
+                <!-- <p style="font-size: 10px;">Email *</p><br>
+                {{email}} -->
+                <div class="col-md-12">
+                    <mat-form-field>
+                        <input matInput placeholder="Email" [disabled]="editmode" formControlName="email" [(ngModel)]="email"
+                        required readonly>
                         <mat-error>Please add valid email.</mat-error>
                     </mat-form-field>
                 </div>
@@ -37,7 +48,7 @@
                      <mat-form-field>
                         <mat-label>Organization Name</mat-label>
                         <mat-select [(ngModel)]="orgName" formControlName="orgName"  required>
-                          <mat-option *ngFor="let item of orgReference" [value]="item.org_name" >
+                          <mat-option *ngFor="let item of orgReference" [value]="item.org_id" >
                             {{item.org_name}}
                           </mat-option>
                         </mat-select>
