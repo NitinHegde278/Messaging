@@ -49,8 +49,7 @@ export class ForwardMessageComponent implements OnInit {
 
   ngOnInit(): void {
     let payload ={};
-    if(this.user){
-      
+
       this.forwardService.getUserForwardRequest(payload).subscribe(response => {
         TABLEDATA = response;
         TABLEDATA.forEach(obj => {
@@ -95,9 +94,6 @@ export class ForwardMessageComponent implements OnInit {
           }
         }
       });
-      
-    }
-
     
   }
 
