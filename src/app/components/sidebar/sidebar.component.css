@@ -63,3 +63,9 @@ a{
 .sidebar-wrapper,.side{
   background-color: #1d8b4e;
 }
+
+.logo-img img {
+  width: 89px;
+  margin-left: 25%;
+  position: relative;
+}

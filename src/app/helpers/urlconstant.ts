@@ -16,7 +16,7 @@ export class UrlConstants {
     // static loginuserUrl ='portal/users/loginuserUrl';
     static saveState='org/addcat';
     static getstatelist='org/getcatlist';
-    static updateState = 'org/updatecat'
+    static updateState = 'org/updatecat';
     static deleteState='org/deletecat';
     static saveCity = 'states/addsubcat';
     static getcitylist = 'states/getsubcatlist';
@@ -43,4 +43,13 @@ export class UrlConstants {
     static userForwardDetails = 'message/getmessagedetail';
     static userForwardButton = 'message/usermessagefwd';
     static userDeleteButton = 'message/usermessagedelete';
+    static getAdminForwardRequest = 'message/adminfwdreq';
+    static adminForwardDetails = 'message/adminmessagedetails'
+    static adminSent = 'message/adminfwdmessage';
+    static adminDelete = 'message/adminDeletemessage';
+
+    static sentUserAtOrg = 'message/usersentmessageswaitorg';
+    static sentUserAtAdmin = 'message/usersentmessageswaitadmin';
+    static sentUserSuccess = 'message/usersentmessagessentsuccess';
+    static sentUserdetail = 'message/getmessagedetailsent';
 }

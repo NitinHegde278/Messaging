@@ -76,18 +76,18 @@
                         <!-- Email Column -->
                         <ng-container matColumnDef="sentFrom">
                             <mat-header-cell *matHeaderCellDef> Sent From Org</mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.sentFrom}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.sent_from_org}} </mat-cell>
                         </ng-container>
     
                         <ng-container matColumnDef="sentTo">
                             <mat-header-cell *matHeaderCellDef> Sent To Org </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.org_name}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.sent_to_org}} </mat-cell>
                         </ng-container>
     
                         <!-- Mobile number Column -->
                         <ng-container matColumnDef="receivedDate">
                             <mat-header-cell *matHeaderCellDef> Receieved Date </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.received_date}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.rec_date}} </mat-cell>
                         </ng-container>
     
                         <!-- Action Column -->

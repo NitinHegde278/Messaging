@@ -1,3 +1,4 @@
+import { SentOpenDialog } from './sent-report/sent-report.component';
 import { AdminAuthGuardService, DeniedAccess } from './auth/admin-auth-guard.service';
 import { UploadDialog, Correction } from './upload-excel/upload-excel.component';
 import { ForwardDialog, ForwardSuccess, ForwardConfirm } from './forward-message/forward-message.component';
@@ -177,7 +178,8 @@ export function jwtTokenGetter() {
     ForwardSuccess,
     ForwardConfirm,
     UploadDialog,
-    Correction
+    Correction,
+    SentOpenDialog
     
     // CityComponent,
     // VideoUploadComponent,
@@ -208,7 +210,8 @@ export function jwtTokenGetter() {
     ForwardSuccess,
     ForwardConfirm,
     UploadDialog,
-    Correction
+    Correction,
+    SentOpenDialog
 
     // VideoDetailsDialog,
 

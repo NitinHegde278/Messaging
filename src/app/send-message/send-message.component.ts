@@ -343,14 +343,25 @@ export class AddOrganizationDialog {
     }
 
     orgChange(evt){
-      let payload = {
-        org_id : evt.value
+      console.log(evt.value);
+      
+      let temp = TABLEDATA.filter(obj => obj.orgId === evt.value);
+      console.log("temp",temp);
+      
+      if(temp.length == 0){
+        let payload = {
+          org_id : evt.value
+        }
+        this.sendService.getStateCount(payload).subscribe(response => {
+          this.count = response;
+          console.log(this.count);
+          
+        });
+      }else{
+        this.toasterService.pop("error",temp[0]['name']+" already added. Click on edit to make changes");
+        this.dialogRef.close();
       }
-      this.sendService.getStateCount(payload).subscribe(response => {
-        this.count = response;
-        console.log(this.count);
-        
-      });
+      
     }
     stateChange(evt){
       console.log(evt);

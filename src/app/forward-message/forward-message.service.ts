@@ -39,4 +39,24 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
        const url = UrlConstants.MAINURL + UrlConstants.userDeleteButton;
        return this.httpClient.post<any>(url,payload,this.options);
      }
+
+     getAdminForwardRequest(payload): Observable<any>{
+       const url = UrlConstants.MAINURL + UrlConstants.getAdminForwardRequest;
+       return this.httpClient.post<any>(url,payload,this.options);
+     }
+
+     adminForwardDetails(payload): Observable<any>{
+      const url = UrlConstants.MAINURL + UrlConstants.adminForwardDetails;
+      return this.httpClient.post<any>(url,payload,this.options);
+    }
+
+    adminSent(payload): Observable<any>{
+      const url = UrlConstants.MAINURL + UrlConstants.adminSent;
+      return this.httpClient.post<any>(url,payload,this.options);
+    }
+    
+    adminDelete(payload): Observable<any>{
+      const url = UrlConstants.MAINURL + UrlConstants.adminDelete;
+      return this.httpClient.post<any>(url,payload,this.options);
+    }
   }

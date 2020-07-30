@@ -99,6 +99,7 @@
           border: 2px solid #1d8b4e;
           padding: 7px;
           margin-bottom: 15px;
+          width: 100%;
           height: 70px;
           overflow: auto;
         "
@@ -108,22 +109,22 @@
     </div>
     <div class="row gap">
       <p>Sent From:</p>
-      <p>{{forwardData[0].sentFrom}}</p>
+      <p>{{forwardData[0].from_org}}</p>
       <br />
     </div>
     <div class="row gap">
       <p>Contact:</p>
-      <p>{{forwardData[0].contact}}</p>
+      <p>{{forwardData[0].from_name}}</p>
       <br />
     </div>
     <div class="row gap">
       <p>Contact No:</p>
-      <p>{{forwardData[0].contactNo}}</p>
+      <p>{{forwardData[0].from_mob}}</p>
       <br />
     </div>
     <div class="row gap">
       <p>Sent Date:</p>
-      <p>{{forwardData[0].receivedDate}}</p>
+      <p>{{forwardData[0].sent_date}}</p>
       <br />
     </div>
     <div
@@ -136,17 +137,17 @@
     </div>
     <div class="row gap">
       <p>Forwarded From:</p>
-      <p>{{forwardData[0].sentTo}}</p>
+      <p>{{forwardData[0].to_org}}</p>
       <br />
     </div>
     <div class="row gap">
       <p>Contact:</p>
-      <p>{{forwardData[0].Fcontact}}</p>
+      <p>{{forwardData[0].to_name}}</p>
       <br />
     </div>
     <div class="row gap">
       <p>Contact No:</p>
-      <p>{{forwardData[0].FcontactNo}}</p>
+      <p>{{forwardData[0].to_mobile}}</p>
       <br />
     </div>
     <div
@@ -154,7 +155,7 @@
       style="border-bottom: 1px solid #1d8b4e; margin-bottom: 10px;"
     >
       <p>Forwarded Date:</p>
-      <p>{{forwardData[0].forwardedDate}}</p>
+      <p>{{forwardData[0].forword_date}}</p>
       <br />
     </div>
     <div class="row gap">
@@ -169,7 +170,7 @@
     </div>
     <div class="row" style="float: right;">
       <button class="btn btn-danger" (click)="deleting()">Delete</button>
-      <button class="btn btn-success" (click)="forward()">Send</button>
+      <button class="btn btn-success" (click)="send()">Send</button>
     </div>
   </div>
 </div>
