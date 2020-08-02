@@ -1,9 +1,6 @@
 export class UrlConstants {
     
-    static modal_name="NovoNordiskIN";
-    
     static MAINURL = 'http://localhost:3000/';
-    // static usersGetTableItems = 'ex/register/submit';
     static saveUser =  'portal/users/adduser';
     static updateUser = 'portal/users/updateportal';
     static getroles  = 'portal/users/getroles';
@@ -25,17 +22,11 @@ export class UrlConstants {
     static getcats  = 'portal/users/getcat';
     static getcat = 'portal/users/get';
     static statuscheck = 'portal/users/status';
-    static getsub = 'portal/users/getsub';
-    static getvideos = 'portal/users/dashboardvideolist';
-    static deletevideo = 'portal/users/deletevideo';
-    static uploadVideo='upload';
-    static getlikes = 'portal/users/analytics';
-    static getMobileUsers ='portal/users/mobusr';
-    static defaultsetting = 'portal/users/radio';
-    static defaultsettings = 'portal/users/defaultsetting';
+    // static getsub = 'portal/users/getsub';
     static excelData = 'upload/exceltest';
     static excelCorrection = 'upload/excelstatecorrection'
     static sendMessage = 'https://cors-anywhere.herokuapp.com/https://api.msg91.com/api/v5/flow/';
+    // static sendMessage = 'https://api.msg91.com/api/v5/flow/';
     static getNumbers = 'upload/getexcel';
     static createMessage = 'message/createmessage';
     static getStateCount = 'message/getstatemsgcount';
@@ -52,4 +43,14 @@ export class UrlConstants {
     static sentUserAtAdmin = 'message/usersentmessageswaitadmin';
     static sentUserSuccess = 'message/usersentmessagessentsuccess';
     static sentUserdetail = 'message/getmessagedetailsent';
+
+    static forwardUserAtAdmin = 'message/userforwardedmessagesadminwait';
+    static forwardUserSuccess = 'message/userforwardedmessagesadminsent';
+    static forwardUserDetail = 'message/userforwardedmessagesdetail';
+
+    static forwardAdmin = 'message/adminforwardedmessage';
+    static sentAdmin = 'message/adminsentmessages';
+    static forwardAdminDetails = 'message/adminforwardedmessagedetails';
+    static sentAdminDetails = 'message/adminsentmessagedetails';
+    static adminCreateMessage = 'message/createmessageadmin';
 }

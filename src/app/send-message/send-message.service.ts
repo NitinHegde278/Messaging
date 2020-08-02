@@ -51,9 +51,14 @@ import { UrlConstants } from "app/helpers/urlconstant";
         return this.httpClient.post<any>(url,payload,this.options);
       }
 
-      getNumbers(payload): Observable<any> {
-        const url = UrlConstants.MAINURL + UrlConstants.getNumbers;
-        return this.httpClient.post<any>(url,payload);
+      // getNumbers(payload): Observable<any> {
+      //   const url = UrlConstants.MAINURL + UrlConstants.getNumbers;
+      //   return this.httpClient.post<any>(url,payload);
+      // }
+
+      admincreateMessage(payload): Observable<any>{
+        const url = UrlConstants.MAINURL + UrlConstants.adminCreateMessage;
+        return this.httpClient.post<any>(url,payload,this.options);
       }
 
       getStateCount(payload): Observable<any> {

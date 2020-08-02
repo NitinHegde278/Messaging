@@ -36,10 +36,10 @@
   .example{
       max-width: 400px;
       max-height: 40px;
-      margin:40px 125px;
+      margin:40px 85px;
   }
   .example-full-width{
-      margin: 30px 60px 30px 125px;
+      margin: 30px 90px 30px 85px;
       max-width: 890px;
       height: 40px;
   }
@@ -56,7 +56,7 @@
     padding: 13px;
   }
   .place{
-      margin: 5px 30px -20px 20px;
+      margin: 5px 20px -20px 70px;
       max-width: 970px;
   }
   #sending{
@@ -77,13 +77,18 @@
   }
   .example-full-width{
     transition: 1s all ease-in;
-    margin: 30px 30px 30px 30px;
+    margin: 30px 30px;
     max-width: 970px;
     height: 40px;
   }
     .mat-header-row {
       display: flex;
     }
+    .place{
+      transition: 1s all ease-in;
+      margin: 30px 40px 30px 20px;
+      max-width: 970px;
+  }
   }
   @media(max-width:500px){
     .mat-row { 

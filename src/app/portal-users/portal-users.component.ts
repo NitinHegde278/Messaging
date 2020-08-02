@@ -380,18 +380,14 @@ export class AddUserDialog {
       // this.save_user_btn=true;
       this.service.saveuser(payload)
         .subscribe(response => {
-
-          let data: any;
-          data = response;
-          // console.log(response, "incoming response")
-          console.log(data);
+          console.log(response);
           
-          if (data) {
+          if (response.status == 200) {
             this.showSpinner=false;
-            this.dialogRef.close(data);  
+            this.dialogRef.close(response);  
             this.toasterService.pop(
               "success",
-              data
+              response
             );
             // this.save_user_btn=false;
 

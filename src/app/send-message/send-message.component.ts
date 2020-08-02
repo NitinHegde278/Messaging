@@ -107,76 +107,6 @@ export class SendMessageComponent implements OnInit {
 
   sendingMessage(){
     let dialogRef;
-   if(this.admin){
-    let recepients = [];
-   trial.forEach(obj => {
-     if(recepients.length <= 1){
-      recepients.push({
-        mobiles: "91"+obj.phone,
-        name: obj.name,
-        message: this.message+ "\n-" +this.sender
-      });
-      console.log("in if");
-      
-     }else{
-      let payload = {
-        flow_id: "5f06b885d6fc052a7a01833f",
-        recipients: recepients
-      };
-      console.log(payload);
-
-      this.service.sendMessage(payload).subscribe(response => {
-        console.log(response);
-        
-        // if(response.type == "success"){
-        //   dialogRef.close();
-        // }
-      });
-       recepients = [];
-       recepients.push({
-        mobiles: "91"+obj.phone,
-        name: obj.name,
-        message: this.message+ "<br/>-" +this.sender
-      });
-     }
-      
-    });
-    console.log(recepients);
-    let payload = {
-      flow_id: "5f06b885d6fc052a7a01833f",
-      recipients: recepients
-    };
-    console.log(payload);
-
-    this.service.sendMessage(payload).subscribe(response => {
-      console.log(response);
-      
-      if(response.type == "success"){
-        dialogRef.close();
-      }
-    });
-    // let payload = {
-    //   flow_id: "5f06b885d6fc052a7a01833f",
-    //   recipients: recepients
-    // };
-    // console.log(payload);
-    dialogRef = this.dialog.open(SendingDialog, {
-
-    });  
-    
-    // setInterval(() => 
-    // dialogRef.close()
-    // ,5000);
-    // this.service.sendMessage(payload).subscribe(response => {
-    //   console.log(response);
-      
-    //   if(response.type == "success"){
-    //     dialogRef.close();
-    //   }
-    // });
-
-
-   }else{
     let orgs = [];
     
     TABLEDATA.forEach(obj => {
@@ -198,10 +128,66 @@ export class SendMessageComponent implements OnInit {
       orgs: orgs
     };
     console.log(payload);
-    
+         
     dialogRef = this.dialog.open(SendingDialog, {
-
+      disableClose: true
     });
+   if(this.admin){
+    this.service.admincreateMessage(payload).subscribe(response =>{
+      if (response) {
+        let resTemp = response;
+        let recepients = [];
+        resTemp.forEach((obj,index) => {
+          recepients.push({
+            mobiles: "91" + obj.phone,
+            name: obj.name,
+            message: this.message + "\n-" + this.sender +"\n",
+          });
+          console.log(index);
+          console.log(recepients);
+          
+          if((index !=0) && (index % 2 == 0)){
+            console.log("inside index");
+            console.log(recepients);
+            
+            let message = {
+              flow_id: "5f06b885d6fc052a7a01833f",
+              unicode: 1,
+              recipients: recepients,
+            };
+            console.log(message);
+        // await this.service.sendMessage(message).toPromise().then((response) => {
+        //   console.log(response);
+        //   console.log("inside await");
+          
+        //   recepients = [];
+        // });
+          }
+          
+           else if(index == (resTemp.length - 1)){
+            let message = {
+              flow_id: "5f06b885d6fc052a7a01833f",
+              unicode: 1,
+              recipients: recepients,
+            };
+            console.log(message);
+            console.log("final loop");
+            
+        //  this.service.sendMessage(message).subscribe((response) => {
+        //   console.log(response);
+          
+        //   if (response.type == "success") {
+        //     dialogRef.close();
+        //   }
+        // });
+        }
+        });
+        
+        
+      }
+    });
+   }else{
+
     this.service.createMessage(payload).subscribe(response => {
       if(response == "200"){
         dialogRef.close();
@@ -430,16 +416,6 @@ export class AddOrganizationDialog {
         whatsapp: this.selectedWhatsapp
       });
       complete = true;
-      let payload = {
-        states: this.selectedStates.map(obj => obj.state_id)
-      };
-      this.sendService.getNumbers(payload).subscribe(response => {
-        if(response){
-          trial = response;
-        }
-        console.log(response);
-        
-      });
       this.dialogRef.close("200");
     }
 

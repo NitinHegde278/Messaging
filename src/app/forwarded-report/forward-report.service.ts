@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable({
     providedIn: 'root'
   })
-  export class SentReportService {
+  export class ForwardReportService {
     options;
     token = localStorage.getItem('token');
     constructor(private httpClient: HttpClient){
@@ -17,34 +17,29 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
         headers: httpHeaders
       };
      }
-
-     sentUserAtOrg(payload): Observable<any>{
-         const url = UrlConstants.MAINURL + UrlConstants.sentUserAtOrg;
+     
+     forwardUserAtAdmin(payload): Observable<any>{
+         const url = UrlConstants.MAINURL + UrlConstants.forwardUserAtAdmin;
          return this.httpClient.post<any>(url,payload,this.options);
      }
 
-     sentUserAtAdmin(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentUserAtAdmin;
+     forwardUserSuccess(payload): Observable<any>{
+        const url = UrlConstants.MAINURL + UrlConstants.forwardUserSuccess;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
-    sentUserSuccess(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentUserSuccess;
+    forwardUserDetail(payload): Observable<any>{
+        const url = UrlConstants.MAINURL + UrlConstants.forwardUserDetail;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
-    sentUserDetail(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentUserdetail;
+    forwardAdmin(payload): Observable<any>{
+        const url = UrlConstants.MAINURL + UrlConstants.forwardAdmin;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
-    sentAdminSuccess(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentAdmin;
+    forwardAdminDetail(payload): Observable<any>{
+        const url = UrlConstants.MAINURL + UrlConstants.forwardAdminDetails;
         return this.httpClient.post<any>(url,payload,this.options);
     }
-
-    sentAdminDetail(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentAdminDetails;
-        return this.httpClient.post<any>(url,payload,this.options);
-    }
-  }
+}

@@ -27,6 +27,7 @@ export class SentReportComponent implements OnInit {
   @ViewChild('pag1', {static: false}) paginator1: MatPaginator;
   @ViewChild('pag2', {static: false}) paginator2: MatPaginator;
   @ViewChild('pag3', {static: false}) paginator3: MatPaginator;
+  @ViewChild('pag4', {static: false}) paginator4: MatPaginator;
   constructor(private service: AuthService,
     @Inject(SentReportService) private sentService: SentReportService,
     private dialog: MatDialog) { }
@@ -64,6 +65,19 @@ export class SentReportComponent implements OnInit {
         console.log(TABLEDATA);
         this.dataSource = new MatTableDataSource(TABLEDATA);
         this.dataSource.paginator = this.paginator1;
+        this.dataSource.data = TABLEDATA;
+      });
+    }else{
+      this.sentService.sentAdminSuccess(payload).subscribe(response => {
+        TABLEDATA = response;
+        console.log(response);
+        TABLEDATA.forEach(obj => {
+          let date = new Date(obj.admin_send_date);
+          obj.admin_send_date = date.toLocaleDateString();
+        });
+        console.log(TABLEDATA);
+        this.dataSource = new MatTableDataSource(TABLEDATA);
+        this.dataSource.paginator = this.paginator4;
         this.dataSource.data = TABLEDATA;
       });
     }
@@ -144,7 +158,12 @@ export class SentOpenDialog{
     if(data){
       this.user = data.user;
       this.admin = data.admin;
-      this.campaignId = data.rowData['campagn_id'];
+      if(this.user){
+        this.campaignId = data.rowData['campagn_id'];
+      }else{
+        this.campaignId = data.rowData['campaign_id'];
+      }
+      
       this.orgId = data.rowData['org_id'];
     }
   }
@@ -154,12 +173,21 @@ export class SentOpenDialog{
       campaign_id: this.campaignId,
       org_id: this.orgId
     }
+    if(this.user){
     this.sentService.sentUserDetail(payload).subscribe(response => {
       this.forwardData = response;
         let date = new Date(this.forwardData[0].sent_date);
         this.forwardData[0].sent_date = date.toLocaleDateString();
       console.log(this.forwardData);
     });
+  } else{
+    this.sentService.sentAdminDetail(payload).subscribe(response => {
+      this.forwardData = response;
+      let date = new Date(this.forwardData[0].sent_date);
+        this.forwardData[0].sent_date = date.toLocaleDateString();
+      console.log(response);
+    });
+  }
   }
 
 

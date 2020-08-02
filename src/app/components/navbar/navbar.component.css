@@ -1,4 +1,4 @@
-.nav-item:hover{
+.nav-link:hover{
     cursor: pointer;
 }
 nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {

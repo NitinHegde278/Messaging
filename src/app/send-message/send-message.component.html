@@ -4,13 +4,13 @@
     <form [formGroup]="myForm">    
         <mat-form-field appearance="outline" class="example shadow-lg rounded" id="first">
             <mat-label>Sender's Name</mat-label>
-            <input matInput formControlName="sender" type="text" name="sender" [(ngModel)]="sender" required/>
+            <input matInput formControlName="sender" type="text" name="sender" [(ngModel)]="sender" required style="height: 20px;"/>
             <mat-error>This field is Mandatory</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="example shadow-lg rounded">
             <mat-label>Campaign Name</mat-label>
-            <input matInput formControlName="campaign" type="text" name="campaign" [(ngModel)]="campaign" required/>
+            <input matInput formControlName="campaign" type="text" name="campaign" [(ngModel)]="campaign" required style="height: 20px;"/>
             <mat-error>This field is Mandatory</mat-error>
         </mat-form-field>
 
@@ -21,7 +21,7 @@
         </mat-form-field>
         <div class="row">
             <div class="col-lg-11 col-md-6">
-                <button type="button" class="btn pull-right send" (click)="addOrganization()" style="margin-top: 34px;">
+                <button type="button" class="btn pull-right send" (click)="addOrganization()" style="margin: 34px 30px 0px 0px;">
                     Add Organization <mat-icon mat-list-icon class="font-c">add_circle_outline</mat-icon>
                 </button>
             </div>
@@ -29,7 +29,7 @@
     
 
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-10">
                 <div class="card place">
                     <div class="card-header card-header-primary">
@@ -113,7 +113,7 @@
 </form>
     <div class="row">
         <div class="col-lg-11 col-md-6">
-            <button type="button" class="btn pull-right send" [disabled]="always()" (click)="sendingMessage()" style="margin-top: 10px; padding: 15px 25px;">
+            <button type="button" class="btn pull-right send" [disabled]="always()" (click)="sendingMessage()" style="margin: 10px 30px 0px 0px; padding: 15px 25px;">
                 Send Message
             </button>
         </div>

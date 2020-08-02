@@ -5,24 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 
-// import {
-//   MatButtonModule,
-//   MatInputModule,
-//   MatRippleModule,
-//   MatFormFieldModule,
-//   MatTooltipModule,
-//   MatSelectModule,
-//   MatCardModule,
-//   MatTableModule,
-//   MatTableDataSource,
-//   MatSortModule,
-//   MatIconModule,
-//   MatDividerModule,
-//   MatSlideToggleModule,
-
-// } from '@angular/material';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -52,14 +35,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 // import { BrowserModule } from '@angular/platform-browser';
 // import { MatFileUploadModule } from '@webacad/ng-mat-file-upload';
 // import { MatFileUploadModule,BrowserModule }
-import { VideoUploadComponent } from 'app/video-upload/video-upload.component';
 import { ReadMoreComponent } from 'app/read-more/read-more';
-import { MobileUsersComponent } from 'app/mobile-users/mobile-users.component'
-import { DefaultSettingsComponent, defaultpasswordDialog } from 'app/default-settings/default-settings.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TextShowMoreLessModule } from 'angular2-text-show-more-less';
-import { UploadResponseComponent } from 'app/video-upload/upload-response/upload-response.component';
 import { SendMessageComponent } from '../../send-message/send-message.component';
 import { UploadExcelComponent } from '../../upload-excel/upload-excel.component';
 import { ForwardMessageComponent } from '../../forward-message/forward-message.component';
@@ -100,15 +79,10 @@ import { ForwardedReportComponent } from '../../forwarded-report/forwarded-repor
 
   ],
   declarations: [
-    DashboardComponent,
     PortalUsersComponent,
     StateComponent,
     CityComponent,
-    VideoUploadComponent,
     ReadMoreComponent,
-    MobileUsersComponent,
-    DefaultSettingsComponent,
-    UploadResponseComponent,
     SendMessageComponent,
     UploadExcelComponent,
     ForwardMessageComponent,

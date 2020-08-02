@@ -1,3 +1,4 @@
+import { ForwardOpenDialog } from './forwarded-report/forwarded-report.component';
 import { SentOpenDialog } from './sent-report/sent-report.component';
 import { AdminAuthGuardService, DeniedAccess } from './auth/admin-auth-guard.service';
 import { UploadDialog, Correction } from './upload-excel/upload-excel.component';
@@ -55,12 +56,8 @@ import { from } from 'rxjs';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { StateComponent, AddStateDialog, DeleteStateDialog } from './state/state.component';
 import { CityComponent, AddCityDialog, DeleteCityDialog } from './city/city.component';
-import { VideoUploadDialog } from './video-upload/video-upload.component';
 // import {VideoDialogComponent} from '../app/video-upload/video-dialog/video-dialog.component'
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { VideoDialogComponent } from './video-upload/video-dialog/video-dialog.component';
-import { VideoEditDialogComponent } from './video-upload/video-edit-dialog/video-edit-dialog.component';
-import { DeleteDialogComponent } from './video-upload/delete-dialog/delete-dialog.component';
 import { TokenExpiredDialog } from './auth/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import {RequestInterceptor,tokenDialog} from '../app/helpers/request.interceptor';
@@ -70,7 +67,6 @@ import { AuthGuard } from './auth/auth.guard';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SetPasswordComponent } from './reset-password/set-password/set-password.component';
-import { defaultpasswordDialog } from 'app/default-settings/default-settings.component';
 
 
 
@@ -155,7 +151,6 @@ export function jwtTokenGetter() {
     LoginComponent,
     DeleteUserDialog,
     AddUserDialog,
-    VideoUploadDialog,
     ResetPasswordComponent,
     AddStateDialog,
     DeleteStateDialog,
@@ -163,15 +158,11 @@ export function jwtTokenGetter() {
     DeleteCityDialog,
     // VideoDetailsDialog,
     forgotDialog,
-    VideoDialogComponent,
-    VideoEditDialogComponent,
-    DeleteDialogComponent,
     ForgotPasswordComponent,
     TokenExpiredDialog,
     DeniedAccess,
     tokenDialog,
     SetPasswordComponent,
-    defaultpasswordDialog,
     AddOrganizationDialog,
     SendingDialog,
     ForwardDialog,
@@ -179,7 +170,8 @@ export function jwtTokenGetter() {
     ForwardConfirm,
     UploadDialog,
     Correction,
-    SentOpenDialog
+    SentOpenDialog,
+    ForwardOpenDialog
     
     // CityComponent,
     // VideoUploadComponent,
@@ -191,19 +183,14 @@ export function jwtTokenGetter() {
   entryComponents: [
     DeleteUserDialog,
     AddUserDialog,
-    VideoUploadDialog,
     AddStateDialog,
     DeleteStateDialog,
     AddCityDialog,
     DeleteCityDialog,
     forgotDialog,
-    VideoDialogComponent,
-    VideoEditDialogComponent,
-    DeleteDialogComponent,
     TokenExpiredDialog,
     DeniedAccess,
     tokenDialog,
-    defaultpasswordDialog,
     AddOrganizationDialog,
     SendingDialog,
     ForwardDialog,
@@ -211,7 +198,8 @@ export function jwtTokenGetter() {
     ForwardConfirm,
     UploadDialog,
     Correction,
-    SentOpenDialog
+    SentOpenDialog,
+    ForwardOpenDialog
 
     // VideoDetailsDialog,
 

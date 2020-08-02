@@ -343,7 +343,9 @@ export class ForwardConfirm {
   ngOnInit() {}
   forwardMessage() {
     let payload;
-    let dialogSuccess = this.dialog.open(ForwardSuccess, {});
+    let dialogSuccess = this.dialog.open(ForwardSuccess, {
+      disableClose: true
+    });
     if (this.user) {
       payload = {
         campaign_id: this.campaignId,
@@ -375,16 +377,17 @@ export class ForwardConfirm {
             recepients.push({
               mobiles: "91" + obj.phone,
               name: obj.name,
-              message: this.message + "\n-" + this.sender,
+              message: this.message + "\n-" + this.sender +"\n",
             });
           });
           let message = {
             flow_id: "5f06b885d6fc052a7a01833f",
+            unicode: 1,
             recipients: recepients,
           };
           console.log(message);
 
-          this.messageService.sendMessage(message).subscribe((response) => {
+          this.messageService.sendMessage(message).toPromise().then((response) => {
             console.log(response);
 
             if (response.type == "success") {
