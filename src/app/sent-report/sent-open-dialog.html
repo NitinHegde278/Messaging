@@ -1,4 +1,4 @@
-<div mat-dialog-content style="width: 800px; height: 700px !important;position: relative;" *ngIf="user">
+<div mat-dialog-content style="width: 800px; height: 500px !important;position: relative;" *ngIf="user">
     <!--User-->
     <div class="container" id="forward">
       <button class="btn btn-secondary clear" (click)="dialogRef.close()">
@@ -60,11 +60,11 @@
         <p>{{forwardData[0].sms_cnt}}</p>
         <br />
       </div>
-      <div class="row gap">
+      <!-- <div class="row gap">
         <p>Whatsapp to send:</p>
         <p>{{forwardData[0].wa_cnt}}</p>
         <br />
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -113,15 +113,15 @@
         <br />
       </div>
       
-      <div class="row gap">
+      <div class="row gap" style="margin-bottom: -50px;">
         <p>SMS msgs:</p>
         <p>{{forwardData[0].sms_cnt}}</p>
         <br />
       </div>
-      <div class="row gap">
+      <!-- <div class="row gap">
         <p>Whatsapp msgs:</p>
         <p>{{forwardData[0].wa_cnt}}</p>
         <br />
-      </div>
+      </div> -->
     </div>
   </div>

@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <mat-form-field style="padding: 0% 6%;">
                         <mat-label>States</mat-label>
-                        <mat-select [(ngModel)]="selectedStates" (selectionChange)="stateChange($event)" formControlName="states"  multiple required>
+                        <mat-select [(ngModel)]="selectedStates" formControlName="states"  multiple required>
                                 
                                     <mat-option *ngFor="let item of count" [value]="item.state_id">
                                         {{item.state_name}}
@@ -34,8 +34,7 @@
             <div class="row container">
                 <div class="col-md-12">
                     
-                        <mat-checkbox color="primary" formControlName="sms" [(ngModel)]="sms" style="padding: 0% 6%;">SMS:
-                            {{countSms}} users
+                        <mat-checkbox color="primary" formControlName="homeState" [(ngModel)]="homeState" style="padding: 0% 6%;">Home State
                     </mat-checkbox>    
                     
                 </div>
@@ -43,8 +42,7 @@
             <div class="row container">
                 <div class="col-md-12">
                     
-                        <mat-checkbox color="primary" formControlName="whatsapp" [(ngModel)]="whatsapp" style="padding: 0% 6%;">Whatsapp: 
-                            {{countWhatsapp}} users
+                        <mat-checkbox color="primary" formControlName="workState" [(ngModel)]="workState" style="padding: 0% 6%;">Work State
                         </mat-checkbox>
                         
                     

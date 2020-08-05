@@ -51,4 +51,7 @@ export class UrlConstants {
     static forwardAdminDetails = 'message/adminforwardedmessagedetails';
     static sentAdminDetails = 'message/adminsentmessagedetails';
     static adminCreateMessage = 'message/createmessageadmin';
+
+    static excelreport = 'upload/getexcelreport';
+    static getmsgCount = 'message/getmsgcountByOrgState';
 }

@@ -62,8 +62,13 @@ import { UrlConstants } from "app/helpers/urlconstant";
         return this.httpClient.post<any>(url,payload,this.options);
       }
 
-      getStateCount(payload): Observable<any> {
+      getStates(payload): Observable<any> {
         const url = environment.backendUrl + UrlConstants.getStateCount;
+        return this.httpClient.post<any>(url,payload,this.options);
+      }
+
+      getMsgCount(payload): Observable<any>{
+        const url = environment.backendUrl + UrlConstants.getmsgCount;
         return this.httpClient.post<any>(url,payload,this.options);
       }
   }

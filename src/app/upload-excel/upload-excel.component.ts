@@ -82,8 +82,11 @@ showSpinner = false;
     
     this.showSpinner = true;
     console.log(this.data);
-    
-    this.excelService.excelData(this.data).subscribe(response => {
+    let payload = {
+      filename: this.fileName,
+      excel_data: this.data
+    }
+    this.excelService.excelData(payload).subscribe(response => {
       console.log(response);
       
       if(response.mis_st_json[0]){

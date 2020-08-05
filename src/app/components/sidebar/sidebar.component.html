@@ -51,11 +51,6 @@
                 <mat-icon mat-list-icon class="font-c">person</mat-icon>
                 <a class="full-width font-c" [routerLink]="['/portal-users']" mat-list-item>Organization-Users</a>
             </mat-list-item>
-            <mat-list-item class="parent" [routerLinkActive]="['is-active']">
-                <!-- <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span> -->
-                <mat-icon mat-list-icon class="font-c">assignment</mat-icon>
-                <a class="full-width font-c" [routerLink]="['/total-messages']" mat-list-item>Total Messages Sent</a>
-            </mat-list-item>
             <!-- <mat-list-item class="parent" [routerLinkActive]="['is-active']">
             <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span>
             <mat-icon mat-list-icon class="font-c">settings</mat-icon>
@@ -80,8 +75,8 @@
         </mat-nav-list>
       
       
-        <!---------------------------- uploader-list --------------------------------->
-        <mat-nav-list *ngIf="uploader">
+        <!---------------------------- user-list --------------------------------->
+        <mat-nav-list *ngIf="user">
             <mat-list-item class="parent" [routerLinkActive]="['is-active']">
                 <mat-icon mat-list-icon class="font-c">chat</mat-icon>
                 <a class="full-width font-c" [routerLink]="['/send-message']" mat-list-item>Send Messages</a>

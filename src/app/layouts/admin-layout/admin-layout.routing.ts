@@ -1,5 +1,4 @@
 import { AdminAuthGuardService } from './../../auth/admin-auth-guard.service';
-import { TotalMessagesComponent } from './../../total-messages/total-messages.component';
 import { ExcelReportComponent } from './../../excel-report/excel-report.component';
 import { ForwardedReportComponent } from './../../forwarded-report/forwarded-report.component';
 import { SentReportComponent } from './../../sent-report/sent-report.component';
@@ -24,6 +23,5 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'forward-message', component: ForwardMessageComponent},
     {path: 'sent-report', component: SentReportComponent},
     {path: 'forwarded-report', component: ForwardedReportComponent},
-    {path: 'excel-report', component: ExcelReportComponent},
-    {path: 'total-messages', component: TotalMessagesComponent,canActivate: [AdminAuthGuardService]}
+    {path: 'excel-report', component: ExcelReportComponent}
 ];

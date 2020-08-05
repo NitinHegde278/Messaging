@@ -34,7 +34,7 @@ import { stringify } from 'querystring';
 export class SendMessageComponent implements OnInit {
   
   myForm: FormGroup;
-  displayedColumns: string[] = ['name', 'states', 'sms', 'whatsapp','action'];
+  displayedColumns: string[] = ['name', 'states', 'sms','action'];
   dataSource: any;
   sender = "";
   campaign = "";
@@ -117,7 +117,8 @@ export class SendMessageComponent implements OnInit {
         states: obj.stateIds,
         msg_type_id: (obj.sms && obj.whatsapp) ? "3" : (obj.sms) ? "1" : "2",
         sms_cnt: obj.sms,
-        wa_cnt: obj.whatsapp
+        wa_cnt: obj.whatsapp,
+        state_sel_type: (obj.homeState && obj.workState) ? "3" : (obj.homeState) ? "1" : "2"
       });
     });
     console.log(orgs);
@@ -151,11 +152,17 @@ export class SendMessageComponent implements OnInit {
             await this.service.sendMessage(message).toPromise().then((response) => {
                 console.log(response);
                 
-              //   if (response.type == "success") {
-              //     dialogRef.close();
-              //   }
-              // });
-              });
+              },
+              (reason)=>{
+                console.log(reason);
+                
+                this.toasterService.pop(
+                  "error",
+                  "Please Contact Admin",
+                  "There seems to be a issue in sending the messages");
+                dialogRef.close("error");
+              }
+              );
             recepients = [];
             recepients.push({
               mobiles: "91" + obj['phone'],
@@ -183,6 +190,15 @@ export class SendMessageComponent implements OnInit {
                 dialogRef.close();
               }
             
+            },
+            (reason)=> {
+              console.log(reason);
+              
+              this.toasterService.pop(
+                "error",
+                "Please Contact Admin",
+                "There seems to be a issue in sending the messages");
+              dialogRef.close("error");
             });
           }
         });
@@ -198,7 +214,8 @@ export class SendMessageComponent implements OnInit {
    } 
    dialogRef.afterClosed().subscribe(
     data =>{
-    sent =true;
+      if(data != "error"){
+        sent =true;
     this.dialog.open(SendingDialog, {
     
     });
@@ -210,6 +227,8 @@ export class SendMessageComponent implements OnInit {
     this.message = "";
     this.sender = "";
     this.myForm.markAsUntouched();
+      }
+    
   }
   );
   }
@@ -268,6 +287,8 @@ export class AddOrganizationDialog {
    whatsapp= null;
    countSms = null;
    countWhatsapp = null;
+   homeState = null;
+   workState = null;
    dialogTitle = "";
    selectedOrgType = [];
    selectedStates = [];
@@ -290,21 +311,22 @@ export class AddOrganizationDialog {
       if(data){
         this.dataEdit = data;
         console.log(data);
-        let payload = {
-          org_id : data.rowData['orgId']
-        }
-        this.sendService.getStateCount(payload).subscribe(response => {
-          this.count = response;
-          console.log(this.count);
-          this.stateChange({value : data.rowData['stateIds']});
-        });
-        
         this.selectedOrgType = data.rowData['orgId'];
         this.selectedStates = data.rowData['stateIds'];
         this.sms = data.rowData['sms'];
         this.whatsapp = data.rowData['whatsapp'];
+        this.homeState = data.rowData['homeState'];
+        this.workState = data.rowData['workState'];
         this.update_user = true;
         this.dialogTitle = "Update Organization details";
+        let payload = {
+          org_id : this.selectedOrgType
+        }
+        this.sendService.getStates(payload).subscribe(response => {
+          this.count = response;
+          console.log(this.count);
+          // this.stateChange({value : this.selectedStates});
+        });
       } else{
         this.save_user = true;
         this.dialogTitle = "Add new Organization";
@@ -314,7 +336,9 @@ export class AddOrganizationDialog {
         name: ['',[Validators.required]],
         states: ['', [Validators.required]],
         sms:[''],
-        whatsapp: ['']
+        whatsapp: [''],
+        homeState: [''],
+        workState: ['']
        });
     }
 
@@ -340,7 +364,7 @@ export class AddOrganizationDialog {
         let payload = {
           org_id : evt.value
         }
-        this.sendService.getStateCount(payload).subscribe(response => {
+        this.sendService.getStates(payload).subscribe(response => {
           this.count = response;
           console.log(this.count);
           
@@ -350,23 +374,6 @@ export class AddOrganizationDialog {
         this.dialogRef.close();
       }
       
-    }
-    stateChange(evt){
-      console.log(evt);
-      
-      this.countSms = null;
-      this.countWhatsapp = null;
-      // (evt.value).forEach(obj => {
-      //   temp.push(this.count.filter(count => count.state_id == obj));
-      // });
-      this.count.forEach(obj => {
-        (evt.value).forEach(evtObj => {
-          if(evtObj == obj.state_id){
-            this.countSms+=obj.sms_cnt;
-            this.countWhatsapp+=obj.wa_cnt;
-          }
-        });
-      });
     }
 
     saveOrg(){
@@ -383,42 +390,37 @@ export class AddOrganizationDialog {
           }
         }  
       });
-      
-      // for(let x of this.states){
-      //   if(x.org == this.orgName){
-      //     console.log("here in ",this.orgName);
-          
-      //     if(this.sms){
-      //       this.selectedSms = x.sms;
-      //     }else{
-      //       this.selectedSms = '';
-      //     }
-      //     if(this.whatsapp){
-      //       this.selectedWhatsapp = x.whatsapp;
-      //     }else{
-      //       this.selectedWhatsapp = '';
-      //     }
-
-      //   }
-      // }
-      this.sms ? this.selectedSms = this.countSms : this.selectedSms = '';
-      this.whatsapp ? this.selectedWhatsapp = this.countWhatsapp : this.selectedWhatsapp = '';
-      console.log(this.selectedOrgType);
-      
-      // let stateNames = this.selectedStates.map(obj => obj.state_name);
-      // let stateIds = this.selectedStates.map(obj => obj.state_id);
-      // console.log(stateNames);
-      
-      TABLEDATA.push({
-        name: this.orgName,
-        orgId: this.selectedOrgType,
-        states: this.stateName,
-        stateIds: this.selectedStates,
-        sms: this.selectedSms,
-        whatsapp: this.selectedWhatsapp
+      let payload = {
+        org_id: this.selectedOrgType,
+        states: this.selectedStates,
+        state_sel_type: (this.homeState && this.workState) ? "3" : (this.homeState) ? "1" : "2"
+      };
+      this.sendService.getMsgCount(payload).subscribe(response => {
+        let res = response;
+        
+        this.sms ? this.selectedSms = this.countSms : this.selectedSms = '';
+        this.whatsapp ? this.selectedWhatsapp = this.countWhatsapp : this.selectedWhatsapp = '';
+        console.log(this.selectedOrgType);
+        
+        // let stateNames = this.selectedStates.map(obj => obj.state_name);
+        // let stateIds = this.selectedStates.map(obj => obj.state_id);
+        // console.log(stateNames);
+        
+        TABLEDATA.push({
+          name: this.orgName,
+          orgId: this.selectedOrgType,
+          states: this.stateName,
+          stateIds: this.selectedStates,
+          sms: res[0].sms_cnt,
+          whatsapp: this.selectedWhatsapp,
+          homeState: this.homeState,
+          workState: this.workState
+        });
+        complete = true;
+        this.dialogRef.close("200");
       });
-      complete = true;
-      this.dialogRef.close("200");
+      
+     
     }
 
     updateOrg(){
@@ -436,31 +438,28 @@ export class AddOrganizationDialog {
           }
         }  
       });
-      // for(let x of this.states){
-      //   if(x.org == this.orgName){
-      //     if(this.sms){
-      //       this.selectedSms = x.sms;
-      //     }else{
-      //       this.selectedSms = '';
-      //     }
-      //     if(this.whatsapp){
-      //       this.selectedWhatsapp = x.whatsapp;
-      //     }else{
-      //       this.selectedWhatsapp = '';
-      //     }
 
-      //   }
-      // }
-      this.sms ? this.selectedSms = this.countSms : this.selectedSms = '';
+      let payload = {
+        org_id: this.selectedOrgType,
+        states: this.selectedStates,
+        state_sel_type: (this.homeState && this.workState) ? "3" : (this.homeState) ? "1" : "2"
+      };
+      this.sendService.getMsgCount(payload).subscribe(response => {
+        let res = response;
+        this.sms ? this.selectedSms = this.countSms : this.selectedSms = '';
       this.whatsapp ? this.selectedWhatsapp = this.countWhatsapp : this.selectedWhatsapp = '';
       let index = TABLEDATA.findIndex(obj => obj.orgId == this.dataEdit.rowData['orgId']);
       TABLEDATA[index].name = this.orgName;
       TABLEDATA[index].orgId = this.selectedOrgType;
       TABLEDATA[index].stateIds = this.selectedStates;
       TABLEDATA[index].states = this.stateName;
-      TABLEDATA[index].sms = this.selectedSms;
+      TABLEDATA[index].sms = res[0].sms_cnt;
       TABLEDATA[index].whatsapp = this.selectedWhatsapp;
+      TABLEDATA[index].homeState = this.homeState;
+      TABLEDATA[index].workState = this.workState;
       this.dialogRef.close("200");
+      });
+      
     }
 
     // stateChange(evt){
@@ -469,7 +468,7 @@ export class AddOrganizationDialog {
       
     // }
     validate(){
-      if(this.myForm.valid && (this.sms || this.whatsapp)){
+      if(this.myForm.valid && (this.homeState || this.workState)){
         return false;
       }else{
         return true;

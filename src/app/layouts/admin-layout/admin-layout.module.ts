@@ -1,4 +1,3 @@
-import { TotalMessagesComponent } from './../../total-messages/total-messages.component';
 import { ExcelReportComponent } from './../../excel-report/excel-report.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -86,8 +85,7 @@ import { ForwardedReportComponent } from '../../forwarded-report/forwarded-repor
     ForwardMessageComponent,
     SentReportComponent,
     ForwardedReportComponent,
-    ExcelReportComponent,
-    TotalMessagesComponent
+    ExcelReportComponent
     // defaultpasswordDialog
     // VideoDetailsDialog
     // VideouploadComponent

@@ -21,6 +21,8 @@ export class SentReportComponent implements OnInit {
     {id:3, name:"Sent Successfully"}
   ];
   displayedColumns: string[] = ['campaign', 'sentTo', 'sentDate', 'action'];
+  displayedColumns1: string[] = ['campaign', 'sentTo', 'sentDate', 'sms', 'action'];
+
   dataSource: any;
   user: boolean = false;
   admin: boolean= false;

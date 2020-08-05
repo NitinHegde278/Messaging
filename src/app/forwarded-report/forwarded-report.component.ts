@@ -15,7 +15,7 @@ let TABLEDATA = [];
 export class ForwardedReportComponent implements OnInit {
 
   displayedColumns: string[] = ['campaign', 'sentFrom', 'receivedDate', 'forwardDate','action'];
-  displayedColumns1: string[] = ['campaign','sentFrom','sentDate','sentTo','action'];
+  displayedColumns1: string[] = ['campaign','sentFrom','sentDate','sentTo','sms','action'];
   dataSource: any;
   user: boolean = false;
   admin: boolean= false;

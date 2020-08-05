@@ -368,7 +368,7 @@ export class ForwardConfirm {
     } else {
       payload = {
         campaign_id: this.campaignId,
-        org_id: this.orgId,
+        org_id: this.orgId
       };
       this.forwardService.adminSent(payload).subscribe((response) => {
         if (response) {
