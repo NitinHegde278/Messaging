@@ -16,15 +16,15 @@ export class LoginService {
   // signinUrl: string;
   errorMessage: string;
   private subject = new Subject<any>();
-  checkemailUrl = UrlConstants.MAINURL + 'portal/users/forgotpassword';
-  signinUrl = UrlConstants.MAINURL + 'portal/users/login';
+  checkemailUrl = environment.backendUrl + 'portal/users/forgotpassword';
+  signinUrl = environment.backendUrl + 'portal/users/login';
   // loginuserUrl = environment.backendUrl + 'portal/users/loginuserdata';
   constructor(private http: HttpClient,
     private httpClient: HttpClient) {
 
   }
   // addCC(model): Observable<any> {
-  //     const url = UrlConstants.MAINURL + UrlConstants.usersGetTableItems;
+  //     const url = environment.backendUrl + UrlConstants.usersGetTableItems;
   //     return this.http.post<any>(url, model);
   //     }
 

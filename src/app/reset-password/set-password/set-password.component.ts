@@ -14,6 +14,7 @@ import {
   ToasterConfig
 } from "angular2-toaster";
 import { UpperCasePipe, LowerCasePipe } from '@angular/common';
+import { error } from 'protractor';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -82,6 +83,8 @@ export class SetPasswordComponent implements OnInit {
         .subscribe(response => {
           let data: any;
           data = response;
+          console.log(data);
+          
           // console.log(data, "incoming key")
           if (data == 200) {
             this.router.navigate(['../']);
@@ -92,6 +95,17 @@ export class SetPasswordComponent implements OnInit {
             //   "Warning",
             //   "Set password",
             // );
+          }
+        },
+        error => {
+          console.log(error);
+          
+          if(error.status == 404){
+            this.toasterService.pop(
+              "error",
+              "User Not Found",
+            );
+            this.router.navigate(['../']);
           }
         });
 

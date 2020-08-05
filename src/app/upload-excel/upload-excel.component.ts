@@ -39,11 +39,11 @@ showSpinner = false;
      
   }
   onFileUpload(evt){
-    
+    if(evt.target.files.length > 0){
+      if(evt.target.files[0].name.includes(".xlsx") || evt.target.files[0].name.includes(".xls")){
     this.fileName = evt.target.files[0].name;
       // evt.siblings(".custom-file-label").addClass("selected").html(fileName);
     excelFile = evt.target.files[0];
-    this.uploaded = true;
 
     const reader: FileReader = new FileReader();
     reader.onload = (e: any) => {
@@ -51,11 +51,31 @@ showSpinner = false;
       const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
       const wsname : string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-      // console.log(ws);
       this.data = (XLSX.utils.sheet_to_json(ws, { header: 2 }));
       console.log(this.data);
+      if(this.data[0]['Full_Name'] && this.data[0]['Phone'] && this.data[0]['Home_State'] && 
+      this.data[0]['Work_State'] && this.data[0]['Occupation'] && this.data[0]['Gender'] && this.data[0]['Age']
+      && this.data[0]['Alt_Phone']){
+        this.uploaded = true;
+      }else{
+        this.uploaded = false;
+        this.toasterService.pop(
+          "error",
+          "Header Labels do not match",
+          "Please download Template Excel sheet and use the column headers"
+        );
+      }
     };
     reader.readAsBinaryString(excelFile);
+  }else{
+    this.toasterService.pop(
+      "error",
+      "Not supported",
+      "Please choose excel document with .xlsx or .xls extension"
+    );
+  }
+}
+  
   }
 
   saveExcel(){

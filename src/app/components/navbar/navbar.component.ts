@@ -1,3 +1,4 @@
+import { NavbarService } from './navbar.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
@@ -21,9 +22,10 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     filterForm: any;
     userName : any = "Welcome ";
-
-
-    constructor(location: Location, public service: AuthService,  private element: ElementRef, private router: Router,private dialog: MatDialog,private fb: FormBuilder) {
+    role: any;
+    userDet: boolean = false;
+    constructor(location: Location, public service: AuthService,  private element: ElementRef, private router: Router,private dialog: MatDialog,private fb: FormBuilder,
+        private navService: NavbarService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -38,7 +40,7 @@ export class NavbarComponent implements OnInit {
         this.filterForm = this.fb.group({
             herd: [''],
             });
-            
+            this.role = localStorage.getItem('role');
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
@@ -165,4 +167,12 @@ export class NavbarComponent implements OnInit {
         getWelComeMessage() {
             return this.userName;
              }
+
+        userDetails(){
+            this.userDet = !this.userDet;
+        }
+
+        detailsClose(evt){
+            this.userDet = evt;
+        }
 }

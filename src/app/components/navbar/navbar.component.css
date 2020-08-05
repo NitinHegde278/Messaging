@@ -4,3 +4,6 @@
 nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
     z-index: 99 !important;
 }
+.det{
+    cursor: pointer;
+}

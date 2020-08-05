@@ -2,6 +2,7 @@ import { UrlConstants } from 'app/helpers/urlconstant';
 import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from 'environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -19,27 +20,27 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
      }
      
      forwardUserAtAdmin(payload): Observable<any>{
-         const url = UrlConstants.MAINURL + UrlConstants.forwardUserAtAdmin;
+         const url = environment.backendUrl + UrlConstants.forwardUserAtAdmin;
          return this.httpClient.post<any>(url,payload,this.options);
      }
 
      forwardUserSuccess(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.forwardUserSuccess;
+        const url = environment.backendUrl + UrlConstants.forwardUserSuccess;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     forwardUserDetail(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.forwardUserDetail;
+        const url = environment.backendUrl + UrlConstants.forwardUserDetail;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     forwardAdmin(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.forwardAdmin;
+        const url = environment.backendUrl + UrlConstants.forwardAdmin;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     forwardAdminDetail(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.forwardAdminDetails;
+        const url = environment.backendUrl + UrlConstants.forwardAdminDetails;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 }

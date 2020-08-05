@@ -2,6 +2,7 @@ import { UrlConstants } from 'app/helpers/urlconstant';
 import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from 'environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -19,32 +20,32 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
      }
 
      sentUserAtOrg(payload): Observable<any>{
-         const url = UrlConstants.MAINURL + UrlConstants.sentUserAtOrg;
+         const url = environment.backendUrl + UrlConstants.sentUserAtOrg;
          return this.httpClient.post<any>(url,payload,this.options);
      }
 
      sentUserAtAdmin(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentUserAtAdmin;
+        const url = environment.backendUrl + UrlConstants.sentUserAtAdmin;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     sentUserSuccess(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentUserSuccess;
+        const url = environment.backendUrl + UrlConstants.sentUserSuccess;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     sentUserDetail(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentUserdetail;
+        const url = environment.backendUrl + UrlConstants.sentUserdetail;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     sentAdminSuccess(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentAdmin;
+        const url = environment.backendUrl + UrlConstants.sentAdmin;
         return this.httpClient.post<any>(url,payload,this.options);
     }
 
     sentAdminDetail(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.sentAdminDetails;
+        const url = environment.backendUrl + UrlConstants.sentAdminDetails;
         return this.httpClient.post<any>(url,payload,this.options);
     }
   }

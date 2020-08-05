@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Online-Video-Stream": {
+    "Janta-Ka-Faisla": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -86,21 +86,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Online-Video-Stream:build"
+            "browserTarget": "Janta-Ka-Faisla:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Online-Video-Stream:build:production"
+              "browserTarget": "Janta-Ka-Faisla:build:production"
             },
             "qa": {
-              "browserTarget": "Online-Video-Stream:build:qa"
+              "browserTarget": "Janta-Ka-Faisla:build:qa"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Online-Video-Stream:build"
+            "browserTarget": "Janta-Ka-Faisla:build"
           }
         },
         "test": {
@@ -176,7 +176,7 @@
       }
     }
   },
-  "defaultProject": "Online-Video-Stream",
+  "defaultProject": "Janta-Ka-Faisla",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

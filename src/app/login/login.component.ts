@@ -57,11 +57,11 @@ export class LoginComponent implements OnInit {
     this.service.signin(this.signinForm.value.email, this.signinForm.value.password)
     .subscribe(
         response => {  
-          console.log(response, "vbdvj");     
           if(response.success && response.token) {
             // console.log(response.RawData,"response.RawDataresponse.RawData");
             localStorage.setItem("user", response.RawData[0].email);
             localStorage.setItem("name", response.RawData[0].name);
+            localStorage.setItem("phone", response.RawData[0].mobile);
             localStorage.setItem("userID", response.RawData[0].id);
             localStorage.setItem("role", response.RawData[0].role);
             localStorage.setItem("orgName", response.RawData[0].org_name);

@@ -1,36 +1,23 @@
 
-<div class="container" style="text-align: center; margin-top: 60px; font-size: 20px;">
+<div class="container" style="text-align: center; margin: 60px 0px 40px 0px; font-size: 20px;">
     <p>Upload Excel Sheet File</p>
     <p>Make Sure columns are exactly as shown below</p>
 
 </div>
  
 <!-- <div class="row"> -->
-<div class="container" style="text-align: center;">
-    <img src="/assets/img/excel.jpg" alt="sample image" class="img-fluid" style="height: 250px; width: 800px;border: 2px solid #1d8b4e;">
-    <div class="pull-left" style="margin:2% 0% 0% 12%;" id="template">
+<div class="row container" style="margin: auto;justify-content: center;">
+    <img src="../../assets/img/example-sheet.png" alt="sample image" class="img-fluid" style="border: 2px solid #1d8b4e; margin-bottom: 30px;">
+    <div id="template" style="text-align: center;">
 
-        <p>Download a Template File</p>
-        <button class="btn">Download Excel Template</button>
+            <p>Download a Template File</p>
+        <a class="btn" href="../../assets/Example-Template.xlsx" download>Download Excel Template</a>
+           
     </div>
 </div><br>
 <!-- git -->
-<div class="pull-right" style="margin:100px 200px 0px 0px;text-align: right;">
+<div class="pull-right" style="margin:30px 100px 0px 0px;text-align: right;">
     <form>
-        <!-- <mat-form-field>
-            <input matInput type="file" name="file" accept=".xlsx, .xls" formControlName="excel" (change)="onFileUpload($event)">
-        </mat-form-field>
-        <button class="btn" type="submit">Upload</button> -->
-        <!-- <div class="input-group mb-3">
-            <div class="custom-file">
-                
-              <input #myInput type="file" class="custom-file-input" 
-              id="customFile" accept=".xlsx, .xls" (change)="onFileUpload($event)">
-                <label class="custom-file-label" for="customFile" style="overflow: hidden; height: 28px;text-align: left;">{{fileName}}</label>
-                    
-            </div>
-          </div> -->
-          
           <div class="upload-btn-wrapper">
             <button class="btn" id="choose">
             <input #myInput type="file" name="myfile" accept=".xlsx, .xls" (change)="onFileUpload($event)"/>Choose a File</button>

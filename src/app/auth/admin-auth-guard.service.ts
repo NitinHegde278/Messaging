@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AdminAuthGuardService implements CanActivate{
 
-  constructor(private dialog:MatDialog, private authService: AuthService) { }
+  constructor(private dialog:MatDialog, private authService: AuthService, private router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | import("@angular/router").UrlTree | import("rxjs").Observable<boolean | import("@angular/router").UrlTree> | Promise<boolean | import("@angular/router").UrlTree> {
     if(this.authService.role && this.authService.role == 'A'){
       return true;
@@ -17,6 +17,11 @@ export class AdminAuthGuardService implements CanActivate{
 
       });
       dialogRef.afterClosed().subscribe(data =>{
+        if(this.authService.role && this.authService.role== 'A'){
+          this.router.navigate(['/send-message']);
+        }else if(localStorage.getItem('role') == 'A'){
+          this.router.navigate(['/send-message']);
+        }
         return false;
       });
     }

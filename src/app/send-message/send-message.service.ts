@@ -1,3 +1,4 @@
+import { environment } from 'environments/environment';
 import { Injectable } from "@angular/core";
 import { SendingTable } from "./model/sendingTable";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -36,7 +37,7 @@ import { UrlConstants } from "app/helpers/urlconstant";
     sendMessage(payload): Observable<any> {
       let httpHeaders = new HttpHeaders({
         'Content-Type' : 'application/json',
-        'authkey' : '335034AEqrcevx5f05d8c1P1'
+        'authkey' : environment.messageCreditAuth
       });
       let options = {
         headers: httpHeaders
@@ -47,22 +48,22 @@ import { UrlConstants } from "app/helpers/urlconstant";
       }
 
       createMessage(payload): Observable<any> {
-        const url = UrlConstants.MAINURL + UrlConstants.createMessage;
+        const url = environment.backendUrl + UrlConstants.createMessage;
         return this.httpClient.post<any>(url,payload,this.options);
       }
 
       // getNumbers(payload): Observable<any> {
-      //   const url = UrlConstants.MAINURL + UrlConstants.getNumbers;
+      //   const url = environment.backendUrl + UrlConstants.getNumbers;
       //   return this.httpClient.post<any>(url,payload);
       // }
 
       admincreateMessage(payload): Observable<any>{
-        const url = UrlConstants.MAINURL + UrlConstants.adminCreateMessage;
+        const url = environment.backendUrl + UrlConstants.adminCreateMessage;
         return this.httpClient.post<any>(url,payload,this.options);
       }
 
       getStateCount(payload): Observable<any> {
-        const url = UrlConstants.MAINURL + UrlConstants.getStateCount;
+        const url = environment.backendUrl + UrlConstants.getStateCount;
         return this.httpClient.post<any>(url,payload,this.options);
       }
   }

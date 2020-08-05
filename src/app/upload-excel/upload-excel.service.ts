@@ -2,6 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { UrlConstants } from '../helpers/urlconstant';
+import { environment } from 'environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -19,11 +20,11 @@ import { UrlConstants } from '../helpers/urlconstant';
      }
 
     excelData(payload): Observable<any>{
-        const url =UrlConstants.MAINURL + UrlConstants.excelData;
+        const url =environment.backendUrl + UrlConstants.excelData;
         return this.httpClient.post<any>(url,payload,this.options);
     }
     excelCorrection(payload): Observable<any>{
-      const url = UrlConstants.MAINURL + UrlConstants.excelCorrection;
+      const url = environment.backendUrl + UrlConstants.excelCorrection;
       return this.httpClient.post<any>(url,payload,this.options);
     }
   }

@@ -1,9 +1,7 @@
 export class UrlConstants {
     
-    static MAINURL = 'http://localhost:3000/';
     static saveUser =  'portal/users/adduser';
     static updateUser = 'portal/users/updateportal';
-    static getroles  = 'portal/users/getroles';
     static getuserlist = 'portal/users/getuserlist';
     static deleteportalUrl ='portal/users/deleteuser';
     static checkresetUrl ='portal/users/verifyreset';
@@ -24,9 +22,9 @@ export class UrlConstants {
     static statuscheck = 'portal/users/status';
     // static getsub = 'portal/users/getsub';
     static excelData = 'upload/exceltest';
-    static excelCorrection = 'upload/excelstatecorrection'
+    static excelCorrection = 'upload/excelstatecorrection';
     static sendMessage = 'https://cors-anywhere.herokuapp.com/https://api.msg91.com/api/v5/flow/';
-    // static sendMessage = 'https://api.msg91.com/api/v5/flow/';
+    static messageCredits = 'https://cors-anywhere.herokuapp.com/https://api.msg91.com/api/balance.php';
     static getNumbers = 'upload/getexcel';
     static createMessage = 'message/createmessage';
     static getStateCount = 'message/getstatemsgcount';

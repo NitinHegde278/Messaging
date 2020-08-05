@@ -1,7 +1,8 @@
 export const environment = {
     production: false,
     // backendUrl: "/",
-    backendUrl: "http://192.168.1.12:3000/",
+    backendUrl: "http://localhost:3000/",
+    messageCreditAuth : '335034AEqrcevx5f05d8c1P1',
     apiBase: '/assets/data/',
     playStoreUrl:'',
   };

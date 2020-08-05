@@ -35,7 +35,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 // import { BrowserModule } from '@angular/platform-browser';
 // import { MatFileUploadModule } from '@webacad/ng-mat-file-upload';
 // import { MatFileUploadModule,BrowserModule }
-import { ReadMoreComponent } from 'app/read-more/read-more';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TextShowMoreLessModule } from 'angular2-text-show-more-less';
@@ -82,7 +81,6 @@ import { ForwardedReportComponent } from '../../forwarded-report/forwarded-repor
     PortalUsersComponent,
     StateComponent,
     CityComponent,
-    ReadMoreComponent,
     SendMessageComponent,
     UploadExcelComponent,
     ForwardMessageComponent,

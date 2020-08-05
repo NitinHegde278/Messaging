@@ -1,3 +1,4 @@
+import { NavbarService } from './../components/navbar/navbar.service';
 import { AuthService } from 'app/auth/auth.service';
 import { SendMessageService } from './send-message.service';
 import { CityService } from './../city/city.service';
@@ -46,7 +47,8 @@ export class SendMessageComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private formbuilder: FormBuilder, private toasterService: ToasterService,
     private authService: AuthService,
-   @Inject(SendMessageService) private service: SendMessageService) { 
+   @Inject(SendMessageService) private service: SendMessageService,
+   private navService: NavbarService) { 
     this.myForm = formbuilder.group({
       sender: ['',[Validators.required]],
       campaign: ['',[Validators.required]],
@@ -135,55 +137,55 @@ export class SendMessageComponent implements OnInit {
    if(this.admin){
     this.service.admincreateMessage(payload).subscribe(response =>{
       if (response) {
-        let resTemp = response;
-        let recepients = [];
-        resTemp.forEach((obj,index) => {
-          recepients.push({
-            mobiles: "91" + obj.phone,
-            name: obj.name,
-            message: this.message + "\n-" + this.sender +"\n",
-          });
-          console.log(index);
-          console.log(recepients);
-          
-          if((index !=0) && (index % 2 == 0)){
-            console.log("inside index");
-            console.log(recepients);
-            
-            let message = {
+        let resTemp: object[] = response;
+        console.log(resTemp);
+        let recepients: object[] = [];
+        resTemp.forEach(async (obj,index) => {
+          if(index !=0 && index % 100==0){
+            let message =  {
               flow_id: "5f06b885d6fc052a7a01833f",
               unicode: 1,
               recipients: recepients,
             };
-            console.log(message);
-        // await this.service.sendMessage(message).toPromise().then((response) => {
-        //   console.log(response);
-        //   console.log("inside await");
-          
-        //   recepients = [];
-        // });
+            console.log("inside if",message);
+            await this.service.sendMessage(message).toPromise().then((response) => {
+                console.log(response);
+                
+              //   if (response.type == "success") {
+              //     dialogRef.close();
+              //   }
+              // });
+              });
+            recepients = [];
+            recepients.push({
+              mobiles: "91" + obj['phone'],
+              name: obj['name'],
+              message: this.message + "\n-" + this.sender +"\n",
+            });
+          }else{
+            recepients.push({
+              mobiles: "91" + obj['phone'],
+              name: obj['name'],
+              message: this.message + "\n-" + this.sender +"\n",
+            });
           }
-          
-           else if(index == (resTemp.length - 1)){
-            let message = {
+          if(index == resTemp.length-1){
+            let message =  {
               flow_id: "5f06b885d6fc052a7a01833f",
               unicode: 1,
               recipients: recepients,
             };
-            console.log(message);
-            console.log("final loop");
+            console.log("inside else if",message);
+            await this.service.sendMessage(message).toPromise().then((response) => {
+              console.log(response);
+              
+              if (response.type == "success") {
+                dialogRef.close();
+              }
             
-        //  this.service.sendMessage(message).subscribe((response) => {
-        //   console.log(response);
-          
-        //   if (response.type == "success") {
-        //     dialogRef.close();
-        //   }
-        // });
-        }
+            });
+          }
         });
-        
-        
       }
     });
    }else{

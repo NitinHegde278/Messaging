@@ -1,3 +1,4 @@
+import { NavbarService } from './../components/navbar/navbar.service';
 import { SendMessageService } from "./../send-message/send-message.service";
 import { ForwardMessageService } from "./forward-message.service";
 import { AuthService } from "./../auth/auth.service";
@@ -326,7 +327,8 @@ export class ForwardConfirm {
     public dialogRef: MatDialogRef<ForwardConfirm>,
     @Inject(ForwardMessageService)
     private forwardService: ForwardMessageService,
-    @Inject(SendMessageService) private messageService: SendMessageService
+    @Inject(SendMessageService) private messageService: SendMessageService,
+    private navService: NavbarService
   ) {
     this.user = data.user;
     this.admin = data.admin;
@@ -370,30 +372,55 @@ export class ForwardConfirm {
       };
       this.forwardService.adminSent(payload).subscribe((response) => {
         if (response) {
-          console.log(response);
-          let resTemp = response;
-          let recepients = [];
-          resTemp.forEach((obj) => {
+          let resTemp: object[] = response;
+        console.log(resTemp);
+        let recepients: object[] = [];
+        resTemp.forEach(async (obj,index) => {
+          if(index !=0 && index % 100==0){
+            let message =  {
+              flow_id: "5f06b885d6fc052a7a01833f",
+              unicode: 1,
+              recipients: recepients,
+            };
+            console.log("inside if",message);
+            await this.messageService.sendMessage(message).toPromise().then((response) => {
+                console.log(response);
+                
+              //   if (response.type == "success") {
+              //     dialogRef.close();
+              //   }
+              // });
+              });
+            recepients = [];
             recepients.push({
-              mobiles: "91" + obj.phone,
-              name: obj.name,
+              mobiles: "91" + obj['phone'],
+              name: obj['name'],
               message: this.message + "\n-" + this.sender +"\n",
             });
-          });
-          let message = {
-            flow_id: "5f06b885d6fc052a7a01833f",
-            unicode: 1,
-            recipients: recepients,
-          };
-          console.log(message);
-
-          this.messageService.sendMessage(message).toPromise().then((response) => {
-            console.log(response);
-
-            if (response.type == "success") {
-              dialogSuccess.close();
-            }
-          });
+          }else{
+            recepients.push({
+              mobiles: "91" + obj['phone'],
+              name: obj['name'],
+              message: this.message + "\n-" + this.sender +"\n",
+            });
+          }
+          if(index == resTemp.length-1){
+            let message =  {
+              flow_id: "5f06b885d6fc052a7a01833f",
+              unicode: 1,
+              recipients: recepients,
+            };
+            console.log("inside else if",message);
+            await this.messageService.sendMessage(message).toPromise().then((response) => {
+              console.log(response);
+              
+              if (response.type == "success") {
+                dialogSuccess.close();
+              }
+            
+            });
+          }
+        });
         }
       });
       dialogSuccess.afterClosed().subscribe((data) => {

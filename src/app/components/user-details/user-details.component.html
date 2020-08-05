@@ -1,0 +1,47 @@
+<div class="container shadow-lg">
+    <button class="btn" (click)="detailsClose()"><mat-icon>clear</mat-icon></button>
+    <div class="row main">
+        <div *ngIf="role == 'U'" class="row container-fluid">
+            <div class="col-md-4">
+                <p>Organization</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{orgName}}</p>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-4">
+                <p>Email</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{email}}</p>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-4">
+                <p>Name</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{name}}</p>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-4">
+                <p>Phone</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{phone}}</p>
+            </div>
+        </div>
+        <div *ngIf="role == 'A'" class="row container-fluid">
+            <div class="col-md-4">
+                <p>Sms Credits:</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{smsCredits}}</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

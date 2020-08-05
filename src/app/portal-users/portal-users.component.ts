@@ -301,11 +301,11 @@ export class AddUserDialog {
       role: localStorage.getItem('role')
     }
     // console.log(payload, "payloadpayload roles")
-    this.service.getRolesData(payload)
-      .subscribe(response => {
-        // console.log(response, "responseresponseresponse roles")
-        this.rolesReference = response;
-      });
+    // this.service.getRolesData(payload)
+    //   .subscribe(response => {
+    //     // console.log(response, "responseresponseresponse roles")
+    //     this.rolesReference = response;
+    //   });
 
       this.serviceOrg.getState(payload).subscribe(response =>{
         this.orgReference = response;
@@ -382,7 +382,7 @@ export class AddUserDialog {
         .subscribe(response => {
           console.log(response);
           
-          if (response.status == 200) {
+          if (response) {
             this.showSpinner=false;
             this.dialogRef.close(response);  
             this.toasterService.pop(
@@ -400,6 +400,15 @@ export class AddUserDialog {
             );
           }
 
+        },
+        (error)=> {
+          if(error.status == 409){
+            this.showSpinner=false;
+            this.toasterService.pop(
+              "error",
+              "User already exists"
+            );
+          }
         });
 
 

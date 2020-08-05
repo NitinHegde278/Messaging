@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { UrlConstants } from 'app/helpers/urlconstant';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CityUser } from './model/city';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -29,38 +30,38 @@ export class CityService {
 
   
   saveCity(payload): Observable<any> {
-    const url = UrlConstants.MAINURL + UrlConstants.saveCity;
+    const url = environment.backendUrl + UrlConstants.saveCity;
     // console.log(url,"outgoing url");
     return this.httpClient.post<any>(url, payload);
     }
 
     getCity(payload):Observable<any> {
-    const url = UrlConstants.MAINURL + UrlConstants.getcitylist;
+    const url = environment.backendUrl + UrlConstants.getcitylist;
     // console.log(url,"outgoing url");
     return this.httpClient.post<any>(url,payload,this.options);
 
   }
   getRolesData(payload):Observable<CityUser[]> {
-    const url = UrlConstants.MAINURL + UrlConstants.getcats;
+    const url = environment.backendUrl + UrlConstants.getcats;
     // console.log(url,"outgoing url");
     return this.httpClient.post<any>(url, payload);
  }
 
  getcat_name(payload):Observable<CityUser[]>{
-   const url = UrlConstants.MAINURL + UrlConstants.getcat;
+   const url = environment.backendUrl + UrlConstants.getcat;
   //  console.log(url,"ghftyfhgh")
    return this.httpClient.post<any>(url,payload);
  }
 
 updateCity(payload):Observable<CityUser[]> {
-  const url = UrlConstants.MAINURL + UrlConstants.updateCity;
+  const url = environment.backendUrl + UrlConstants.updateCity;
   // console.log(url,"outgoing url");
   return this.httpClient.post<CityUser[]>(url,payload);
 }
 
 
   deleteCity(data1):Observable<CityUser[]> {
-    const url = UrlConstants.MAINURL + UrlConstants.deleteCity;
+    const url = environment.backendUrl + UrlConstants.deleteCity;
     // console.log(url,"outgoing url");
     return this.httpClient.post<CityUser[]>(url,data1);
  }

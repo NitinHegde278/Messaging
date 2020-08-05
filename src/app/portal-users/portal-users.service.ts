@@ -6,6 +6,7 @@ import { PortalUser } from 'app/portal-users/model/portal';
 // import { PortalUserColumns } from '../mock/mock-portaluser'
 // import { environment } from 'app/environments/environment';
 import { UrlConstants } from '../helpers/urlconstant';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -29,38 +30,38 @@ export class PortalUserService {
   }
 
   saveuser(payload): Observable<any> {
-    const url = UrlConstants.MAINURL + UrlConstants.saveUser;
+    const url = environment.backendUrl + UrlConstants.saveUser;
     // console.log(url,"outgoing url");
     return this.httpClient.post<any>(url, payload,this.options);
     }
 
   getPortalUsers(payload):Observable<any> {
-    const url = UrlConstants.MAINURL + UrlConstants.getuserlist;
+    const url = environment.backendUrl + UrlConstants.getuserlist;
     // console.log(url,"outgoing url");
     return this.httpClient.post<any>(url,payload,this.options);
 
   }
 
   // statuscheck(payload):Observable<[]>{
-  //   const url =UrlConstants.MAINURL + UrlConstants.statuscheck;
+  //   const url =environment.backendUrl + UrlConstants.statuscheck;
   //   return this.httpClient.post<any>(url,payload);
   // }
 
-  getRolesData(payload):Observable<PortalUser[]> {
-    const url = UrlConstants.MAINURL + UrlConstants.getroles;
-    // console.log(url,"outgoing url");
-    return this.httpClient.post<any>(url, payload);
- }
+//   getRolesData(payload):Observable<PortalUser[]> {
+//     const url = environment.backendUrl + UrlConstants.getroles;
+//     // console.log(url,"outgoing url");
+//     return this.httpClient.post<any>(url, payload);
+//  }
 
   deleteUser(data1):Observable<any> {
-    const url = UrlConstants.MAINURL + UrlConstants.deleteportalUrl;
+    const url = environment.backendUrl + UrlConstants.deleteportalUrl;
     // console.log(url,"outgoing url");
     return this.httpClient.post<PortalUser[]>(url,data1,this.options);
  }
  
 
  getUpdateUsers(payload):Observable<any> {
-  const url = UrlConstants.MAINURL + UrlConstants.updateUser;
+  const url = environment.backendUrl + UrlConstants.updateUser;
   // console.log(url,"outgoing url");
   return this.httpClient.post<PortalUser[]>(url,payload,this.options);
 }

@@ -125,6 +125,17 @@ export class ResetPasswordComponent implements OnInit {
             //   "set password",
             // );
           }
+        },
+        error => {
+          console.log(error);
+          
+          if(error.status == 404){
+            this.toasterService.pop(
+              "error",
+              "User Not Found",
+            );
+            this.router.navigate(['../']);
+          }
         });
 
     }
