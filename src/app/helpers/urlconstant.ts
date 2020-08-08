@@ -54,4 +54,5 @@ export class UrlConstants {
 
     static excelreport = 'upload/getexcelreport';
     static getmsgCount = 'message/getmsgcountByOrgState';
+    static getTemplate = 'upload/getfile';
 }

@@ -242,6 +242,7 @@ export class ForwardDialog implements OnInit {
         action: "Send",
         message: this.forwardData[0].message,
         sender: this.forwardData[0].sender_name,
+        state_sel_type: this.forwardData[0].state_sel_type
       },
     });
     dialogConfirm.afterClosed().subscribe((data) => {
@@ -320,6 +321,7 @@ export class ForwardConfirm {
   orgId: number = null;
   message: string = "";
   sender: string = "";
+  stateSelType: any = null;
   constructor(
     @Inject(ToasterService) public toasterService: ToasterService,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -340,6 +342,7 @@ export class ForwardConfirm {
       this.orgId = data.orgId;
       this.message = data.message;
       this.sender = data.sender;
+      this.stateSelType = data.state_sel_type;
     }
   }
   ngOnInit() {}
@@ -368,7 +371,8 @@ export class ForwardConfirm {
     } else {
       payload = {
         campaign_id: this.campaignId,
-        org_id: this.orgId
+        org_id: this.orgId,
+        state_sel_type: this.stateSelType
       };
       this.forwardService.adminSent(payload).subscribe((response) => {
         if (response) {
@@ -390,6 +394,15 @@ export class ForwardConfirm {
               //     dialogRef.close();
               //   }
               // });
+              },
+              (reason)=>{
+                console.log(reason);
+                
+                this.toasterService.pop(
+                  "error",
+                  "Please Contact Admin",
+                  "There seems to be a issue in sending the messages");
+                dialogSuccess.close("error");
               });
             recepients = [];
             recepients.push({
@@ -418,18 +431,30 @@ export class ForwardConfirm {
                 dialogSuccess.close();
               }
             
+            },
+            (reason)=>{
+              console.log(reason);
+              
+              this.toasterService.pop(
+                "error",
+                "Please Contact Admin",
+                "There seems to be a issue in sending the messages");
+              dialogSuccess.close("error");
             });
           }
         });
         }
       });
       dialogSuccess.afterClosed().subscribe((data) => {
-        sent = true;
-        this.dialog.open(ForwardSuccess, {});
-        sent = false;
-        this.dialogRef.close("success");
-        // dialogSuccess.afterClosed().subscribe( data =>
-        // this.dialogRef.close() );
+        if(data != 'error'){
+          sent = true;
+          this.dialog.open(ForwardSuccess, {});
+          sent = false;
+          this.dialogRef.close("success");
+          // dialogSuccess.afterClosed().subscribe( data =>
+          // this.dialogRef.close() );
+        }
+        
       });
     }
   }

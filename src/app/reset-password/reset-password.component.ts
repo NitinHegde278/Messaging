@@ -114,6 +114,8 @@ export class ResetPasswordComponent implements OnInit {
         .subscribe(response => {
           let data: any;
           data = response;
+          console.log(data);
+          
           // console.log(data, "incoming key")
           if (data == 200) {
             this.router.navigate(['../']);
@@ -126,7 +128,7 @@ export class ResetPasswordComponent implements OnInit {
             // );
           }
         },
-        error => {
+        (error) => {
           console.log(error);
           
           if(error.status == 404){

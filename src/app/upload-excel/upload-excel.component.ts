@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { StateService } from 'app/state/state.service';
 import { CorrectionResponse } from './model/correction-response';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -9,6 +10,7 @@ import { UploadExcelService } from './upload-excel.service';
 import { ToasterService } from 'angular2-toaster';
 import { SendingTable } from 'app/send-message/model/sendingTable';
 import { CityService } from 'app/city/city.service';
+import { saveAs as fs} from 'file-saver';
 
 let sent = false;
 let excelFile: any;
@@ -51,13 +53,27 @@ showSpinner = false;
       const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
       const wsname : string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-      this.data = (XLSX.utils.sheet_to_json(ws, { header: 2 }));
-      console.log(this.data);
-      if(this.data[0]['Full_Name'] && this.data[0]['Phone'] && this.data[0]['Home_State'] && 
-      this.data[0]['Work_State'] && this.data[0]['Occupation'] && this.data[0]['Gender'] && this.data[0]['Age']
-      && this.data[0]['Alt_Phone']){
+      console.log(ws);
+      
+      if(ws['A1'] && ws['B1']  && ws['C1']  && ws['D1'] 
+      && ws['E1'] && ws['F1'] && ws['G1'] && ws['H1']
+      && ws['I1']){
+        if(ws.A1.h == "Full_Name" && ws.B1.h == "Phone" && ws.C1.h == "Home_State" && ws.D1.h == "Work_State"
+        && ws.E1.h == "Occupation" && ws.F1.h == "Alt_Phone" && ws.G1.h == "Gender" && ws.H1.h == "Age"
+        && ws.I1.h == "Status"){
+        this.data = (XLSX.utils.sheet_to_json(ws, { header: 2 }));
+        console.log(this.data);
         this.uploaded = true;
-      }else{
+        }else{
+          this.uploaded = false;
+          this.toasterService.pop(
+            "error",
+            "Header Labels do not match",
+            "Please download Template Excel sheet and use the column headers"
+          );
+        } 
+      }
+      else{
         this.uploaded = false;
         this.toasterService.pop(
           "error",
@@ -119,6 +135,26 @@ showSpinner = false;
     this.myInputVariable.nativeElement.value = "";
     this.fileName = '';
     this.uploaded = false;
+  }
+
+  template(){
+    let payload={};
+     this.excelService.getexcelTemplate(payload).subscribe(
+      response =>{
+        console.log(response);
+        if(response){
+          const blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+          fs(blob,'Example-Template.xlsx');
+        }
+      },
+      error =>{
+        this.toasterService.pop(
+          "error",
+          "Please check internet connectivity"
+        );
+      }
+    );
+    
   }
 
 }
